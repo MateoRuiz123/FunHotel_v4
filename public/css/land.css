@@ -1,0 +1,261 @@
+.nav.nav-tabs {
+    margin-top: 15px;
+    justify-content: flex-end;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+
+}
+
+.nav.nav-tabs li a {
+    text-decoration: none;
+    color: #ffffff;
+    /* Color del texto del enlace */
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+header {
+    background: transparent;
+    color: #fff;
+    padding: 18px;
+}
+
+.nav.nav-tabs li a:hover {
+    background-color: #cec7df;
+}
+
+.btn {
+    display: inline-block;
+    background: #922a8b;
+    color: #ffffff;
+    padding: 15px 25px;
+    text-decoration: none;
+    margin-top: 20px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+ background: linear-gradient(45deg, #f98a56 0%, rgba(205, 205, 205, 0) 80%);
+    transform: rotate(45deg);
+    transition: transform 0.5s ease;
+    pointer-events: none;
+}
+
+.btn:hover::after {
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(33, 32, 58);
+    background-image: url("../img/mono.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 120vh;
+}
+
+nav ul {
+    text-align: transparent;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+section {
+    color: #e9dfdf;
+    padding: 50px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.hero {
+    color: #fff;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 75px;
+    color: #fff;
+}
+
+footer {
+    
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes moveLetters {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animate-letters {
+    animation: moveLetters 2s infinite;
+}
+
+
+/*--------------------------Cards------------------*/
+
+@gray-darker: #444444;
+@gray-dark: #696969;
+@gray: #999999;
+@gray-light: #cccccc;
+@gray-lighter: #ececec;
+@gray-lightest: lighten(@gray-lighter, 4%);
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+
+img {
+    height: fit-content;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+    margin: 10;
+    padding: 0;
+}
+
+.cards__item {
+    display: flex;
+    padding: 2rem;
+
+    @media(min-width: 40rem) {
+        width: 50%;
+    }
+
+    @media(min-width: 56rem) {
+        width: 33.3333%;
+    }
+}
+
+.card {
+    background-color: rgba(148, 102, 248, 0.365);
+    border-radius: 0.25rem;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    &:hover {
+        .card__image {
+            filter: contrast(100%);
+        }
+    }
+}
+
+.card__content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.card__image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    filter: contrast(70%);
+    filter: saturate(180%);
+    overflow: hidden;
+    position: relative;
+    transition: filter 0.5s cubic-bezier(.43, .41, .22, .91);
+    ;
+
+    &::before {
+        content: "";
+        display: block;
+        padding-top: 56.25%;
+    }
+
+    @media(min-width: 40rem) {
+        &::before {
+            padding-top: 66.6%;
+        }
+    }
+}
+
+.card__image--Andrw {
+    background-image: url(https://unsplash.it/800/600?image=82);
+}
+
+.card__image--Jeidy {
+    background-image: url(https://unsplash.it/800/600?image=11);
+}
+
+.card__image--Mateo {
+    background-image: url(https://unsplash.it/800/600?image=39);
+}
+
+.card__image--Briyid {
+    background-image: url(https://unsplash.it/800/600?image=59);
+}
+
+.card__image--Miguel {
+    background-image: url(https://unsplash.it/800/600?image=59);
+}
+
+.card__title {
+    color: @gray-dark;
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #cec7df;
+}
+
+.card__text {
+    flex: 1 1 auto;
+    font-size: 0.875rem;
+    line-height: 0.5;
+    margin-bottom: 1.25rem;
+    color: #cec7df;
+}
