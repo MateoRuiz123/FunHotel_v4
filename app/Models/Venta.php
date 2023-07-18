@@ -12,7 +12,7 @@ class Venta extends Model
     use HasFactory;
     protected $table = "ventas";
     protected $primaryKey = 'id';
-    protected $fillable = ['fecha_venta', 'estado','total','cliente_id'];
+    protected $fillable = ['fecha_venta', 'estado','idReserva'];
     protected $guarded = [];
     public $timestamps = false;
 
@@ -22,9 +22,9 @@ class Venta extends Model
         return $this->belongsToMany(Servicio::class, 'ventas_servicios', 'venta_id', 'servicio_id');
     }
 
-    public function cliente()
+    public function reserva()
     {
-        return $this->belongsTo(Cliente::class, 'cliente_id');
+        return $this->belongsTo(Reserva::class, 'idReserva');
     }
 
     const Activo = 1;
@@ -55,7 +55,3 @@ class Venta extends Model
     }
 
 }
-
-
-
-

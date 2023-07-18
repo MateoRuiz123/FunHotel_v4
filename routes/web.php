@@ -53,6 +53,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/checkouts', CheckoutController::class);
     Route::resource('/pagos', PagoController::class);
 
+    Route::get('/ventas-obtener-informacion-reserva/{id}', [VentaControlador::class, 'obtenerInformacionReserva']);
     Route::get('/venta-create', [VentaControlador::class, 'create'])->name('ventas.create');
     Route::get('/venta-update/{venta}', [VentaControlador::class, 'edit'])->name('ventas.edit');
 

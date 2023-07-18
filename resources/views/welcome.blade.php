@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FunHotel</title>
     <link rel="stylesheet" href="{{asset('css/land.css')}}">
     <script src="{{asset('js/land.js')}}"></script>
 </head>
@@ -13,7 +13,7 @@
     <header>
         <nav>
             <ul class="nav nav-tabs">
-                <li><a href="/home">Inicio</a></li>
+                <li><a href="/home">Iniciar sesión</a></li>
                 <li><a href="/habitaciones">Habitaciones</a></li>
                 <li><a href="#Promociones">Promociones</a></li>
                 <li><a href="/servicios">Servicios</a></li>

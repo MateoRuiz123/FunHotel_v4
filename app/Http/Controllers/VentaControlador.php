@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Response;
 use App\Models\Venta;
 use App\Models\Servicio;
 use Illuminate\Http\Request;
 use App\Models\Cliente;
+use App\Models\Reserva;
 use Carbon\Carbon;
 
 class VentaControlador extends Controller
@@ -17,15 +19,16 @@ class VentaControlador extends Controller
         $this->middleware('permission:venta-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:venta-delete', ['only' => ['destroy']]);
     }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $ventas = Venta::with('cliente')->get();
-        $serviciosElegidos = []; // Inicializar la variable
+        $ventas = Venta::with('reserva')->get();
 
-        return view('ventas.index', compact('ventas', 'serviciosElegidos'));
+        $serviciosElegidos = [];
+        return view('ventas.index', compact('ventas','serviciosElegidos'));
     }
 
     /**
@@ -33,11 +36,23 @@ class VentaControlador extends Controller
      */
     public function create(Request $request)
     {
+        $reservas = Reserva::all();
         $servicios = Servicio::all();
-        $clientes = Cliente::all();
 
-        return view('ventas.create', compact('servicios', 'clientes'));
+        return view('ventas.create', compact('reservas','servicios'));
+    }
+    public function obtenerInformacionReserva($id)
+    {
+        $reserva = Reserva::find($id);
+        $idCliente = $reserva->idCliente;
+        $cliente = Cliente::find($idCliente);
+        $servicio = Servicio::find($reserva->idServicio);
 
+        return response()->json([
+            'reserva' => $reserva,
+            'cliente' => $cliente,
+            'servicio' => $servicio,
+        ]);
     }
 
     /**
@@ -47,13 +62,9 @@ class VentaControlador extends Controller
     {
         $venta = new Venta();
         $venta->fecha_venta = $request->input('fecha_venta');
-        // $venta->estado = $request->input('estado');
         $venta->estado = Venta::Activo;
-        $venta->total = $request->input('total');
-        $venta->cliente_id = $request->input('cliente_id');
-
+        $venta->idReserva = $request->input('idReserva');
         $venta->save();
-
         $servicios = $request->input('servicios');
         $venta->servicios()->attach($servicios);
 
@@ -64,19 +75,14 @@ class VentaControlador extends Controller
                 $serviciosElegidos[] = $servicio;
             }
         }
-
-        $ventas = Venta::with('cliente')->get();
-
         return redirect()->route('ventas.index')->with('mensaje', 'Venta creada con éxito');
-        // return redirect()->back()->with('error', 'Hubo un error al guardar la venta');
     }
-
 
     public function show(Venta $venta, Request $request)
     {
-        $servicios = Servicio::all();
         $clientes = Cliente::all();
-        return view('ventas.show', compact('venta', 'servicios', 'clientes'));
+        $servicios = Servicio::all();
+        return view('ventas.show', compact('venta', 'clientes','servicios'));
     }
 
     /**
@@ -85,8 +91,7 @@ class VentaControlador extends Controller
     public function edit(Venta $venta)
     {
         $clientes = Cliente::all();
-        $servicios = Servicio::all();
-        return view('ventas.update', compact('venta', 'servicios', 'clientes'));
+        return view('ventas.update', compact('venta', 'clientes'));
     }
 
     /**
@@ -97,7 +102,6 @@ class VentaControlador extends Controller
         $venta->estado = $request->input('estado');
         $venta->save();
         return redirect()->route('ventas.index')->with('mensaje', 'Venta Actualizar con éxito');
-        return redirect()->back()->with('error', 'Hubo un error al Actualizar la venta');
     }
 
     /**
@@ -105,7 +109,7 @@ class VentaControlador extends Controller
      */
     public function destroy(Venta $venta)
     {
-        $venta->servicios()->detach(); // Eliminar las relaciones con los servicios
+        $venta->servicios()->detach();
         $venta->delete();
         return redirect()->back()->with('mensaje', 'Venta eliminada con éxito');
     }

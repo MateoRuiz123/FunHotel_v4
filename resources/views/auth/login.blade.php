@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - FunHotel</title>
     <link rel="stylesheet" href="{{ asset('estilo.css') }}" />
+    <style>
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #614bf1;
+            color: #fff;
+        }
+    </style>
     <script>
+        function goBack() {
+            window.history.back();
+        }
         function showHide(elementId, verId) {
             var password = document.getElementById(elementId);
             var verPassword = document.getElementById(verId);
@@ -21,12 +44,15 @@
         }
     </script>
 </head>
+
 <body>
+    
     <main>
         @if (session('success'))
             alert('{{ session('success') }}');
         @endif
         <div class="box">
+            <button onclick="goBack()" class="back-button">Volver</button>
             <div class="inner-box-ingresar">
                 <div class="forms-wrap">
                     <form action="{{ route('login') }}" autocomplete="off" class="sign-in-form" method="POST">
@@ -132,7 +158,8 @@
                                     @enderror
                                 </div>
                                 <div class="input-w">
-                                    <div id="ver" class="campo1" onclick="showHide('password1', 'campo1');"></div>
+                                    <div id="ver" class="campo1" onclick="showHide('password1', 'campo1');">
+                                    </div>
                                     <input id="password1" name="password" type="password" minlength="4"
                                         class="input-f @error('password') is-invalid @enderror" autocomplete="off"
                                         required onpaste="return false" />
@@ -147,7 +174,8 @@
                                     <div id="ver" class="campo2"
                                         onclick="showHide('password-confirm', 'campo2');"></div>
                                     <input id="password-confirm" name="password_confirmation" type="password"
-                                        minlength="4" class="input-f" autocomplete="off" required onpaste="return false" />
+                                        minlength="4" class="input-f" autocomplete="off" required
+                                        onpaste="return false" />
                                     <label>{{ __('Confirmar contraseña') }}</label><br>
                                 </div>
                             </div>

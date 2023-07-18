@@ -1,83 +1,130 @@
 @extends('layouts.app')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 @section('content')
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="card-body">
-                <h1 class="card-title fs-5">Crear Venta</h1>
-                <form class="row g-7 needs-validation" method="POST" action="{{ route('ventas.store') }}"
-                    enctype="multipart/form-data" novalidate>
-                    @csrf
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card-body">
+            <h1 class="card-title fs-5">Crear Venta</h1>
+            <form class="row g-7 needs-validation" method="POST" action="{{ route('ventas.store') }}" enctype="multipart/form-data" novalidate>
+                @csrf
+                <div class="form-group">
+                    <label for="idReserva">Reserva:</label>
+                    <select name="idReserva" class="form-control">
+                        <option selected disabled>Seleccione</option>
+                        @foreach ($reservas as $reserva)
+                        <option value="{{ $reserva->id }}">{{ $reserva->id }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="cliente" class="form-label">Cliente</label>
+                    <input type="text" class="form-control" name="cliente" id="cliente" readonly>
+                </div>
+                <div class="mb-4">
+                    <label for="servicio" class="form-label">Servicio</label>
+                    <input type="text" class="form-control" name="servicio" id="servicio" readonly>
+                </div>
+
+                <div class="mb-4">
+                    <label for="validationCustom01" class="form-label">Fecha de la venta</label>
+                    <input type="date" class="form-control" name="fecha_venta" id="validationCustom01" required>
+                    <div class="valid-feedback">
+                        Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese la fecha.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="agregarProductos">Agregar nuevos productos:</label>
+                    <select name="agregarProductos" class="form-control" id="agregarProductos">
+                        <option selected disabled>Seleccione</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div id="productosNuevos" style="display: none;">
                     <div class="form-group">
-                        <label for="cliente_id">Cliente</label>
-                        <select name="cliente_id" id="cliente_id" class="form-control">
-                            @foreach ($clientes as $cliente)
-                                <option value="{{ $cliente->id }}">{{ $cliente->primerNombre }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="mb-4">
-                        <label for="validationCustom01" class="form-label">Fecha de la venta</label>
-                        <input type="date" class="form-control" name="fecha_venta" id="validationCustom01" required>
-                        <div class="valid-feedback">
-                            Correcto!
-                        </div>
-                        <div class="invalid-feedback">
-                            Por favor, ingrese la fecha (Gracias).
-                        </div>
-                    </div>
-                    <div class="mb-4">
-                        <label for="estado" class="form-label">Estado</label>
-                        <input type="text" value="Activo" disabled class="form-control">
-                        <input type="hidden" class="form-control" name="estado" id="estado" value="{{\App\Models\Venta::Activo}}">
-                    </div>
-                    <div class="mb-4">
-                        <label for="nombre" class="form-label">Id servicio</label>
-                        <select class="form-control" name="servicios[]" id="idServicio" multiple>
+                        <label for="nuevosProductos">Productos nuevos:</label>
+                        <select name="nuevosProductos[]" class="form-control" id="nuevosProductos" multiple>
                             <option selected disabled>Seleccione</option>
                             @foreach ($servicios as $servicio)
-                                <option value="{{ $servicio->id }}" data-precio="{{ $servicio->precio }}"
-                                    @if (in_array($servicio->id, old('servicios', []))) selected @endif>{{ $servicio->id }} -
-                                    {{ $servicio->nombre }}</option>
+                            <option value="{{ $servicio->id }}" data-precio="{{ $servicio->precio }}" @if (in_array($servicio->id, old('servicios', []))) selected @endif>{{ $servicio->id }} -
+                                {{ $servicio->nombre }}
+                            </option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="mb-4">
-                        <label for="total" class="form-label">Total</label>
-                        <input type="number" class="form-control" name="total" id="total" readonly>
-                    </div>
-                    <div>
-                        <input type="hidden" name="estado" id="estado" value="{{app\models\Venta::Activo}}">
-                    </div>
-                    <td>
-                        <button type="submit" class="btn btn-primary">Guardar <i class="bi bi-plus-circle"></i></button>
-                    </td>
-
-                </form>
-            </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar <i class="bi bi-plus-circle"></i></button>
+            </form>
         </div>
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-body">
-                    <h1 class="card-title fs-5">Servicios Elegidos</h1>
-                    <hr>
-                    <ul id="serviciosElegidos"></ul>
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title fs-5">Servicios Elegidos</h1>
+                <hr>
+                <ul id="serviciosElegidos"></ul>
 
-                    <div class="mb-4">
-                        <hr>
-                        <label for="precio" class="form-label">Precio del servicio</label>
-                        <input type="text" class="form-control" name="precio" id="precio" readonly>
-                    </div>
+        
                 </div>
             </div>
         </div>
     </div>
 
-
     <script>
-        const selectServicio = document.getElementById('idServicio');
-        const precioInput = document.getElementById('precio');
-        const totalInput = document.getElementById('total');
-        const serviciosElegidosList = document.getElementById('serviciosElegidos');
+        $(document).ready(function() {
+            // Cuando se seleccione una reserva
+            $('select[name="idReserva"]').on('change', function() {
+                var idReserva = $(this).val();
+
+                // Realizar la solicitud AJAX
+                $.ajax({
+                    url: '/ventas-obtener-informacion-reserva/' + idReserva,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(response) {
+                        // Actualizar el campo de cliente con el ID del cliente
+                        $('#cliente').val(response.cliente.primerNombre);
+
+                        // Actualizar el campo de servicio con el nombre del servicio
+                        $('#servicio').val(response.servicio.nombre);
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            });
+        });
+        $(document).ready(function() {
+            $('#agregarProductos').on('change', function() {
+                var option = $(this).val();
+                if (option === 'si') {
+                    $('#productosNuevos').show();
+                } else {
+                    $('#productosNuevos').hide();
+                }
+            });
+        });
+
+
+        $(document).ready(function() {
+            $('#nuevosProductos').on('change', function() {
+                var selectedOptions = $(this).find('option:selected');
+                var serviciosElegidosList = $('#serviciosElegidos');
+                serviciosElegidosList.empty();
+
+                selectedOptions.each(function() {
+                    var servicioId = $(this).val();
+                    var servicioNombre = $(this).text();
+                    var li = $('<li>').text(servicioNombre);
+                    serviciosElegidosList.append(li);
+                });
+            });
+        });
+
         const fechaVentaInput = document.getElementById('validationCustom01');
 
         // PONER LA FECHA AUTOMATICAMENTE
@@ -105,7 +152,7 @@
                         });
 
                         // Validación adicional para el campo "Elegir Servicio"
-                        var selectServicio = document.getElementById('idServicio');
+                        var selectServicio = document.getElementById('agregarProductos');
                         if (selectServicio.value === '') {
                             selectServicio.setCustomValidity('Debe seleccionar un servicio');
                         } else {
@@ -127,78 +174,5 @@
                 fechaVentaInput.classList.remove('is-invalid');
             }
         });
-        let serviciosElegidos = [];
-
-        selectServicio.addEventListener('change', function() {
-            const selectedOption = selectServicio.options[selectServicio.selectedIndex];
-
-            if (selectedOption.value !== '') {
-                // Obtener el precio del servicio seleccionado
-                const precio = selectedOption.dataset.precio;
-
-                // Actualizar el campo de precio
-                precioInput.value = precio;
-
-                // Calcular el total actual sumando el precio del servicio
-                const totalActual = parseFloat(totalInput.value) || 0;
-                const nuevoTotal = totalActual + parseFloat(precio);
-
-                // Actualizar el campo de total
-                totalInput.value = nuevoTotal;
-
-                // Agregar el servicio elegido a la lista de servicios elegidos
-                const servicioElegido = {
-                    id: selectedOption.value,
-                    nombre: selectedOption.textContent,
-                    precio: parseFloat(precio)
-                };
-
-                serviciosElegidos.push(servicioElegido);
-
-                // Mostrar los servicios elegidos en la lista
-                mostrarServiciosElegidos();
-            }
-        });
-
-        function mostrarServiciosElegidos() {
-            serviciosElegidosList.innerHTML = '';
-
-            serviciosElegidos.forEach(function(servicio) {
-                const li = document.createElement('li');
-                li.textContent = servicio.nombre;
-
-                const eliminarser = document.createElement('button');
-                eliminarser.textContent = 'x';
-                eliminarser.classList.add('btn', 'btn-danger', 'btn-sm', 'ms-2');
-                eliminarser.addEventListener('click', function() {
-                    eliminarServicioElegido(servicio);
-                });
-
-                li.appendChild(eliminarser);
-                serviciosElegidosList.appendChild(li);
-            });
-        }
-
-        function eliminarServicioElegido(servicio) {
-            const index = serviciosElegidos.findIndex(function(elegido) {
-                return elegido.id === servicio.id;
-            });
-
-            if (index > -1) {
-                // Restar el precio del servicio eliminado del total
-                const totalActual = parseFloat(totalInput.value) || 0;
-                const nuevoTotal = totalActual - servicio.precio;
-                totalInput.value = nuevoTotal;
-
-                // Eliminar el servicio de la lista de servicios elegidos
-                serviciosElegidos.splice(index, 1);
-
-                // Volver a mostrar los servicios elegidos en la lista
-                mostrarServiciosElegidos();
-
-                // Vaciar el campo de precio
-                precioInput.value = '';
-            }
-        }
     </script>
-@endsection
+    @endsection
