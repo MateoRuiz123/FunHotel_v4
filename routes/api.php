@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\api\userApiController;
+use App\Http\Controllers\api\UserApiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ServicioController;
@@ -29,6 +29,6 @@ use App\Http\Controllers\PagoController;
 */
 
 Route::prefix('api')->group(function () {
-    Route::get('/users', [userApiController::class, 'index']);
+    Route::get('/users', [UserApiController::class, 'index']);
 });
 
