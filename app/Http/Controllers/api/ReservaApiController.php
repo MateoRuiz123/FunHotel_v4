@@ -3,25 +3,26 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Cliente;
+use App\Models\Habitacion;
+use App\Models\Reserva;
+use App\Models\Servicio;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Symfony\Component\HttpFoundation\Response;
 
-class UserApiController extends Controller
+class ReservaApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::with('roles')->get();
-        // return response()->json([Response::HTTP_OK, $users]);
+        $reservas = Reserva::all();
         return response()->json([
             'status' => Response::HTTP_OK,
-            'data' => $users
+            'data' => $reservas
         ]);
     }
-
 
     /**
      * Show the form for creating a new resource.
