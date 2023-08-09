@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,23 +8,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - FunHotel</title>
     <link rel="stylesheet" href="{{ asset('estilo.css') }}" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         .back-button {
             position: fixed;
             top: 20px;
             left: 20px;
-            padding: 10px;
+            padding: 10px 20px;
             font-size: 16px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            background-color: #4a2c91;
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
             cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            overflow: hidden; /* Para ocultar el desbordamiento del icono */
+        }
+
+        .back-button::before {
+            content: '\2190'; /* Código Unicode para la flecha izquierda */
+            display: inline-block;
+            margin-right: 2px; 
+            font-size: 27px;
+            vertical-align: middle;
         }
 
         .back-button:hover {
-            background-color: #614bf1e1;
-            color: #ffffff;
+            background-color: #614bf1;
+            transform: scale(1.05);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
         }
     </style>
     <script>
@@ -44,19 +62,18 @@
     </script>
 </head>
 <body>
-    
     <main>
         @if (session('success'))
             alert('{{ session('success') }}');
         @endif
         <div class="box">
-            <button onclick="goBack()" class="back-button">Volver</button>
+            <button onclick="goBack()" class="back-button"></button> 
             <div class="inner-box-ingresar">
                 <div class="forms-wrap">
                     <form action="{{ route('login') }}" autocomplete="off" class="sign-in-form" method="POST">
                         @csrf
                         <div class="heading"><br><br>
-                            <h2>{{ __('Bienvenidos') }}</h2><br><br>
+                            <h2>{{ __('Bienvenidos') }}</h2><br>
                         </div><br>
                         <div class="actual-form">
                             <div class="input-wrap">
