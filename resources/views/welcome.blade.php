@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,66 +10,78 @@
     <link rel="stylesheet" href="{{asset('css/land.css')}}">
     <script src="{{asset('js/land.js')}}"></script>
 </head>
-
-<body>
     <header>
-        <nav>
-            <ul class="nav nav-tabs">
-                <li><a href="/home">Iniciar sesión</a></li>
-                <li><a href="/habitaciones">Habitaciones</a></li>
-                <li><a href="#Promociones">Promociones</a></li>
-                <li><a href="/servicios">Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-
-        </nav>
+    <nav>
+        <ul class="nav nav-tabs">
+            <li><a href="/home">Iniciar sesión</a></li>
+            <li><a href="/habitaciones">Habitaciones</a></li>
+            <li><a href="#Promociones">Promociones</a></li>
+            <li><a href="/servicios">Servicios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
     </header>
     <section id="inicio">
-        <div class="hero"><br><br><br>
-            <h1 class="animate-letters">Bienvenidos a <br>FunHotel</h1>
-            <a href="/reservas" class="btn">Reserva ahora</a>
-        </div>
+      <div class="hero">
+        <h1 class="animate-letters">Bienvenidos a <br>FunHotel</h1>
+        <a href="#reservas" class="btn">Reserva ahora</a>
+      </div>
     </section>
-    <br><br><br><br><br>
-    <center><br><br><br><br>
-        <section id="mision-vision">
-            <div class="container">
-                <h2>Misión</h2>
-                <div class="mission">
-                    <p>Fun Hotel es un aplicativo web API en donde los estudiantes obtendrán el rol de administrador de
-                        un hotel
-                        y podrán gestionar sus servicios que, a su vez, tendrá niveles de dificultad por temporadas.
-                    </p>
-                </div>
-            </div>
-        </section>
+    <div class="titulo">
+      <h2 class="">Como surgio <br> Funhotel </h2>
+    </div>
+
+      <div class="texto">
+          <p>Funhotel surge de la necesidad que se presentaba con los estudiantes de Hoteleria Y Turismo, de contar con una herramienta
+            eficiente y accesible, ante la falta de recursos <br> que pudieran completar su formación, un grupo de entusiastas estudiantes, decidieron
+            emprender un emocionante proyecto. <br>
+            Asi nacio FunHotel, un innovador aplicativo, creado con la misión de optimizar y facilitar <br> el proceso de aprendizaje para 
+            los estudiantes de Hoteleria Y Turismo.
+          </p>
+        </div>
+      <div class="container">
+         <div class="nuevo">
+          <h2 class="animate-letters">Misión</h2>
+            <p>En FunHotel, nuestra misión es brindar a nuestros clientes una experiencia <br> inigualable de comodidad, lujo y diversión. Nos esforzamos por ser <br> un referente en la industria hotelera, ofreciendo un 
+              servicio <br> excepcional y superando las expectativas de nuestros huéspedes. <br>
+              Nuestro objetivo principal es garantizar que cada momento que nuestros <br> clientes pasen con nosotros sea memorable.
+            </p>
+          </div>
+        <div class="nuevo">
+          <h2 class="animate-letters">Visión</h2>
+            <p>Nos esforzamos por ser un referente en la industria hotelera, destacándonos por nuestra excelencia 
+                en la calidad y la innovación. Buscamos constantemente mejorar nuestras  
+                instalaciones y servicios para ofrecer experiencias únicas y sobresalientes.
+            </p>
+          </div>
+        </div><br><br><br><br><br><br>
         <ul class="cards">
-            <li class="cards__item">
-                <div class="card">
-                    <div class="card__image card__image--Andrw"></div>
-                    <div class="card__content">
-                        <div class="card__title">Andres Moreno</div>
-                        <p class="card__text">Programador/Diseñador</p>
-                        <p class="card__text">afmoreno9672@soy.sena.edu.co</p>
-                    </div>
-                </div>
+          <li class="cards__item">
+            <div class="card">
+                <div class="card__image card__image--Andrw"></div>
+                  <div class="card__content">
+                      <div class="card__title">Andres Moreno</div>
+                      <p class="card__text">Desarrollador/Diseñador</p>
+                      <p class="card__text">afmoreno9672@soy.sena.edu.co</p>
+                  </div>
+              </div>
             </li>
             <li class="cards__item">
                 <div class="card">
                     <div class="card__image card__image--Jeidy"></div>
                     <div class="card__content">
                         <div class="card__title">Jeidy Borja</div>
-                        <p class="card__text">Programadora/Diseñadora</p>
+                        <p class="card__text">Desarrollador/Diseñadora</p>
                         <p class="card__text">jdborja26@soy.sena.edu.co</p>
                     </div>
                 </div>
             </li>
             <li class="cards__item">
                 <div class="card">
-                    <div class="card__image card__image--Jeidy"></div>
+                    <div class="card__image card__image--Mateo"></div>
                     <div class="card__content">
                         <div class="card__title">Mateo Ruiz</div>
-                        <p class="card__text">Programador/Diseñador</p>
+                        <p class="card__text">Desarrollador/Diseñador</p>
                         <p class="card__text">mrivera736@soy.sena.edu.co</p>
                     </div>
                 </div>
@@ -77,7 +91,7 @@
                     <div class="card__image card__image--Andrw"></div>
                     <div class="card__content">
                         <div class="card__title">Briyid Erazo</div>
-                        <p class="card__text">Programadora/Diseñadora</p>
+                        <p class="card__text">Desarrollador/Diseñadora</p>
                         <p class="card__text">babolanos207@misena.edu.co </p>
                     </div>
                 </div>
@@ -87,28 +101,29 @@
                     <div class="card__image card__image--Andrw"></div>
                     <div class="card__content">
                         <div class="card__title">Miguel Poveda</div>
-                        <p class="card__text">Programador/Diseñador</p>
+                        <p class="card__text">Desarrollador/Diseñador</p>
                         <p class="card__text">mapoveda21@misena.edu.co</p>
                     </div>
-                </div>
-            </li>
-        </ul>
-    </center>
+                 </div>
+             </li>
+           </ul><br>
+           <div class="logoland">
+            <img src="{{ asset('img/Hotel.png') }}" class="" alt="" />
+          </div>
+        <section class="contacto">
+          <h2>Contacto</h2>
+           <p>¡Estaremos encantados de ayudarte! <br> Puedes contactarnos a través de los siguientes medios:</p>
 
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>¡Estaremos encantados de ayudarte! Puedes contactarnos a través de los siguientes medios:</p>
         <ul>
-            <li>Teléfono: 123-456-789</li>
-            <li>Email: info@funhotel.com</li>
-            <li>Dirección: Calle Principal, Medellín</li>
+          <li>Teléfono: 314-885-23-54</li>
+          <li>Email: info@funhotel.com</li>
+          <li>Dirección: Calle Principal, Medellín</li>
         </ul>
-    </section>
+      </section>
+
+
     <footer>
-        <p>&copy; 2023 FunHotel. Todos los derechos reservados.</p>
+      <p>&copy; 2023 FunHotel. Todos los derechos reservados.</p>
     </footer>
-
-
 </body>
-
 </html>
