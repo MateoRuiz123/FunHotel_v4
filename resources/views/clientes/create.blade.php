@@ -95,14 +95,14 @@
             });
 
             $('#correo').on('input', function() {
-                var correo = $(this).val();
+                var correo = $(this).val(); //1
 
-                if (correo.trim() === '') {
-                    $('#correoError').text('El correo es requerido');
-                } else if (!validateEmail(correo)) {
-                    $('#correoError').text('El correo no tiene un formato válido');
+                if (correo.trim() === '') { //2
+                    $('#correoError').text('El correo es requerido');//3
+                } else if (!validateEmail(correo)) {//4
+                    $('#correoError').text('El correo no tiene un formato válido');//5
                 } else {
-                    $('#correoError').text('');
+                    $('#correoError').text('');//6
                 }
             });
 

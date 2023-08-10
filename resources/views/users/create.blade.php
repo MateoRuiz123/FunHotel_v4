@@ -166,9 +166,7 @@
                 <div class="pull-left">
                     <h2>Crear nuevo usuario</h2>
                 </div>
-                <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('users.index') }}">Volver</a>
-                </div>
+
             </div>
         </div>
         @if (count($errors) > 0)
@@ -268,6 +266,7 @@
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary">Registrar</button>
+                    <a class="btn btn-primary" href="{{ route('users.index') }}">Volver</a>
                 </div>
             </form>
         </div>
