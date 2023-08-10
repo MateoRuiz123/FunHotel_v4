@@ -6,9 +6,6 @@
             <div class="col-md-8">
                 <h6 class="page-title">Crear rol</h6>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('roles.index') }}">Volver</a>
-            </div>
         </div>
     </div>
 
@@ -56,6 +53,7 @@
 
         <div class="col-md-12">
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a class="btn btn-primary" href="{{ route('roles.index') }}">Volver</a>
         </div>
     </form>
 
