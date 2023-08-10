@@ -10,3 +10,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('users', UserApiController::class);
 Route::apiResource('reservas', ReservaApiController::class);
+// ruta api login
+Route::post('users/login', [UserApiController::class, 'login'])->name('users.login');

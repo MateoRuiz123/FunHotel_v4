@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class UserApiController extends Controller
 {
@@ -69,5 +70,22 @@ class UserApiController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function login(Request $request){
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)){
+            $user = Auth::user();
+            return response()->json([
+                'status' => 'success',
+                'user'=> $user,
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Usuario o contraseña incorrectos',
+        ], 401);
     }
 }
