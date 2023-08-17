@@ -1,7 +1,6 @@
 <!-- MODAL  -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +22,7 @@
                     apellido === '' ||
                     tipoDocumento === '' ||
                     documento === '' ||
+                    
                     celular === '' ||
                     correo === ''
                 ) {
@@ -37,7 +37,9 @@
 
                 if (nombre.trim() === '') {
                     $('#nombreError').text('El nombre es requerido');
-                } else {
+                } else if (nombre.includes('')) {
+                    $('#nombreError').text('El nombre no puede contener espacios');
+                }else {
                     $('#nombreError').text('');
                 }
             });

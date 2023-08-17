@@ -120,9 +120,9 @@ form.sign-up-form {
 #ver {
     position: absolute;
     top: 82%;
-    transform: translate(-70%, -99%);
+    transform: translate(-50%, -99%);
     right: 2rem;
-    background: url(/img/ojo.png);
+    background: url(/img/eye.png);
     background-size: cover;
     width: 22px;
     height: 22px;
@@ -131,32 +131,8 @@ form.sign-up-form {
 }
 
 #ver.hide {
-    background: url(/img/eye.png);
-    background-size: cover;
-}
-
-#ver.campo1 {
-    position: absolute;
-    top: 46%;
-    transform: translate(-135%, -135%);
-    right: -18px;
     background: url(/img/ojo.png);
     background-size: cover;
-    width: 22px;
-    height: 22px;
-    cursor: pointer;
-}
-
-#ver.campo2 {
-    position: absolute;
-    top: 44%;
-    transform: translate(-135%, -135%);
-    right: -28px;
-    background: url(/img/ojo.png);
-    background-size: cover;
-    width: 22px;
-    height: 22px;
-    cursor: pointer;
 }
 
 /*FORMULARIO INGRESAR*/
@@ -270,6 +246,7 @@ main.sign-up-mode .carousel {
     /*Espacio entre imagen y letra*/
     overflow: hidden;
     transition: 0.5s ease-in-out;
+    animation: carouselAnimation 1s linear infinite;
 }
 
 .images-wrapper {
@@ -295,8 +272,9 @@ main.sign-up-mode .carousel {
 }
 
 .img-2 {
-    transform: scale(0.2, 0.2);
+    transform: scale(0.3, 0.2);
 }
+
 
 .img-3 {
     transform: scale(0.3) rotate(-20deg);
