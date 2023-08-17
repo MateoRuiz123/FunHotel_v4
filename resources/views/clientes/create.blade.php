@@ -11,7 +11,8 @@
         $(document).ready(function() {
             function validarFormulario() {
                 var nombre = $('#primernombre').val().trim();
-                var apellido = $('#primerapellido').val().trim();
+                var apellido = $('#primerapellido').val().trim();segundoapellido
+                var segundoapellido = $('#segundoapellido').val();
                 var tipoDocumento = $('#tipodocumento').val();
                 var documento = $('#documento').val().trim();
                 var celular = $('#celular').val().trim();
@@ -22,7 +23,7 @@
                     apellido === '' ||
                     tipoDocumento === '' ||
                     documento === '' ||
-                    
+                    segundoapellido === '' ||
                     celular === '' ||
                     correo === ''
                 ) {
@@ -31,15 +32,14 @@
 
                 return true;
             }
-
             $('#primernombre').on('input', function() {
                 var nombre = $(this).val();
 
                 if (nombre.trim() === '') {
                     $('#nombreError').text('El nombre es requerido');
-                } else if (nombre.includes('')) {
+                } else if (nombre.includes(' ')) {
                     $('#nombreError').text('El nombre no puede contener espacios');
-                }else {
+                } else {
                     $('#nombreError').text('');
                 }
             });
@@ -53,6 +53,18 @@
                     $('#apellidoError').text('El primer apellido no puede contener espacios');
                 } else {
                     $('#apellidoError').text('');
+                }
+            });
+
+            $('#segundoapellido').on('input', function() {
+                var segundoapellido = $(this).val();
+
+                if (segundoapellido.trim() === '') {
+                    $('#apellidoSError').text('El segundo apellido es requerido');
+                } else if (segundoapellido.includes(' ')) {
+                    $('#apellidoSError').text('El segundo apellido no puede contener espacios');
+                } else {
+                    $('#apellidoSError').text('');
                 }
             });
 
@@ -121,9 +133,7 @@
         });
     </script>
 </head>
-
 <body>
-
     <div class="modal fade" id="modalCre" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="modalCreateLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">

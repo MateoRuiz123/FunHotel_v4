@@ -70,7 +70,7 @@
            </div>
          </div> 
       <div class="logoland">
-        <img src="{{ asset('img/Hotel.png') }}" class="" alt="" />
+        <img src="{{ asset('img/Hotel.png') }}" class="animate-letters" alt="" />
     </div>
     <footer>
       <p>&copy; 2023 FunHotel. Elevando el arte de la hospitalidad con innovación y pasión. Todos los derechos reservados.</p>
