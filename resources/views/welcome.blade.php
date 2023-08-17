@@ -69,20 +69,11 @@
             </div>
            </div>
          </div> 
-        <section class="contacto">
-          <h2>Contacto</h2>
-           <p>¡Estaremos encantados de ayudarte! <br> Puedes contactarnos a través de los siguientes medios:</p>
-        <ul>
-          <li>Teléfono: 314-885-23-54</li>
-          <li>Email: info@funhotel.com</li>
-          <li>Dirección: Calle Principal, Medellín</li>
-        </ul>
-      </section>
       <div class="logoland">
         <img src="{{ asset('img/Hotel.png') }}" class="" alt="" />
     </div>
     <footer>
-      <p>&copy; 2023 FunHotel. Todos los derechos reservados.</p>
+      <p>&copy; 2023 FunHotel. Elevando el arte de la hospitalidad con innovación y pasión. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
