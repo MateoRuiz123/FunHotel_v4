@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\Permission\Models\Role;
+use App\Notifications\ResetPasswordNotification;
 
 class User extends Authenticatable
 {
@@ -39,6 +40,11 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
 
     /**
      * The attributes that should be cast.
