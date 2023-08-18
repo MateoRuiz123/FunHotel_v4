@@ -656,6 +656,7 @@ class ComposerStaticInit0db7a7564fbf57a5de7f16dee9d9930b
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Venta' => __DIR__ . '/../..' . '/app/Models/Venta.php',
         'App\\Models\\pago' => __DIR__ . '/../..' . '/app/Models/pago.php',
+        'App\\Notifications\\ResetPasswordNotification' => __DIR__ . '/../..' . '/app/Notifications/ResetPasswordNotification.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

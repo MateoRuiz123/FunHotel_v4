@@ -57,6 +57,7 @@ return array(
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Venta' => $baseDir . '/app/Models/Venta.php',
     'App\\Models\\pago' => $baseDir . '/app/Models/pago.php',
+    'App\\Notifications\\ResetPasswordNotification' => $baseDir . '/app/Notifications/ResetPasswordNotification.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
