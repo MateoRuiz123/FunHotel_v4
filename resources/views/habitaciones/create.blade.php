@@ -33,7 +33,7 @@
                 } else if (numero.length < 3) {
                     $('#numeroSError').text('El número de la habitación debe tener al menos 3 dígitos');
                 } else if (!/^\d+$/.test(numero)) {
-                    $('#numeroSError').text('El número de la habitación debe contener solo dígitos');
+                    $('#numeroSError').text('El número de la habitación debe contener solo números');
                 } else {
                     $('#numeroSError').text('');
                 }

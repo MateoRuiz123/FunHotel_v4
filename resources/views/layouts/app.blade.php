@@ -1,7 +1,6 @@
 <!--Con bs5 crea toda la estructura con bootstrap, descargando la extensión -->
 <!doctype html>
 <html lang="en">
-
 <head>
     <title>FunHotel</title>
     <!-- Required meta tags -->
@@ -13,7 +12,6 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
@@ -39,7 +37,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" />
 
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!--     LOADER       -->
@@ -54,14 +51,13 @@
                 <div class="navbar-brand-box">
                     <a href="/home" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="{{ asset('assets/images/logo2.png') }}" alt="" height="70">
-                        </span>
+                            <img src="{{ asset('assets/images/logo2.png') }}" alt="" height="95" style="margin-left: -37px;">
+                        </span>                        
                         <span class="logo-lg">
-                            <img src="{{ asset('assets/images/logo1.png') }}" alt="" height="60">
-                        </span>
+                            <img src="{{ asset('assets/images/LogoFun.png') }}" alt="" height="72" style="margin-left: -5px;">
+                        </span>                        
                     </a>
                 </div>
-
                 @auth
                     <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect"
                         id="vertical-menu-btn">
