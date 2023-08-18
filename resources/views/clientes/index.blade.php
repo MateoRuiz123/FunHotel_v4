@@ -1,6 +1,4 @@
-<!-- Vista principal -->
 @extends('layouts.app')
-<!-- extendido del home -->
 @section('content')
     <!-- start page title -->
     <div class="page-title-box">
@@ -8,7 +6,6 @@
             <div class="col-md-8">
                 <h6 class="page-title">Datos clientes</h6>
             </div>
-
             <div class="col-md-4">
                 <div class="float-end d-none d-md-block">
                     @can('cliente-create')
@@ -40,7 +37,6 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
-
                     <tbody>
                         @foreach ($clientes as $cliente)
                             <tr>

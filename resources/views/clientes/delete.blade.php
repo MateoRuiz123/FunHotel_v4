@@ -1,4 +1,3 @@
-<!-- Modal -->
 <div class="modal fade" id="modalDelete{{ $cliente->id }}" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog " role="document">
@@ -11,7 +10,6 @@
             </div>
             <form action="{{ route('clientes.destroy', $cliente->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
-                <!--Clave evita error -->
                 @method('Delete')
                 <div class="modal-body">
                     ¡¿Estas seguro de eliminar a <strong> {{ $cliente->primerNombre }} ?!</strong>
