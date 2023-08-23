@@ -54,7 +54,7 @@
                             <img src="{{ asset('assets/images/logo2.png') }}" alt="" height="95" style="margin-left: -37px;">
                         </span>                        
                         <span class="logo-lg">
-                            <img src="{{ asset('assets/images/LogoFun.png') }}" alt="" height="72" style="margin-left: -5px;">
+                            <img src="{{ asset('assets/images/LogoFun.png') }}" alt="" height="60" style="margin-left: -5px;">
                         </span>                        
                     </a>
                 </div>

@@ -21,13 +21,19 @@
                 },
                 buttonsStyling: false,
                 reverseButtons: true,
-            }).then(function(result) {
-                if (result.isConfirmed) {
-                    document.getElementById('edit-form').submit();
-                }
-            });
-        }
-    </script>
+                didRender: function() {  const popup = Swal.getPopup();
+                const confirmButton = popup.querySelector('.swal2-confirm');
+                const cancelButton = popup.querySelector('.swal2-cancel');
+                confirmButton.style.marginRight = '-8px'; 
+                cancelButton.style.marginRight = '9px';// Agrega margen a la derecha del botón Aceptar
+            }
+        }).then(function(result) {
+            if (result.isConfirmed) {
+                document.getElementById('edit-form').submit();
+            }
+        });
+    }
+</script>
 </head>
 <body>
 <div class="modal fade" id="EDITAR{{ $cliente->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
