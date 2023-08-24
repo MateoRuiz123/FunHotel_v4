@@ -36,7 +36,7 @@
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     @foreach ($groups as $group)
                         <div class="card h-100">
-                            <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card bg-light mb-3" style="max-width: 22rem;">
                                 <div class="card-header">
                                     <h5 class="card-title">{{ $group->name }}</h5>
                                 </div>

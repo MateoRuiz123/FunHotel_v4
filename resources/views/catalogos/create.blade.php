@@ -27,7 +27,7 @@
                 var nombre = $(this).val();
 
                 if (nombre.trim() === '') {
-                    $('#nombreError').text('El nombre de la categoria es requerida');
+                    $('#nombreError').text('El nombre del catálogo es requerido');
                 } else {
                     $('#nombreError').text('');
                 }
@@ -37,7 +37,7 @@
                 var descripcion = $(this).val();
 
                 if (descripcion.trim() === '') {
-                    $('#descripcionError').text('La descripción de la habitación es requerida');
+                    $('#descripcionError').text('La descripción del catálogo es requerida');
                 } else {
                     $('#descripcionError').text('');
                 }
@@ -47,7 +47,7 @@
                 var id = $(this).val();
 
                 if (id === '') {
-                    $('#idError').text('Seleccione el tipo documento');
+                    $('#idError').text('Seleccione el servicio');
                 } else {
                     $('#idError').text('');
                 }
@@ -68,7 +68,7 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalCreateLabel">Registrar nuevo catalogo</h1>
+                <h1 class="modal-title fs-5" id="modalCreateLabel">Registrar nuevo catálogo</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -102,13 +102,10 @@
                     </div>
 
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn-primary">Crear</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                {{-- <button type="button" class="btn btn-primary">Understood</button> --}}
             </div>
         </div>
     </div>

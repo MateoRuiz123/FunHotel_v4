@@ -26,8 +26,8 @@
                     <li class="list-group-item"> Segundo nombre: {{ $cliente->segundoNombre }}</li>
                     <li class="list-group-item"> Apellido: {{ $cliente->primerApellido }}</li>
                     <li class="list-group-item"> Segundo apellido: {{ $cliente->segundoApellido }}</li>
-                    <li class="list-group-item"> Tipo documento: {{ $cliente->tipoDocumento }}</li>
-                    <li class="list-group-item"> Documento: {{ $cliente->documento }}</li>
+                    <li class="list-group-item"> Tipo documento: {{ $cliente->documento}}</li>
+                    <li class="list-group-item"> Documento: {{ $cliente->numeroDocumento }}</li>
                     <li class="list-group-item"> Celular: {{ $cliente->celular }}</li>
                     <li class="list-group-item"> Correo: {{ $cliente->correo }}</li>
                 </ol>
