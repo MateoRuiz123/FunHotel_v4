@@ -2,7 +2,6 @@
     <!-- Contenido del loader, como un spinner o una animación -->
     Cargando...
 </div>
-
 <style>
     /* Estilos CSS para el loader */
     .loader {

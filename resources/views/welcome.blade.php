@@ -5,24 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FunHotel</title>
+    <link rel="shortcut icon" href="{{ asset('assets/images/Pequeño.ico') }}">
     <link rel="stylesheet" href="{{asset('css/land.css')}}">
     <script src="{{asset('js/land.js')}}"></script>
 </head>
-    <header>
-    <nav>
-        <ul class="nav nav-tabs">
-            <li><a href="/home">Iniciar sesión</a></li>
-            <li><a href="/habitaciones">Habitaciones</a></li>
-            <li><a href="#Promociones">Promociones</a></li>
-            <li><a href="/servicios">Servicios</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-    </header>
+<header>
+  <nav>
+      <ul class="nav nav-tabs">
+        <li>FunHotel</li>
+      </ul>
+    </nav>
+  </header>
     <section id="inicio">
-      <div class="hero">
+      <div class="hero">     
         <h1 class="animate-letters">Bienvenidos a <br>FunHotel</h1>
-        <a href="#reservas" class="btn">Reserva ahora</a>
+        <center><a href="/home" class="btn">Iniciar Sesión</a></center>
       </div>
     </section>
     <div class="titulo">
@@ -49,7 +46,7 @@
           </div>
           <div class="card">
             <figure>
-              <center><img src="{{ asset('img/vision.png') }}" class="" alt="" /></center>
+              <center><img src="{{ asset('img/Vision.png') }}" class="" alt="" /></center>
             </figure>
             <div class="contenido-card">
               <h3>Visión</h3>

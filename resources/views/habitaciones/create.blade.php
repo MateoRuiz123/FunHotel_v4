@@ -68,13 +68,12 @@
     </script>
 </head>
 <body>
-
 <div class="modal fade" id="modalCreate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="modalCreateLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalCreateLabel">Registrar nuevo servicio</h1>
+                <h1 class="modal-title fs-5" id="modalCreateLabel">Registrar nueva habitación</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -82,18 +81,18 @@
                     class="row g-3">
                     @csrf
                     <div class="col-md-6">
-                        <label for="">Numero de Habitacion</label>
+                        <label for="">Número de Habitación</label>
                         <input class="form-control" type="text" name="numeroHabitacion" id="numeroHabitacion" required >
                         <span id="numeroSError" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
-                        <label for="">Descripcion</label>
+                        <label for="">Descripción</label>
                         <input class="form-control" type="text" name="descripcion" id="descripcion" required>
                         <span id="descripcionError" class="text-danger"></span>
                     </div>
                     <div class="col-md-6">
                         <!-- Select idCategoria -->
-                        <label for="">Categoria</label>
+                        <label for="">Categoría</label>
                         <select class="form-select" name="idCategoria" id="idCategoria" required>
                             <option value="" >Seleccione</option>
                             @foreach ($categorias as $categoria)
@@ -106,12 +105,13 @@
                         <input type="hidden" id="estado" name="estado" value="{{ \App\Models\Habitacion::Disponible}}">
                     </div>
                     <div class="col-md-12">
-                    <button class="btn btn-primary" type="submit">Registrar</button>
+                        <button class="btn btn-primary" type="submit">Crear</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                
             </div>
         </div>
     </div>
