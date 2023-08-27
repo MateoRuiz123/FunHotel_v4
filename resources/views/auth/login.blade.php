@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - FunHotel</title>
     <link rel="stylesheet" href="{{ asset('estilo.css') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/images/Pequeño.ico') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -24,6 +23,7 @@
             border-radius: 50px;
             box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
             cursor: pointer;
+            border: 3.10px solid #d8d8d8c5;
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
             overflow: hidden; /* Para ocultar el desbordamiento del icono */
         }

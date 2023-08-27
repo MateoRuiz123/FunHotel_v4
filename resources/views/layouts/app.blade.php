@@ -14,7 +14,7 @@
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/Pequeño.ico') }}">
 
     <link href="{{ asset('assets/libs/chartist/chartist.min.css') }}" rel="stylesheet">
 
@@ -42,19 +42,18 @@
     <!--     LOADER       -->
     <link rel="stylesheet" href="{{ asset('css/loader.css') }}">
 </head>
-
 <body data-sidebar="dark">
     <header id="page-topbar">
         <div class="navbar-header">
             <div class="d-flex">
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
-                    <a href="/home" class="logo logo-light">
+                    <a href="/home" class="logo logo-light"> 
                         <span class="logo-sm">
                             <img src="{{ asset('assets/images/logo2.png') }}" alt="" height="95" style="margin-left: -37px;">
                         </span>                        
                         <span class="logo-lg">
-                            <img src="{{ asset('assets/images/LogoFun.png') }}" alt="" height="72" style="margin-left: -5px;">
+                            <img src="{{ asset('assets/images/LogoF.png') }}" alt="" height="80" style="margin-left: -5px;">
                         </span>                        
                     </a>
                 </div>

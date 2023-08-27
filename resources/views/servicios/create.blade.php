@@ -39,7 +39,7 @@
                 var descripcion = $(this).val();
 
                 if (descripcion.trim() === '') {
-                    $('#descripcionError').text('La descripción de la habitación es requerida');
+                    $('#descripcionError').text('La descripción del servicio es requerida');
                 } else {
                     $('#descripcionError').text('');
                 }
@@ -50,8 +50,6 @@
 
                 if (precio.trim() === '') {
                     $('#precioSError').text('El precio del servicio es requerido');
-                } else if (precio.length < 3) {
-                    $('#precioSError').text('El precio del servicio debe tener al menos 3 dígitos');
                 } else {
                     $('#precioSError').text('');
                 }
@@ -60,7 +58,6 @@
         });
     </script>
 </head>
-
 <body>
     <div class="modal fade" id="modalCreate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="modalCreateLabel" aria-hidden="true">
@@ -113,16 +110,14 @@
                             </script>
 
                         </div>
-
-                        <div class="col-md-12">
+                        <div class="col-md-12" style="margin-right: 30px">
                             <button type="submit" class="btn btn-primary"
-                                onclick="return confirm('¿Estás seguro de guardar el registro?')">Guardar</button>
+                                onclick="return confirm('¿Estás seguro de guardar el registro?')">Crear</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
+                
             </div>
         </div>
     </div>

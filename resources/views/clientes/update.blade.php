@@ -22,13 +22,12 @@
                 },
                 buttonsStyling: false,
                 reverseButtons: true,
-            }).then(function (result) {
+            }).then(function(result) {
                 if (result.isConfirmed) {
                     document.getElementById('edit-form').submit();
                 }
             });
         }
-
     </script>
 </head>
 
