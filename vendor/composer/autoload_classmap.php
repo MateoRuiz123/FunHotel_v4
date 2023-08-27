@@ -30,7 +30,6 @@ return array(
     'App\\Http\\Controllers\\ServicioController' => $baseDir . '/app/Http/Controllers/ServicioController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Controllers\\VentaControlador' => $baseDir . '/app/Http/Controllers/VentaControlador.php',
-    'App\\Http\\Controllers\\api\\userApiController' => $baseDir . '/app/Http/Controllers/api/userApiController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
