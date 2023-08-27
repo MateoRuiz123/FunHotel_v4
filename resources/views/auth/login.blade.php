@@ -46,6 +46,7 @@
         function goBack() {
             window.history.back();
         }
+
         function showHide(elementId, verId) {
             var password = document.getElementById(elementId);
             var verPassword = document.getElementById(verId);
@@ -61,6 +62,7 @@
     </script>
 </head>
 <body>
+    
     <main>
         @if (session('success'))
             alert('{{ session('success') }}');
@@ -98,7 +100,7 @@
                                     </span>
                                 @enderror
                             </div>
-                            <input type="submit" value="Ingresar" class="sign-btn" />
+                            <input type="submit" value="{{ __('Login') }}" class="sign-btn" />
                             <p class="text">
                                 {{ __('¿Olvidaste tus datos de inicio de sesión?') }}
                                 <a href="{{ route('password.request') }}">{{ __('Recuperar contraseña') }}</a>
