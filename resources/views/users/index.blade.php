@@ -12,8 +12,8 @@
                     @can('user-create')
                         <a class="btn btn-primary" href="{{ route('users.create') }}">Registrar <i
                                 class="bi bi-plus-circle"></i></a>
-                        <a class="btn btn-primary" href="{{ route('users.assign-roles') }}">Asignar Roles <i
-                                class="bi bi-plus-circle"></i></a>
+                        {{-- <a class="btn btn-primary" href="{{ route('users.assign-roles') }}">Asignar Roles <i
+                                class="bi bi-plus-circle"></i></a> --}}
                     @endcan
                 </div>
             </div>

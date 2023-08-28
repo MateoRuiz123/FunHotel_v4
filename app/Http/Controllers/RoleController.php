@@ -130,8 +130,16 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
+        $role = Role::find($id);
+
+        // Verificar si el rol es "Administrador"
+        if ($role->name === 'Administrador') {
+            return redirect()->route('roles.index')->with('error', 'No se puede eliminar el rol de Administrador');
+        }
+
+        // Si no es el rol de "Administrador", proceder con la eliminación
         DB::table("roles")->where('id', $id)->delete();
-        return redirect()->route('roles.index')
-            ->with('success', 'Role deleted successfully');
+        return redirect()->route('roles.index')->with('success', 'Role deleted successfully');
     }
+
 }
