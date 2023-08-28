@@ -123,6 +123,18 @@
                                         document.getElementById('logout-form').submit();
                                     }
                                 }
+                                // Redirigir a /home después de cerrar sesión
+                                document.getElementById('logout-form').addEventListener('submit', function(event) {
+                                    event.preventDefault();
+                                    fetch(this.action, {
+                                        method: 'POST',
+                                        headers: {
+                                            'X-CSRF-TOKEN': this._token.value,
+                                        },
+                                    }).then(() => {
+                                        window.location.href = '/'; // Redirige a la página /home
+                                    });
+                                });
                             </script>
 
                         </div>
