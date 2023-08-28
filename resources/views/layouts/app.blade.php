@@ -1,6 +1,7 @@
 <!--Con bs5 crea toda la estructura con bootstrap, descargando la extensión -->
 <!doctype html>
 <html lang="en">
+
 <head>
     <title>FunHotel</title>
     <!-- Required meta tags -->
@@ -42,19 +43,22 @@
     <!--     LOADER       -->
     <link rel="stylesheet" href="{{ asset('css/loader.css') }}">
 </head>
+
 <body data-sidebar="dark">
     <header id="page-topbar">
         <div class="navbar-header">
             <div class="d-flex">
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
-                    <a href="/home" class="logo logo-light"> 
+                    <a href="/home" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="{{ asset('assets/images/logo2.png') }}" alt="" height="95" style="margin-left: -37px;">
-                        </span>                        
+                            <img src="{{ asset('assets/images/logo2.png') }}" alt="" height="95"
+                                style="margin-left: -37px;">
+                        </span>
                         <span class="logo-lg">
-                            <img src="{{ asset('assets/images/LogoF.png') }}" alt="" height="80" style="margin-left: -5px;">
-                        </span>                        
+                            <img src="{{ asset('assets/images/LogoF.png') }}" alt="" height="80"
+                                style="margin-left: -5px;">
+                        </span>
                     </a>
                 </div>
                 @auth
@@ -125,14 +129,6 @@
                     </div>
                 @endguest
 
-
-
-                <!-- <div class="dropdown d-inline-block">
-                    <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
-                        <i class="mdi mdi-cog-outline"></i>
-                    </button>
-                </div> -->
-
             </div>
         </div>
     </header>
@@ -156,22 +152,8 @@
                             </a>
                         </li>
 
-                        @can('cliente-list')
-                            <li>
-                                <a href="/clientes" class=" waves-effect">
-                                    <i class="ti-user"></i>
-                                    <span>Clientes</span>
-                                </a>
-                            </li>
-                        @endcan
-                        @can('servicio-list')
-                            <li>
-                                <a href="/servicios" class=" waves-effect">
-                                    <i class="ti-server"></i>
-                                    <span>Servicios</span>
-                                </a>
-                            </li>
-                        @endcan
+
+
                         @can('catalogo-list')
                             <li>
                                 <a href="/catalogos" class=" waves-effect">
@@ -180,54 +162,9 @@
                                 </a>
                             </li>
                         @endcan
-                        @can('venta-list')
-                            <li>
-                                <a href="/ventas" class=" waves-effect">
-                                    <i class="bi bi-shop-window"></i>
-                                    <span>Ventas</span>
-                                </a>
-                            </li>
-                        @endcan
-                        @can('categoria-list')
-                            <li>
-                                <a href="/categorias" class=" waves-effect">
-                                    <i class="bi bi-tags"></i>
-                                    <span>Categorias</span>
-                                </a>
-                            </li>
-                        @endcan
-                        @can('habitacion-list')
-                            <li>
-                                <a href="/habitaciones" class=" waves-effect">
-                                    <i class="bi bi-hospital-fill"></i>
-                                    <span>Habitaciones</span>
-                                </a>
-                            </li>
-                        @endcan
-                        @can('reserva-list')
-                            <li>
-                                <a href="/reservas" class=" waves-effect">
-                                    <i class="bi bi-calendar3"></i>
-                                    <span>Reservas</span>
-                                </a>
-                            </li>
-                        @endcan
-                        @can('checkin-list')
-                            <li>
-                                <a href="/checkins" class=" waves-effect">
-                                    <i class="bi bi-check-square"></i>
-                                    <span>Check-in</span>
-                                </a>
-                            </li>
-                        @endcan
-                        @can('checkout-list')
-                            <li>
-                                <a href="/checkouts" class=" waves-effect">
-                                    <i class="bi bi-box-arrow-right"></i>
-                                    <span>Check-Out</span>
-                                </a>
-                            </li>
-                        @endcan
+
+
+                        
                         @can('pago-list')
                             <li>
                                 <a href="/pagos" class=" waves-effect">
@@ -239,17 +176,93 @@
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <i class="bi bi-motherboard"></i>
-                                <span>Otros</span>
+                                <span>Ventas</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                @can('venta-list')
+                                    <li>
+                                        <a href="/ventas" class=" waves-effect">
+                                            <span>Ventas</span>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('cliente-list')
+                                    <li>
+                                        <a href="/clientes" class=" waves-effect">
+                                            <span>Clientes</span>
+                                        </a>
+                                    </li>
+                                @endcan
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bi bi-motherboard"></i>
+                                <span>Reservas</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                @can('servicio-list')
+                                    <li>
+                                        <a href="/servicios" class=" waves-effect">
+                                            <span>Servicios</span>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('reserva-list')
+                                    <li><a href="/reservas">Reservas</a></li>
+                                @endcan
+                                @can('categoria-list')
+                                    <li>
+                                        <a href="/categorias" class=" waves-effect">
+                                            <span>Categorias</span>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('habitacion-list')
+                                    <li>
+                                        <a href="/habitaciones" class=" waves-effect">
+                                            <span>Habitaciones</span>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('checkin-list')
+                            <li>
+                                <a href="/checkins" class=" waves-effect">
+                                    <span>Check-in</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('checkout-list')
+                            <li>
+                                <a href="/checkouts" class=" waves-effect">
+                                    <span>Check-Out</span>
+                                </a>
+                            </li>
+                        @endcan
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bi bi-motherboard"></i>
+                                <span>Usuarios</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
                                 @can('user-list')
                                     <li><a href="/users">Usuarios</a></li>
                                 @endcan
-                                @can('role-list')
-                                    <li><a href="/roles">Roles</a></li>
-                                @endcan
                                 @can('group-list')
                                     <li><a href="/groups">Fichas</a></li>
+                                @endcan
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="bi bi-motherboard"></i>
+                                <span>Configuración</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                @can('role-list')
+                                    <li><a href="/roles">Roles</a></li>
                                 @endcan
                             </ul>
                         </li>

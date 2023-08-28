@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -25,13 +26,15 @@
             cursor: pointer;
             border: 3.10px solid #d8d8d8c5;
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-            overflow: hidden; /* Para ocultar el desbordamiento del icono */
+            overflow: hidden;
+            /* Para ocultar el desbordamiento del icono */
         }
 
         .back-button::before {
-            content: '\2190'; /* Código Unicode para la flecha izquierda */
+            content: '\2190';
+            /* Código Unicode para la flecha izquierda */
             display: inline-block;
-            margin-right: 2px; 
+            margin-right: 2px;
             font-size: 27px;
             vertical-align: middle;
         }
@@ -46,6 +49,7 @@
         function goBack() {
             window.history.back();
         }
+
         function showHide(elementId, verId) {
             var password = document.getElementById(elementId);
             var verPassword = document.getElementById(verId);
@@ -60,13 +64,14 @@
         }
     </script>
 </head>
+
 <body>
     <main>
         @if (session('success'))
             alert('{{ session('success') }}');
         @endif
         <div class="box">
-            <button onclick="goBack()" class="back-button"></button> 
+            <button onclick="goBack()" class="back-button"></button>
             <div class="inner-box-ingresar">
                 <div class="forms-wrap">
                     <form action="{{ route('login') }}" autocomplete="off" class="sign-in-form" method="POST">
@@ -105,7 +110,8 @@
                             </p>
                         </div>
                     </form>
-            </div> </div>
+                </div>
+            </div>
             <div class="carousel">
                 <div class="images-wrapper">
                     <img src="{{ asset('img/Hotel.png') }}" class="image img-1 show" alt="" />
@@ -131,6 +137,7 @@
     </main>
     <script src="{{ asset('estilo.js') }}"></script>
 </body>
+
 </html>
 
 {{-- En el código proporcionado, he agregado el atributo `onpaste="return false"` a los campos de contraseña en ambos formularios (inicio de sesión y registro). Esto evitará que los usuarios puedan pegar contenido en esos campos. Sin embargo, es importante tener en cuenta que esto no proporciona una seguridad completa, ya que los usuarios aún pueden ingresar manualmente los datos. Es recomendable implementar medidas adicionales, como validación en el lado del servidor y el uso de técnicas como cifrado de contraseñas para garantizar una mayor seguridad en el manejo de contraseñas. --}}
