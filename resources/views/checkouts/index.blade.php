@@ -32,7 +32,10 @@
                         <tr>
                             <th>Fecha de salida</th>
                             <th>Id Check-in</th>
-                            <th>Id Metodo pago</th>
+                            <th>Id Reserva</th>
+                            <th>Nro. doc</th>
+                            <th>Nombre del cliente</th>
+                            <th>Metodo de pago</th>
                             <th>Id Venta</th>
                             <th>Estado</th>
                             <th>Acciones</th>
@@ -43,6 +46,9 @@
                             <tr>
                                 <td>{{ $checkout->fecSalida }}</td>
                                 <td>{{ $checkout->idCheckin }}</td>
+                                <td>{{ $checkout->idReserva }}</td>
+                                <td>{{ $checkout->cliente->numeroDocumento }}</td>
+                                <td>{{ $checkout->cliente->primerNombre }}</td>
                                 <td>{{ $checkout->metpago->nombre }}</td>
                                 <td>{{ $checkout->idVenta }}</td>
                                 <td>{{ $checkout->estado_texto }}</td>

@@ -27,7 +27,25 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="" class="form-label">Id Metodo pago</label>
+                        <label for="" class="form-label">Id Reserva</label>
+                        <input type="number" class="form-control" name="reserva" id="" aria-describedby="helpId"
+                            placeholder="" value="{{$checkout->idReserva}}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="" class="form-label">Nro. doc</label>
+                        <input type="text" class="form-control" name="cliente" id="" aria-describedby="helpId"
+                            placeholder="" value="{{$checkout->idCliente}}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="" class="form-label">Nombre cliente</label>
+                        <input type="text" class="form-control" name="reserva" id="" aria-describedby="helpId"
+                            placeholder="" value="{{$checkout->idCliente}}">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="" class="form-label">Metodo de pago</label>
                         <input type="number" class="form-control" name="metpago" id="" aria-describedby="helpId"
                             placeholder="" value="{{$checkout->idMetodoPago}}">
                     </div>
