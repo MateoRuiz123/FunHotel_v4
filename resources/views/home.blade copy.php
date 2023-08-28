@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="page-title-box">
         <div class="row align-items-center">
@@ -115,7 +114,6 @@
         .ul .li:nth-child(7) {
             animation-delay: 1.4s;
         }
-
         .ul .li:nth-child(8) {
             animation-delay: 1.6s;
         }

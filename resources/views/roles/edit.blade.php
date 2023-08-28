@@ -33,7 +33,7 @@
         </div>
         <div class="col-md-6">
             <label for="estado">Estado</label>
-            <select class="form-select" name="estado" id="estado">
+            <select class="form-select" name="estado" id="estado" @if ($role->name === 'Administrador') disabled @endif>
                 <option value="{{ \Spatie\Permission\Models\Role::Activo }}"
                     @if ($role->estado == \Spatie\Permission\Models\Role::Activo) selected @endif>Activo</option>
                 <option value="{{ \Spatie\Permission\Models\Role::Inactivo }}"

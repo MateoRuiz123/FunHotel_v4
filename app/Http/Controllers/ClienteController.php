@@ -80,8 +80,8 @@ class ClienteController extends Controller
         $cliente->segundoNombre = $request->input('segundonombre');
         $cliente->primerApellido = $request->input('primerapellido');
         $cliente->segundoApellido = $request->input('segundoapellido');
-        $cliente->tipoDocumento = $request->input('tipodocumento');
         $cliente->documento = $request->input('documento');
+        $cliente->numeroDocumento = $request->input('numeroDocumento');
         $cliente->celular = $request->input('celular');
         $cliente->correo = $request->input('correo');
         // $cliente->estado = $request->input('estado') ? 1 : 2;
