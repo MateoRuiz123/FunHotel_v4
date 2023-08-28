@@ -147,21 +147,12 @@
 
                         <li>
                             <a href="/home" class="waves-effect">
-                                {{-- <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">1</span> --}}
                                 <span>Inicio</span>
                             </a>
-                        </li>                        
-                        @can('pago-list')
-                            <li>
-                                <a href="/pagos" class=" waves-effect">
-                                    <i class="bi bi-wallet2"></i>
-                                    <span>Metodo de pago</span>
-                                </a>
-                            </li>
-                        @endcan
+                        </li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="bi bi-motherboard"></i>
+                                <i class="fa-solid fa-cart-shopping"></i>
                                 <span>Ventas</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
@@ -179,11 +170,18 @@
                                         </a>
                                     </li>
                                 @endcan
+                                @can('pago-list')
+                                    <li>
+                                        <a href="/pagos" class=" waves-effect">
+                                            <span>Metodo de pago</span>
+                                        </a>
+                                    </li>
+                                @endcan
                             </ul>
                         </li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="bi bi-motherboard"></i>
+                                <i class="fa-solid fa-calendar"></i>
                                 <span>Reservas</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
@@ -212,24 +210,24 @@
                                     </li>
                                 @endcan
                                 @can('checkin-list')
-                            <li>
-                                <a href="/checkins" class=" waves-effect">
-                                    <span>Check-in</span>
-                                </a>
-                            </li>
-                        @endcan
-                        @can('checkout-list')
-                            <li>
-                                <a href="/checkouts" class=" waves-effect">
-                                    <span>Check-Out</span>
-                                </a>
-                            </li>
-                        @endcan
+                                    <li>
+                                        <a href="/checkins" class=" waves-effect">
+                                            <span>Check-in</span>
+                                        </a>
+                                    </li>
+                                @endcan
+                                @can('checkout-list')
+                                    <li>
+                                        <a href="/checkouts" class=" waves-effect">
+                                            <span>Check-Out</span>
+                                        </a>
+                                    </li>
+                                @endcan
                             </ul>
                         </li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="bi bi-motherboard"></i>
+                                <i class="fa-solid fa-user-tie"></i>
                                 <span>Usuarios</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
@@ -243,7 +241,7 @@
                         </li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                <i class="bi bi-motherboard"></i>
+                                <i class="fa-solid fa-bars"></i>
                                 <span>Configuración</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="true">
