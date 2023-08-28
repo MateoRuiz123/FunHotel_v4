@@ -17,6 +17,7 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\CheckinController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PagoController;
+use App\Http\Controllers\InicioController;
 
 /*
 |--------------------------------------------------------------------------
