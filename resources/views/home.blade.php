@@ -21,18 +21,6 @@
             </div>
         </div>
     </div>
-    <div class="database-info">
-        <div class="database-table">
-            <h4>Usuarios</h4>
-            <p>Registros: {{ $table1Count }}</p>
-        </div>
-        <div class="database-table">
-            <h4>Habitaciones</h4>
-            <p>Registros: {{ $table2Count }}</p>
-        </div>
-        <!-- Agregar más bloques de tabla según sea necesario -->
-    </div>
-
     <style>
         .ul {
             position: absolute;

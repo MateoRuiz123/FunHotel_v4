@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserApiController extends Controller
 {
@@ -15,7 +17,11 @@ class UserApiController extends Controller
     public function index()
     {
         $users = User::with('roles')->get();
-        return response()->json([Response::HTTP_OK, $users]);
+        // return response()->json([Response::HTTP_OK, $users]);
+        return response()->json([
+            'status' => Response::HTTP_OK,
+            'data' => $users
+        ]);
     }
 
 
@@ -65,5 +71,25 @@ class UserApiController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function login(Request $request){
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)){
+            $user = Auth::user();
+            $token = JWTAuth::fromUser($user);
+
+            return response()->json([
+                'status' => 'success',
+                'user'=> $user,
+                'token' => $token,
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Usuario o contraseña incorrectos',
+        ], 401);
     }
 }

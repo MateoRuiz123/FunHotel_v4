@@ -24,6 +24,12 @@
         </div>
     </div>
 
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+
     <div class="col-12">
         <div class="card">
             <div class="card-body">
@@ -58,7 +64,7 @@
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar
+                                                            <h5 class="modal-title" id="confirmDeleteModalLabel" style="color: black">Confirmar
                                                                 Eliminación</h5>
                                                             <button type="button" class="close" data-bs-dismiss="modal"
                                                                 aria-label="Close">
@@ -66,7 +72,7 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <p>¿Estás seguro de que deseas eliminar este registro?</p>
+                                                            <p style="color: black">¿Estás seguro de que deseas eliminar este registro?</p>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <!-- Botón de cancelar -->
