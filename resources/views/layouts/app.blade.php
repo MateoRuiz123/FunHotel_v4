@@ -150,21 +150,7 @@
                                 {{-- <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">1</span> --}}
                                 <span>Inicio</span>
                             </a>
-                        </li>
-
-
-
-                        @can('catalogo-list')
-                            <li>
-                                <a href="/catalogos" class=" waves-effect">
-                                    <i class="ti-layout-tab"></i>
-                                    <span>Catalogos</span>
-                                </a>
-                            </li>
-                        @endcan
-
-
-                        
+                        </li>                        
                         @can('pago-list')
                             <li>
                                 <a href="/pagos" class=" waves-effect">
