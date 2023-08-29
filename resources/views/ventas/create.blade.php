@@ -1,11 +1,31 @@
 @extends('layouts.app')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 @section('content')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function ventasConfirmacion() {
+        Swal.fire({
+            title: 'Confirmación',
+            text: '¿Estás seguro de crear esta venta?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Estoy seguro',
+            cancelButtonText: 'Cancelar',
+            confirmButtonColor: '#12B901',
+            cancelButtonColor: '#E41919'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('Ventasform').submit();
+            }
+        });
+    }
+</script>
 <div class="row">
     <div class="col-lg-6">
         <div class="card-body">
             <h1 class="card-title fs-5">Crear Venta</h1>
-            <form class="row g-7 needs-validation" method="POST" action="{{ route('ventas.store') }}" enctype="multipart/form-data" novalidate>
+            <form id="Ventasform" class="row g-7 needs-validation" method="POST" action="{{ route('ventas.store') }}" enctype="multipart/form-data" novalidate>
                 @csrf
                 <div class="form-group">
                     <label for="idReserva">Reserva:</label>
@@ -57,8 +77,12 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Guardar <i class="bi bi-plus-circle"></i></button>
             </form>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" onclick="ventasConfirmacion()">Crear <i class="bi bi-plus-circle"></i></button>
+                <a class="btn btn-light" href="{{ route('roles.index') }}">Volver</a>
+            </div>
+
         </div>
     </div>
     <div class="col-lg-6">

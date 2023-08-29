@@ -1,5 +1,34 @@
 @extends('layouts.app')
 @section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function Confirmacion() {
+            Swal.fire({
+                title: 'Confirmación',
+                text: '¿Estás seguro de editar el usuario?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Estoy seguro',
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: '#12B901',
+                cancelButtonColor: '#E41919'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('usuarioForm').submit();
+                }
+            });
+        }
+    </script>
+</head>
+<body>
     <div class="container">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -23,7 +52,7 @@
     @endif
     <br>
     <div class="container">
-        <form method="POST" action="{{ route('users.update', $user->id) }}" class="row g-3">
+        <form id="usuarioForm" method="POST" action="{{ route('users.update', $user->id) }}" class="row g-3">
             @method('PATCH')
             @csrf
             <div class="col-md-6">
@@ -100,9 +129,12 @@
                             <option value="{{\App\Models\User::Inactivo}}" {{ $user->estado == \App\Models\User::Inactivo ? 'selected' : '' }}>Inactivo</option>
                         </select>
             </div>
-            <div class="col-md-12">
-                <button type="submit" class="btn btn-primary">Guardar</button>
-            </div>
         </form>
+        <div class="col-md-12">
+            <button type="submit" onclick="Confirmacion()" class="btn btn-primary">Actualizar</button>
+        </div>
     </div>
 @endsection
+</body>
+</html>
+   

@@ -1,4 +1,24 @@
 <!-- Modal Edit -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function Confirmacion() {
+        Swal.fire({
+            title: 'Confirmación',
+            text: '¿Estás seguro de editar el checkins?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Estoy seguro',
+            cancelButtonText: 'Cancelar',
+            confirmButtonColor: '#12B901',
+            cancelButtonColor: '#E41919'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('CheUpform').submit();
+            }
+        });
+    }
+</script>
 <div class="modal fade" id="edit{{$checkin->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="modalCreateLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -10,6 +30,7 @@
                 </button>
             </div>
             <div class="modal-body">
+                <div class="row">
                 <form class="row g-3" action="{{route('checkins.update',$checkin->id)}}" method="post"
                     enctype="multipart/form-data">
                     @csrf
@@ -32,12 +53,11 @@
                             <option value="{{\App\Models\Checkin::Inactivo}}" {{ $checkin->estado == \App\Models\Checkin::Inactivo ? 'selected' : '' }}>Inactivo</option>
                         </select>
                     </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Editar</button>
-                    </div>
+                </div>
                 </form>
-            </div>
+            </div><br>
             <div class="modal-footer">
+                <button type="submit" onclick="Confirmacion()" class="btn btn-primary">Editar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>

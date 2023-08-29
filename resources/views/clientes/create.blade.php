@@ -7,7 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        function clienteConfirmacion() {
+            var nombre = $('#primernombre').val().trim();
+                var apellido = $('#primerapellido').val().trim();
+                var tipoDocumento = $('#tipodocumento').val();
+                var documento = $('#documento').val().trim();
+                var celular = $('#celular').val().trim();
+                var correo = $('#correo').val().trim();
+    
+            if (nombre === '' ||  apellido === '' ||  tipoDocumento === '' || documento === '' || celular  === '' || correo ==='' ) {
+                Swal.fire({
+                    title: 'Campos vacíos',
+                    text: 'Por favor, completa todos los campos antes de continuar.',
+                    icon: 'error',
+                    confirmButtonColor: '#d33'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Confirmación',
+                    text: '¿Estás seguro de crear el cliente?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Estoy seguro',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonColor: '#12B901',
+                    cancelButtonColor: '#E41919'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('clienteForm').submit();
+                    }
+                });
+            }
+        }
+    </script>
+  <script>
         $(document).ready(function() {
             function validarFormulario() {
                 var nombre = $('#primernombre').val().trim();
@@ -24,7 +60,6 @@
                     apellido === '' ||
                     tipoDocumento === '' ||
                     documento === '' ||
-                    segundoapellido === '' ||
                     celular === '' ||
                     correo === ''
                 ) {
@@ -58,17 +93,13 @@
                 var errorMensaje = $('#nombreSError');
 
                 if (nombre2.trim() === '') {
-                    errorMensaje.text('El nombre es requerido');
+                    errorMensaje.text('Este campo no es requerido');
                 } else if (nombre2.includes(' ')) {
                     errorMensaje.text('El nombre no puede contener espacios');
                 } else if (!validateAlphaNumeric(nombre2)) {
                     errorMensaje.text('El nombre no puede contener caracteres especiales');
                 } else {
                     errorMensaje.text(''); // Borrar el mensaje de error
-                }
-
-                if (nombre2.trim() === '') {
-                    errorMensaje.text(''); // Borrar el mensaje de error si el campo está vacío
                 }
             });
 
@@ -103,7 +134,7 @@
                 var errorMensaje = $('#apellidoSError');
 
                 if (segundoapellido.trim() === '') {
-                    errorMensaje.text('El segundo apellido es requerido');
+                    errorMensaje.text('Este campo no es requerido');
                 } else if (segundoapellido.includes(' ')) {
                     errorMensaje.text('El segundo apellido no puede contener espacios');
                 } else if (!validateLetters(segundoapellido)) {
@@ -193,7 +224,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <form action="{{ route('clientes.store') }}" method="post" enctype="multipart/form-data">
+        <form id="clienteForm" action="{{ route('clientes.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <!--Clave evita error -->
             <div class="modal-body">
@@ -228,7 +259,7 @@
                              <option value="N.T">Nit</option>
                              <option value="PA">Pasaporte</option>
                          </select>
-                                <span id="tipodocError" class="text-danger"></span>
+                        <span id="tipodocError" class="text-danger"></span>
                       </div>
                     <div class="col-md-6">
                         <label for="" class="form-label">Documento</label>
@@ -253,11 +284,11 @@
                       </div>
                     </div>
                   </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button class="btn btn-primary" type="submit" id="submitButton">Crear</button>
-                    </div>
                 </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button class="btn btn-primary" id="submitButton" onclick="clienteConfirmacion()" type="submit" id="submitButton">Crear</button>
+                </div>
             </div>
         </div>
     </div>
