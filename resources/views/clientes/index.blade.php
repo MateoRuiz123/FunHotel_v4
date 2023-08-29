@@ -36,7 +36,6 @@
                             <th>Segundo Nombre</th>
                             <th>Apellido</th>
                             <th>Segundo Apellido</th>
-                            <th>Tipo documento</th>
                             <th>Documento</th>
                             <th>Estado</th>
                             <th>Acciones</th>
@@ -50,7 +49,6 @@
                                 <td>{{ $cliente->segundoNombre }}</td>
                                 <td>{{ $cliente->primerApellido }}</td>
                                 <td>{{ $cliente->segundoApellido }}</td>
-                                <td>{{ $cliente->documento }}</td>
                                 <td>{{ $cliente->numeroDocumento }}</td>
                                 <td>{{ $cliente->estado_texto }}</td>
                                 <td>

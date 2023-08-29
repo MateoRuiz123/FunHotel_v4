@@ -2,14 +2,50 @@
 @section('content')
     <!DOCTYPE html>
     <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
+            function usuarioConfirmacion() {
+                var nombre = $('#name').val().trim();
+                var apellido = $('#surname').val().trim();
+                var birthday = $('#birthday').val().trim();
+                var email = $('#email').val().trim();
+                var password = $('#password').val().trim();
+                var confirm = $('#confirm-password').val().trim();
+                var roles = $('#roles').val();
+        
+            if (nombre === '' ||  apellido === '' ||  birthday === '' || email === '' || password  === '' || confirm === '' || roles === '' ) {
+                    Swal.fire({
+                        title: 'Campos vacíos',
+                        text: 'Por favor, completa todos los campos antes de continuar.',
+                        icon: 'error',
+                        confirmButtonColor: '#d33'
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Confirmación',
+                        text: '¿Estás seguro de crear el usuario?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Estoy seguro',
+                        cancelButtonText: 'Cancelar',
+                        confirmButtonColor: '#12B901',
+                        cancelButtonColor: '#E41919'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            document.getElementById('usuarioForm').submit();
+                        }
+                    });
+                }
+            }
+        </script>
+    <script>
             $(document).ready(function() {
                 function validarFormulario() {
                     var nombre = $('#name').val().trim();
@@ -24,9 +60,7 @@
 
                     if (
                         nombre === '' ||
-                        nombrese === '' ||
                         apellido === '' ||
-                        apellidose === '' ||
                         email === '' ||
                         password === '' ||
                         confirm === '' ||
@@ -54,7 +88,7 @@
                     var nombrese = $(this).val();
 
                     if (nombrese.trim() === '') {
-                        $('#nombreseError').text('El nombre es requerido');
+                        $('#nombreseError').text('Este campo no es requerido');
                     } else if (nombrese.includes(' ')) {
                         $('#nombreseError').text('El segundo nombre no puede contener espacios');
                     } else {
@@ -78,7 +112,7 @@
                     var apellidose = $(this).val();
 
                     if (apellidose.trim() === '') {
-                        $('#apellidoseError').text('El segundo apellido es requerido');
+                        $('#apellidoseError').text('Este campo no es requerido');
                     } else if (apellidose.includes(' ')) {
                         $('#apellidoseError').text('El segundo apellido no puede contener espacios');
                     } else {
@@ -182,14 +216,12 @@
         @endif
         <br>
         <div class="container">
-            <form action="{{ route('users.store') }}" method="POST" class="row g-3">
+            <form id="usuarioForm" action="{{ route('users.store') }}" method="POST" class="row g-3">
                 @csrf
-
                 <div class="col-md-6">
                     <div class="form-group">
                         <strong>Nombre:</strong>
-                        <input type="text" id="name" name="name" placeholder="Nombre" class="form-control"
-                            required>
+                        <input type="text" id="name" name="name" placeholder="Nombre" class="form-control">
                         <span id="nombreError" class="text-danger"></span>
                     </div>
                 </div>
@@ -204,8 +236,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <strong>Apellido:</strong>
-                        <input type="text" id="surname" name="surname" placeholder="Apellido" class="form-control"
-                            required>
+                        <input type="text" id="surname" name="surname" placeholder="Apellido" class="form-control">
                         <span id="apellidoError" class="text-danger"></span>
                     </div>
                 </div>
@@ -221,23 +252,21 @@
                     <div class="form-group">
                         <strong>Fecha de nacimiento:</strong>
                         <input type="date" id="birthday" name="birthday" placeholder="Fecha de nacimiento"
-                            class="form-control" required>
+                            class="form-control">
                         <span id="birthdayError" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <strong>Email:</strong>
-                        <input type="text" id="email" name="email" placeholder="Email" class="form-control"
-                            required>
+                        <input type="text" id="email" name="email" placeholder="Email" class="form-control">
                         <span id="emailError" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <strong>Contraseña:</strong>
-                        <input type="password" id="password" name="password" placeholder="Contraseña" class="form-control"
-                            required>
+                        <input type="password" id="password" name="password" placeholder="Contraseña" class="form-control">
                         <span id="passwordError" class="text-danger"></span>
                     </div>
                 </div>
@@ -245,14 +274,14 @@
                     <div class="form-group">
                         <strong>Confirmar Contraseña:</strong>
                         <input type="password" id="confirm-password" name="confirm-password"
-                            placeholder="Confirmar Contraseña" class="form-control" required>
+                            placeholder="Confirmar Contraseña" class="form-control">
                         <span id="confirmpasswordError" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <strong>Rol:</strong>
-                        <select id="roles" name="roles[]" class="form-control" required multiple>
+                        <select id="roles" name="roles[]" class="form-control">
                             {{-- <option value="">Seleccione un rol</option> --}}
                             @foreach ($roles as $role)
                                 <option value="{{ $role->id }}">{{ $role->name }}</option>
@@ -264,11 +293,11 @@
                 <div>
                     <input type="hidden" name="estado" id="estado" value="{{app\models\User::Activo}}">
                 </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Registrar</button>
-                    <a class="btn btn-primary" href="{{ route('users.index') }}">Volver</a>
-                </div>
             </form>
+            <div class="col-12">
+                <button type="submit" onclick="usuarioConfirmacion()" class="btn btn-primary">Crear</button>
+                <a class="btn btn-primary" href="{{ route('users.index') }}">Volver</a>
+            </div>
         </div>
     @endsection
 </body>

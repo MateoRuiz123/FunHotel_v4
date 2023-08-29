@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        function reservaConfirmacion() {
+            var habitacion = $('#habitacion').val().trim();
+            var servicio = $('#servicio').val().trim();
+            var cliente = $('#cliente').val().trim();
+
+            if (habitacion === '' ||  servicio === '' ||  cliente === ''  ) {
+                Swal.fire({
+                    title: 'Campos vacíos',
+                    text: 'Por favor, completa todos los campos antes de continuar.',
+                    icon: 'error',
+                    confirmButtonColor: '#d33'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Confirmación',
+                    text: '¿Estás seguro de crear la reserva?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Estoy seguro',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonColor: '#12B901',
+                    cancelButtonColor: '#E41919'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('ReservaForm').submit();
+                    }
+                });
+            }
+        }
+    </script>
+  <script>
         $(document).ready(function() {
             function validarFormulario() {
                 var habitacion = $('#habitacion').val().trim();
@@ -145,14 +177,13 @@
 
                         </div>
                 </div>
+             </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button class="btn btn-primary" type="submit" type="submitButton">Agregar</button>
+                    <button class="btn btn-primary" onclick="reservaConfirmacion()" type="submit" type="submitButton">Crear</button>
                 </div>
-                </form>
             </div>
         </div>
     </div>
 </body>
-
 </html>
