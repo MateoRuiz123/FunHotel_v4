@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        function moConfirmacion() {
+            var nombre = $('#nombre').val().trim();
+            var descripcion = $('#descripcion').val().trim();
+            var precio = $('#precio').val().trim();
+    
+            if (nombre === '' || descripcion === '' || precio === '') {
+                Swal.fire({
+                    title: 'Campos vacíos',
+                    text: 'Por favor, completa todos los campos antes de continuar.',
+                    icon: 'error',
+                    confirmButtonColor: '#d33'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Confirmación',
+                    text: '¿Estás seguro de editar el cliente?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Estoy seguro',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonColor: '#12B901',
+                    cancelButtonColor: '#E41919'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('serviceForm').submit();
+                    }
+                });
+            }
+        }
+    </script>
+<script>
         $(document).ready(function() {
             function validarFormulario() {
                 var nombre = $('#numeroHabitacion').val().trim();
@@ -68,7 +100,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-3" method="POST" action="{{ route('servicios.store') }}"
+                    <form id="serviceForm" class="row g-3" method="POST" action="{{ route('servicios.store') }}"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="col-md-6">
@@ -77,15 +109,15 @@
                             <span id="nombreError" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
-                            <label for="descripcion" class="form-label">Descripcion</label>
-                            <textarea type="text" class="form-control" name="descripcion" id="descripcion" required></textarea>
-                            <span id="descripcionError" class="text-danger"></span>
-                        </div>
-                        <div class="col-md-6">
                             <label for="precio" class="form-label">Precio</label>
                             <input type="number" class="form-control" name="precio" id="precio"
                                 placeholder="1000000" required>
                             <span id="precioSError" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="descripcion" class="form-label">Descripción</label>
+                            <textarea type="text" class="form-control" name="descripcion" id="descripcion" required></textarea>
+                            <span id="descripcionError" class="text-danger"></span>
                         </div>
                         <div>
                             <input type="hidden" class="form-control" name="estado" id="estado"
@@ -108,16 +140,13 @@
                                 // Asignar el valor de la fecha y hora actual al campo oculto
                                 createdAtField.value = formattedDate;
                             </script>
-
                         </div>
-                        <div class="col-md-12" style="margin-right: 30px">
-                            <button type="submit" class="btn btn-primary"
-                                onclick="return confirm('¿Estás seguro de guardar el registro?')">Crear</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        </div>
-                    </form>
+                    </form><br>
+                    <div class="modal-footer" style="margin-right: 30px">
+                        <button type="submit" onclick="moConfirmacion()" class="btn btn-primary">Crear</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
                 </div>
-                
             </div>
         </div>
     </div>
