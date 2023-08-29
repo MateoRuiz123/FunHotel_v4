@@ -197,6 +197,6 @@
                 fechaVentaInput.classList.add('is-valid');
                 fechaVentaInput.classList.remove('is-invalid');
             }
-        });
+        }); 
     </script>
     @endsection
