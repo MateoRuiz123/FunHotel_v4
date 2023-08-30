@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function RolesConfirmacion() {
+        function Roles() {
             Swal.fire({
                 title: 'Confirmación',
                 text: '¿Estás seguro de crear el rol?',
@@ -81,7 +81,7 @@
         </div>
     </form>
     <div class="col-md-12">
-        <button type="submit" onclick="RolesConfirmacion()" class="btn btn-primary">Crear</button>
+        <button type="submit" onclick="Roles()" class="btn btn-primary">Crear</button>
         <a class="btn btn-primary" href="{{ route('roles.index') }}">Volver</a>
     </div>
 

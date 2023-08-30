@@ -5,13 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function mostrarConfirmacion() {
+    function nueva() {
+        var camposIncompletos = false;
+    
+        // Agrega aquí los IDs de los campos que deseas verificar si están vacíos
+        var camposRequeridos = ['nm', 'pr', 'dc'];
+    
+        camposRequeridos.forEach(function(campo) {
+            var valorCampo = $('#' + campo).val().trim();
+            if (valorCampo === '') {
+                camposIncompletos = true;
+            }
+        });
+    
+        if (camposIncompletos) {
+            Swal.fire({
+                title: 'Campos vacíos',
+                text: 'Por favor, completa todos los campos antes de continuar.',
+                icon: 'error',
+                confirmButtonColor: '#d33'
+            });
+        } else {
             Swal.fire({
                 title: 'Confirmación',
-                text: '¿Estás seguro de editar el servicio?',
+                text: '¿Estás seguro de editar el cliente?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Estoy seguro',
@@ -20,11 +38,12 @@
                 cancelButtonColor: '#E41919'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    document.getElementById('EditForm').submit();
+                    document.getElementById('Nev').submit();
                 }
             });
         }
-    </script>
+    }
+</script>    
 </head>
 <body>
     <div class="modal fade" id="modalUpdate{{ $servicio->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -37,23 +56,22 @@
                 </div>
                 <div class="modal-body">
                  <div class="row">
-                    <form id="EditForm" class="row g-3" method="POST" action="{{ route('servicios.update', $servicio->id) }}"
+                    <form id="Nev" class="row g-3" method="POST" action="{{ route('servicios.update', $servicio->id) }}"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="col-md-6">
                             <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" name="nombre" id="nombre"
-                                value="{{ $servicio->nombre }}">
+                            <input type="text" id="nm" class="form-control" name="nombre" value="{{ $servicio->nombre }}">
                         </div>
                         <div class="col-md-6">
                             <label for="precio" class="form-label">Precio</label>
-                            <input type="text" class="form-control" name="precio" id="precio"
+                            <input type="text" id="pr"  class="form-control" name="precio" id="precio"
                                 value="{{ $servicio->precio }}">
                         </div>
                         <div class="col-md-6"><br>
                             <label for="descripcion" class="form-label">Descripción</label>
-                            <textarea type="text" class="form-control" name="descripcion" id="descripcion">{{ $servicio->descripcion }}</textarea>
+                            <textarea type="text" id="dc" class="form-control" name="descripcion" id="descripcion">{{ $servicio->descripcion }}</textarea>
                         </div>
                         <div class="col-md-6"><br>
                             <label for="estado" class="form-label">Estado</label>
@@ -65,7 +83,7 @@
                     </form>
                 </div></div><br>
                 <div class="modal-footer">
-                    <button type="submit" onclick="mostrarConfirmacion()" class="btn btn-primary" >Actualizar</button>
+                    <button type="button" onclick="nueva()" class="btn btn-primary" >Actualizar</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div> 
             </div>

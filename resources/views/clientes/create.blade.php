@@ -68,86 +68,56 @@
 
                 return true;
             }
+
             $('#primernombre').on('input', function() {
-                var nombre = $(this).val();
-                var errorMensaje = $('#nombreError');
+                    var primernombre = $(this).val();
 
-                if (nombre.trim() === '') {
-                    errorMensaje.text('El nombre es requerido');
-                } else if (nombre.includes(' ')) {
-                    errorMensaje.text('El nombre no puede contener espacios');
-                } else if (!validateAlphaNumeric(nombre)) {
-                    errorMensaje.text('El nombre no puede contener caracteres especiales');
-                } else {
-                    errorMensaje.text(''); // Borrar el mensaje de error
-                }
-            });
+                    if (primernombre.trim() === '') {
+                        $('#nombreError').text('El nombre es requerido');
+                    } else if (primernombre.includes(' ')) {
+                        $('#nombreError').text('El nombre no puede contener espacios');
+                    } else {
+                        $('#nombreError').text('');
+                    }
+                });
 
-            function validateAlphaNumeric(input) {
-                var re = /^[a-zA-Z0-9]+$/;
-                return re.test(input);
-            }
-
+      
             $('#segundonombre').on('input', function() {
-                var nombre2 = $(this).val();
-                var errorMensaje = $('#nombreSError');
+                    var segundonombre = $(this).val();
 
-                if (nombre2.trim() === '') {
-                    errorMensaje.text('Este campo no es requerido');
-                } else if (nombre2.includes(' ')) {
-                    errorMensaje.text('El nombre no puede contener espacios');
-                } else if (!validateAlphaNumeric(nombre2)) {
-                    errorMensaje.text('El nombre no puede contener caracteres especiales');
-                } else {
-                    errorMensaje.text(''); // Borrar el mensaje de error
-                }
-            });
-
-            function validateAlphaNumeric(input) {
-                var re = /^[a-zA-Z0-9]+$/;
-                return re.test(input);
-            }
-
+                    if (segundonombre.trim() === '') {
+                        $('#nombreSError').text('Este campo no es requerido');
+                    } else if (segundonombre.includes(' ')) {
+                        $('#nombreSError').text('El nombre no puede contener espacios');
+                    } else {
+                        $('#nombreSError').text('');
+                    }
+                });
 
             $('#primerapellido').on('input', function() {
-                var apellido = $(this).val();
-                var errorMensaje = $('#apellidoError');
+                    var primerapellido = $(this).val();
 
-                if (apellido.trim() === '') {
-                    errorMensaje.text('El apellido es requerido');
-                } else if (apellido.includes(' ')) {
-                    errorMensaje.text('El apellido no puede contener espacios');
-                } else if (!validateLetters(apellido)) {
-                    errorMensaje.text('El apellido no puede contener números ni caracteres especiales');
-                } else {
-                    errorMensaje.text(''); 
-                }
-            });
+                    if (primerapellido.trim() === '') {
+                        $('#apellidoError').text('El apellido es requerido');
+                    } else if (primerapellido.includes(' ')) {
+                        $('#apellidoError').text('El apellido no puede contener espacios');
+                    } else {
+                        $('#apellidoError').text('');
+                    }
+                });
 
-            function validateLetters(input) {
-                var re = /^[a-zA-Z]+$/;
-                return re.test(input);
-            }
+                $('#segundoapellido').on('input', function() {
+                    var segundoapellido = $(this).val();
 
-            $('#segundoapellido').on('input', function() {
-                var segundoapellido = $(this).val();
-                var errorMensaje = $('#apellidoSError');
+                    if (segundoapellido.trim() === '') {
+                        $('#apellidoSError').text('Este campo no es requerido');
+                    } else if (segundoapellido.includes(' ')) {
+                        $('#apellidoSError').text('El apellido no puede contener espacios');
+                    } else {
+                        $('#apellidoSError').text('');
+                    }
+                });
 
-                if (segundoapellido.trim() === '') {
-                    errorMensaje.text('Este campo no es requerido');
-                } else if (segundoapellido.includes(' ')) {
-                    errorMensaje.text('El segundo apellido no puede contener espacios');
-                } else if (!validateLetters(segundoapellido)) {
-                    errorMensaje.text('El segundo apellido no puede contener números ni caracteres especiales');
-                } else {
-                    errorMensaje.text(''); 
-                }
-            });
-
-            function validateLetters(input) {
-                var re = /^[a-zA-Z]+$/;
-                return re.test(input);
-            }
 
             $('#tipodocumento').on('change', function() {
                 var tipodoc = $(this).val();

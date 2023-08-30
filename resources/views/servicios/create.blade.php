@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function moConfirmacion() {
+        function ServicioC() {
             var nombre = $('#nombre').val().trim();
             var descripcion = $('#descripcion').val().trim();
             var precio = $('#precio').val().trim();
@@ -33,13 +33,12 @@
                     cancelButtonColor: '#E41919'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        document.getElementById('serviceForm').submit();
+                        document.getElementById('Servicio').submit();
                     }
                 });
             }
         }
-    </script>
-<script>
+
         $(document).ready(function() {
             function validarFormulario() {
                 var nombre = $('#numeroHabitacion').val().trim();
@@ -100,7 +99,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="serviceForm" class="row g-3" method="POST" action="{{ route('servicios.store') }}"
+                    <form id="Servicio" class="row g-3" method="POST" action="{{ route('servicios.store') }}"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="col-md-6">
@@ -143,7 +142,7 @@
                         </div>
                     </form><br>
                     <div class="modal-footer" style="margin-right: 30px">
-                        <button type="submit" onclick="moConfirmacion()" class="btn btn-primary">Crear</button>
+                        <button type="submit" onclick="ServicioC()" class="btn btn-primary">Crear</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
@@ -151,5 +150,4 @@
         </div>
     </div>
 </body>
-
 </html>
