@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -87,10 +86,10 @@
                                     autofocus required />
                                 <label>{{ __('Correo Electronico') }}</label>
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <div class="invalid-feedback" style="font-size: 12px;  color: rgb(230, 0, 0); padding-top: 27px;">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             </div>
                             <div class="input-wrap">
                                 <div id="ver" onclick="showHide('password', 'ver');"></div>
@@ -99,10 +98,10 @@
                                     autocomplete="off" required onpaste="return false" />
                                 <label>{{ __('Contraseña') }}</label>
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <div class="invalid-feedback" style="font-size: 12px;  color: rgb(230, 0, 0); padding-top: 31px;">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             </div>
                             <input type="submit" value="{{ __('Login') }}" class="sign-btn" />
                             <p class="text">
@@ -138,7 +137,6 @@
     </main>
     <script src="{{ asset('estilo.js') }}"></script>
 </body>
-
 </html>
 
 {{-- En el código proporcionado, he agregado el atributo `onpaste="return false"` a los campos de contraseña en ambos formularios (inicio de sesión y registro). Esto evitará que los usuarios puedan pegar contenido en esos campos. Sin embargo, es importante tener en cuenta que esto no proporciona una seguridad completa, ya que los usuarios aún pueden ingresar manualmente los datos. Es recomendable implementar medidas adicionales, como validación en el lado del servidor y el uso de técnicas como cifrado de contraseñas para garantizar una mayor seguridad en el manejo de contraseñas. --}}

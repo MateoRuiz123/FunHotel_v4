@@ -84,16 +84,6 @@ form.sign-up-form {
     /*Color letra bienvenidos*/
 }
 
-.heading h4 {
-    color: #2a2424;
-    /*lETRA, DESEA REGISTRARSE*/
-    font-weight: 350;
-    /*Negrilla*/
-    font-size: 0.80rem;
-    /*Tamaño de la letra*/
-    display: inline;
-}
-
 .toggle {
     color: #010101;
     text-decoration: none;
@@ -113,7 +103,7 @@ form.sign-up-form {
     position: relative;
     height: 1.5rem;
     /*Espacio entre las rayas a los campos del form*/
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     /*Espacio entre los campos y el boton enviar*/
 }
 
@@ -157,7 +147,7 @@ label {
     left: 0;
     top: -10px;
     /* Ajusta la distancia vertical del nombre del campo */
-    transform: translateY(-10%);
+    transform: translateY(-5%);
     font-size: 0.95rem;
     color: rgba(127, 127, 127, 0.7);
     /* Color de la letra de los campos */

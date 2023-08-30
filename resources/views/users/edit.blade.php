@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function Confirmacion() {
+        function Usve() {
             Swal.fire({
                 title: 'Confirmación',
                 text: '¿Estás seguro de editar el usuario?',
@@ -131,7 +131,7 @@
             </div>
         </form>
         <div class="col-md-12">
-            <button type="submit" onclick="Confirmacion()" class="btn btn-primary">Actualizar</button>
+            <button type="submit" onclick="Usve()" class="btn btn-primary">Actualizar</button>
         </div>
     </div>
 @endsection

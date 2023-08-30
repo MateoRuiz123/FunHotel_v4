@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
-            function usuarioConfirmacion() {
+            function usuario() {
                 var nombre = $('#name').val().trim();
                 var apellido = $('#surname').val().trim();
                 var birthday = $('#birthday').val().trim();
@@ -295,7 +295,7 @@
                 </div>
             </form>
             <div class="col-12">
-                <button type="submit" onclick="usuarioConfirmacion()" class="btn btn-primary">Crear</button>
+                <button type="submit" onclick="usuario()" class="btn btn-primary">Crear</button>
                 <a class="btn btn-primary" href="{{ route('users.index') }}">Volver</a>
             </div>
         </div>

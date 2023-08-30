@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    function Confirmacion() {
+    function Check() {
         Swal.fire({
             title: 'Confirmación',
             text: '¿Estás seguro de editar el checkins?',
@@ -57,7 +57,7 @@
                 </form>
             </div><br>
             <div class="modal-footer">
-                <button type="submit" onclick="Confirmacion()" class="btn btn-primary">Editar</button>
+                <button type="submit" onclick="Check()" class="btn btn-primary">Editar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
