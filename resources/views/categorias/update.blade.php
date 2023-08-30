@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function mostrarConfirmacion() {
+        function Ctventana() {
             Swal.fire({
                 title: 'Confirmación',
                 text: '¿Estás seguro de editar esta categoría?',
@@ -61,7 +61,7 @@
                     </form>
                 </div><br>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" onclick="mostrarConfirmacion()">Actualizar</button>
+                    <button type="submit" class="btn btn-primary" onclick="Ctventana()">Actualizar</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
      <script>
-        function Confirmacion() {
+        function Habiven() {
             var numero = $('#numeroHabitacion').val().trim();
             var descripcion = $('#descripcion').val().trim();
             var categoria = $('#idCategoria').val().trim();
@@ -139,7 +139,7 @@
                     </div>
                 </form>
                 <div class="modal-footer"><br>
-                    <button class="btn btn-primary" id="submitButton" onclick="Confirmacion()" type="submit">Crear</button>
+                    <button class="btn btn-primary" id="submitButton" onclick="Habiven()" type="submit">Crear</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>

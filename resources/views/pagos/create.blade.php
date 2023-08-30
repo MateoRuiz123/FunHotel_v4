@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-    function pagosConfirmacion() {
+    function pagos() {
         var nombre1 = $('#nombre1').val().trim();
 
         if (nombre1 === '' ) {
@@ -93,7 +93,7 @@
           </form>
         </div><br>
         <div class="modal-footer"><br><br>
-          <button type="submit" onclick="pagosConfirmacion()" class="btn btn-primary">Agregar</button>
+          <button type="submit" onclick="pagos()" class="btn btn-primary">Agregar</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         </div>
       </div>

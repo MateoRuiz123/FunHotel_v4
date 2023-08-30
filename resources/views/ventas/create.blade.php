@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    function ventasConfirmacion() {
+    function ventas() {
         Swal.fire({
             title: 'Confirmación',
             text: '¿Estás seguro de crear esta venta?',
@@ -79,7 +79,7 @@
                 </div>
             </form>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" onclick="ventasConfirmacion()">Crear <i class="bi bi-plus-circle"></i></button>
+                <button type="submit" class="btn btn-primary" onclick="ventas()">Crear <i class="bi bi-plus-circle"></i></button>
                 <a class="btn btn-light" href="{{ route('roles.index') }}">Volver</a>
             </div>
 

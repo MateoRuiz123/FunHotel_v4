@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function mostrarConfirmacion() {
+        function VentanaPg() {
             Swal.fire({
                 title: 'Confirmación',
                 text: '¿Estás seguro de editar el método de pago?',
@@ -25,37 +24,6 @@
                 }
             });
         }
-    </script>
-     <script>
-        $(document).ready(function() {
-            function validarFormulario() {
-                var nombre = $('#nombre').val().trim();
-
-                if (
-                    nombre === '' 
-                ) {
-                    return false;
-                }
-
-                return true;
-            }
-
-            $('#nombre').on('input', function() {
-                var nombre = $(this).val();
-
-                if (nombre.trim() === '') {
-                    $('#metodoError').text('El método de pago es requerido');
-                } else {
-                    $('#metodoError').text('');
-                }
-            });
-        
-            $('#submitButton').on('click', function(event) {
-                if (!validarFormulario()) {
-                    event.preventDefault();
-                }
-            });
-        });
     </script>
 </head>
 <body>
@@ -89,7 +57,7 @@
                 </div>
             </form><br>
             <div class="modal-footer">
-                <button type="submit" id="submitButton" onclick="mostrarConfirmacion()" class="btn btn-primary">Actualizar</button>
+                <button type="submit" id="submitButton" onclick="VentanaPg()" class="btn btn-primary">Actualizar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
             </div>

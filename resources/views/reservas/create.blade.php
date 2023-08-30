@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function reservaConfirmacion() {
+        function reserva() {
             var habitacion = $('#habitacion').val().trim();
             var servicio = $('#servicio').val().trim();
             var cliente = $('#cliente').val().trim();
@@ -180,7 +180,7 @@
              </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button class="btn btn-primary" onclick="reservaConfirmacion()" type="submit" type="submitButton">Crear</button>
+                    <button class="btn btn-primary" onclick="reserva()" type="submit" type="submitButton">Crear</button>
                 </div>
             </div>
         </div>

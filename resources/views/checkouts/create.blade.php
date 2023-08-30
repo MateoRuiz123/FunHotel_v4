@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    function ckConfirmacion() {
+    function anCe() {
         var salida = $('#salida').val().trim();
         var checkin = $('#checkin').val().trim();
         var metpago = $('#metpago').val().trim();
@@ -87,7 +87,7 @@
                 </form>
             </div><br>
             <div class="modal-footer">
-                <button type="submit" onclick="ckConfirmacion()" class="btn btn-primary">Crear</button>
+                <button type="submit" onclick="anCe()" class="btn btn-primary">Crear</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>

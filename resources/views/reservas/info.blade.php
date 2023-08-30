@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    function mostrarConfirmacion() {
+    function Reve() {
         Swal.fire({
             title: 'Confirmación',
             text: '¿Estás seguro de editar la reserva?',
@@ -70,7 +70,7 @@
             </div><br>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" onclick="mostrarConfirmacion()" class="btn btn-primary">Actualizar</button>
+                <button type="submit" onclick="Reve()" class="btn btn-primary">Actualizar</button>
             </div>
         </div>
     </div>
