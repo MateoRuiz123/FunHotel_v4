@@ -140,8 +140,7 @@
                             <select class="form-select" name="cliente" id="cliente" required>
                                 <option value="">Seleccione</option>
                                 @foreach ($clientes as $cliente)
-                                <option value="{{ $cliente->id }}">{{ $cliente->primerNombre }}
-                                    {{ $cliente->primerApellido }}
+                                <option value="{{ $cliente->id }}">{{ $cliente->numeroDocumento }}
                                 </option>
                                 @endforeach
                             </select>
