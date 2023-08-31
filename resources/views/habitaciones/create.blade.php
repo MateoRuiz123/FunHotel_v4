@@ -61,10 +61,10 @@
 
                 if (numero.trim() === '') {
                     $('#numeroSError').text('El número de la habitación es requerido');
+                }  else if (numero.length < 3) {
+                    $('#numeroSError').text('El número de la habitación debe tener al menos 3 dígitos');
                 } else if (numero.includes(' ')) {
                     $('#numeroSError').text('El número de la habitación no puede contener espacios');
-                } else if (numero.length < 3) {
-                    $('#numeroSError').text('El número de la habitación debe tener al menos 3 dígitos');
                 } else if (!/^\d+$/.test(numero)) {
                     $('#numeroSError').text('El número de la habitación debe contener solo números');
                 } else {

@@ -6,6 +6,8 @@ use App\Models\Checkout;
 use App\Models\Checkin;
 use App\Models\Pago;
 use App\Models\Venta;
+use App\Models\Reserva;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -19,7 +21,9 @@ class CheckoutController extends Controller
         $checkins = Checkin::all();
         $metodos = Pago::all();
         $ventas = Venta::all();
-        return view('checkouts.index', compact('checkouts', 'checkins', 'metodos', 'ventas'));
+        $reservas = Reserva::all();
+        $clientes = Cliente::all();
+        return view('checkouts.index', compact('checkouts', 'checkins', 'metodos', 'ventas', 'reservas','clientes'));
         //
     }
 
@@ -41,6 +45,8 @@ class CheckoutController extends Controller
         $checkouts->idCheckin = $request->input('checkin');
         $checkouts->idMetodoPago = $request->input('metpago');
         $checkouts->idVenta = $request->input('venta');
+        $checkouts->idReserva = $request->input('reserva');
+        $checkouts->idCliente = $request->input('cliente');        
         // estado
         $checkouts->estado = Checkout::Activo;
         $checkouts->save();
@@ -74,6 +80,8 @@ class CheckoutController extends Controller
         $checkouts->idCheckin = $request->input('checkin');
         $checkouts->idMetodoPago = $request->input('metpago');
         $checkouts->idVenta = $request->input('venta');
+        $checkouts->idReserva = $request->input('reserva');
+        $checkouts->idCliente = $request->input('cliente');
         // estado
         $checkouts->estado = $request->input('estado');
         $checkouts->update();
