@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserApiController extends Controller
 {
@@ -77,9 +78,12 @@ class UserApiController extends Controller
 
         if (Auth::attempt($credentials)){
             $user = Auth::user();
+            $token = JWTAuth::fromUser($user);
+
             return response()->json([
                 'status' => 'success',
                 'user'=> $user,
+                'token' => $token,
             ]);
         }
 

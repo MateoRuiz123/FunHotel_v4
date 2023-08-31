@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserController extends Controller
 {
@@ -107,5 +109,25 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success', 'Roles asignados correctamente');
     }
 
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            $token = JWTAuth::fromUser($user);
+
+            return response()->json([
+                'status' => 'success',
+                'user' => $user,
+                'token' => $token,
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Usuario o contraseña incorrectos',
+        ], 401);
+    }
 
 }

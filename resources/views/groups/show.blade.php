@@ -7,7 +7,6 @@
         <div class="row">
             <div class="col">
                 <h1>Grupo: {{ $group->name }}</h1>
-
                 <!-- Mostrar información del grupo -->
                 <p>Descripción: {{ $group->description ?? 'No hay descripción' }}</p>
                 <!-- Botones de acción -->
@@ -144,9 +143,7 @@
                         <button type="submit" class="btn btn-primary">Agregar al grupo</button>
                     </div>
                 </form>
-
-
-
+                
                 <br>
                 <form class="row g-3"
                     action="{{ route('groups.users.remove', ['group' => $group->id, 'user' => 'USER_ID']) }}"
