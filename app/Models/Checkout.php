@@ -32,6 +32,16 @@ class Checkout extends Model
         return $this->belongsTo(Venta::class, 'idVenta', 'id');
     }
 
+    public function reserva()
+    {
+        return $this->belongsTo(Reserva::class, 'idReserva', 'id');
+    }
+
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class, 'idCliente', 'id');
+    }
+
     const Activo = 1;
     const Inactivo = 0;
 

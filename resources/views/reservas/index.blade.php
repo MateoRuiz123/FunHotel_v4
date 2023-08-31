@@ -31,6 +31,9 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>Nro Habitacion</th>
+                            <th>Nro. doc cliente</th>
+                            <th>Nombre cliente</th>
                             <th>Habitacion</th>
                             <th>Cliente</th>
                             <th>Servicio</th>
@@ -46,6 +49,7 @@
                             <tr>
                                 <td>{{ $reserva->id }}</td>
                                 <td>{{ $reserva->habitacion->numeroHabitacion }}</td>
+                                <td>{{ $reserva->cliente->numeroDocumento}}</td>
                                 <td>{{ $reserva->cliente->primerNombre }} {{ $reserva->cliente->primerApellido }} </td>
                                 <td>{{ $reserva->servicio->nombre }}</td>
                                 <td>{{ $reserva->fecIngreso }}</td>

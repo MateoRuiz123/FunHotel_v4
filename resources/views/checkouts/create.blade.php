@@ -63,7 +63,30 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="" class="form-label">Id Metodo pago</label>
+                        <label for="" class="form-label">Id Reserva</label>
+                        <select name="reserva" id="reserva" class="form-select">
+                            <option value="">Seleccione</option>
+                            @foreach ($reservas as $reserva)
+                                <option value="{{ $reserva->id }}">{{ $reserva->id }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                            <label for="" class="form-label">Cliente:</label>
+                            {{-- <input type="text" class="form-control" name="cliente" id="" aria-describedby="helpId" placeholder=""> --}}
+                            <select class="form-select" name="cliente" id="cliente" required>
+                                <option value="">Seleccione</option>
+                                @foreach ($clientes as $cliente)
+                                <option value="{{ $cliente->id }}">{{ $cliente->numeroDocumento }}
+                                </option>
+                                @endforeach
+                            </select>
+                            <span id="clienteError" class="text-danger"></span>
+                        </div>
+
+                    <div class="col-md-6">
+                        <label for="" class="form-label">Metodo de pago</label>
                         <select name="metpago" id="metpago" class="form-select">
                             <option value="">Seleccione</option>
                             @foreach ($metodos as $metodo)

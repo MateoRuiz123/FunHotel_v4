@@ -44,6 +44,12 @@
                         <input type="text" class="form-control" name="servicio" id=""
                             aria-describedby="helpId" placeholder="" value="{{ $reserva->idServicio }}">
                     </div>
+                    <div class="col-md-6">
+                        <label for="" class="form-label">Nro. doc cliente</label>
+                        <input type="text" class="form-control" name="cliente" id=""
+                            aria-describedby="helpId" placeholder="" value="{{ $reserva->idCliente }}">
+                    </div>
+
                     <div class="col-md-6"><br>
                         <label for="" class="form-label">Cliente</label>
                         <input type="text" class="form-control" name="cliente" id=""
