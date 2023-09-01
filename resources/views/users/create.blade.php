@@ -266,7 +266,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <strong>Tipo de documento:</strong>
-                        <select id="tipoDocumento" name="tipoDocumento" class="form-control">
+                        <select id="tipoDocumento" name="tipoDocumento" class="form-control" required>
                             <option value="">Seleccione un tipo de documento</option>
                             <option value="Cedula">Cedula</option>
                             <option value="Pasaporte">Pasaporte</option>
@@ -280,7 +280,7 @@
                     <div class="form-group">
                         <strong>Número de documento:</strong>
                         <input type="text" id="numeroDocumento" name="numeroDocumento" placeholder="Número de documento"
-                            class="form-control">
+                            class="form-control" required>
                         <span id="numeroDocumentoError" class="text-danger"></span>
                     </div>
                 </div>
