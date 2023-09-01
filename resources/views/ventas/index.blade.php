@@ -45,12 +45,12 @@
                         <td>{{ $venta->reserva->idServicio }}</td>
                         <td>{{ $venta->estado_texto }}</td>
                         <td>
-                            <!-- Botón de switch -->
+                            <!-- Estilo personalizado para el botón de switch -->
                             <label class="switch">
                                 <input type="checkbox" id="estado-{{ $venta->id }}"
                                     onchange="cambiarEstado({{ $venta->id }})"
                                     {{ $venta->estado == \App\Models\Venta::Activo ? 'checked' : '' }}>
-                                <span class="slider round"></span>
+                                <span class="slider"></span>
                             </label>
                         </td>
                         <td>
@@ -72,6 +72,60 @@
         </div>
     </div>
 </div>
+
+<style>
+    /* Estilos personalizados para el botón de switch */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 20px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(20px);
+    }
+
+    /* Ajusta los estilos según tus preferencias */
+</style>
 
 <script>
     function cambiarEstado(ventaId) {
