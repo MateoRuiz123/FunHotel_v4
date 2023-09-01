@@ -31,8 +31,8 @@
                         <th>Fecha de Venta</th>
                         <th>ID Cliente</th>
                         <th>ID Servicio</th>
-                        <th>Estado</th>
-                        <th>Cambiar Estado</th> <!-- Nueva columna -->
+                        {{-- <th>Estado</th> --}}
+                        <th>Estado</th> <!-- Nueva columna -->
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -43,7 +43,7 @@
                         <td>{{ $venta->fecha_venta }}</td>
                         <td>{{ $venta->reserva->idCliente}}</td>
                         <td>{{ $venta->reserva->idServicio }}</td>
-                        <td>{{ $venta->estado_texto }}</td>
+                        {{-- <td>{{ $venta->estado_texto }}</td> --}}
                         <td>
                             <!-- Estilo personalizado para el botón de switch -->
                             <label class="switch">
