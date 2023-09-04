@@ -11,6 +11,7 @@
 body,
 input {
     /*TIPO LETRA*/
+    background-color: rgba(184, 184, 184, 0.47);
     font-family: "Poppins", sans-serif;
 }
 
@@ -31,9 +32,8 @@ main {
     max-width: 80rem;
     height: 30rem;
     background-color: #ededed;
-    /*SOMBREADO GRIS*/
     border-radius: 3.3rem;
-    box-shadow: 0 60px 40px -30px rgba(50, 11, 98, 0.315);
+    box-shadow: 0 60px 40px -30px rgba(86, 30, 155, 0.317);
 }
 
 .inner-box-ingresar {
@@ -84,16 +84,6 @@ form.sign-up-form {
     /*Color letra bienvenidos*/
 }
 
-.heading h4 {
-    color: #2a2424;
-    /*lETRA, DESEA REGISTRARSE*/
-    font-weight: 350;
-    /*Negrilla*/
-    font-size: 0.80rem;
-    /*Tamaño de la letra*/
-    display: inline;
-}
-
 .toggle {
     color: #010101;
     text-decoration: none;
@@ -113,16 +103,16 @@ form.sign-up-form {
     position: relative;
     height: 1.5rem;
     /*Espacio entre las rayas a los campos del form*/
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     /*Espacio entre los campos y el boton enviar*/
 }
 
 #ver {
     position: absolute;
     top: 82%;
-    transform: translate(-70%, -99%);
+    transform: translate(-50%, -99%);
     right: 2rem;
-    background: url(/img/ojo.png);
+    background: url(/img/eye.png);
     background-size: cover;
     width: 22px;
     height: 22px;
@@ -131,32 +121,8 @@ form.sign-up-form {
 }
 
 #ver.hide {
-    background: url(/img/eye.png);
-    background-size: cover;
-}
-
-#ver.campo1 {
-    position: absolute;
-    top: 46%;
-    transform: translate(-135%, -135%);
-    right: -18px;
     background: url(/img/ojo.png);
     background-size: cover;
-    width: 22px;
-    height: 22px;
-    cursor: pointer;
-}
-
-#ver.campo2 {
-    position: absolute;
-    top: 44%;
-    transform: translate(-135%, -135%);
-    right: -28px;
-    background: url(/img/ojo.png);
-    background-size: cover;
-    width: 22px;
-    height: 22px;
-    cursor: pointer;
 }
 
 /*FORMULARIO INGRESAR*/
@@ -181,7 +147,7 @@ label {
     left: 0;
     top: -10px;
     /* Ajusta la distancia vertical del nombre del campo */
-    transform: translateY(-10%);
+    transform: translateY(-5%);
     font-size: 0.95rem;
     color: rgba(127, 127, 127, 0.7);
     /* Color de la letra de los campos */
@@ -270,6 +236,7 @@ main.sign-up-mode .carousel {
     /*Espacio entre imagen y letra*/
     overflow: hidden;
     transition: 0.5s ease-in-out;
+    animation: carouselAnimation 1s linear infinite;
 }
 
 .images-wrapper {
@@ -295,8 +262,9 @@ main.sign-up-mode .carousel {
 }
 
 .img-2 {
-    transform: scale(0.2, 0.2);
+    transform: scale(0.3, 0.2);
 }
+
 
 .img-3 {
     transform: scale(0.3) rotate(-20deg);

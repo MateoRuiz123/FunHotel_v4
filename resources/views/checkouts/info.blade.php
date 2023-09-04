@@ -1,4 +1,24 @@
 <!-- Modal Edit -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function MoChek() {
+        Swal.fire({
+            title: 'Confirmación',
+            text: '¿Estás seguro de editar el checkouts?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Estoy seguro',
+            cancelButtonText: 'Cancelar',
+            confirmButtonColor: '#12B901',
+            cancelButtonColor: '#E41919'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('Upcform').submit();
+            }
+        });
+    }
+</script>
 <div class="modal fade" id="edit{{$checkout->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="modalCreateLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -10,7 +30,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="row g-3" action="{{route('checkouts.update',$checkout->id)}}" method="post"
+                <form id="Upcform" class="row g-3" action="{{route('checkouts.update',$checkout->id)}}" method="post"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -62,12 +82,10 @@
                             <option value="{{\App\Models\Checkout::Inactivo}}" {{ $checkout->estado == \App\Models\Checkout::Inactivo ? 'selected' : '' }}>Inactivo</option>
                         </select>
                     </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Editar</button>
-                    </div>
                 </form>
             </div>
             <div class="modal-footer">
+                <button type="submit" onclick="MoChek()" class="btn btn-primary">Actualizar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
@@ -94,8 +112,8 @@
                     ¡¿Estas seguro de eliminar el check-out #<strong> {{ $checkout->id }} </strong> de la fecha {{ $checkout->fecSalida}}?!
                 </div>
                 <div class="modal-footer">
+                    <button type="submit" onclick="Confirmacion()" class="btn btn-primary">Confirmar</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>
         </div>

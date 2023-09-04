@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,30 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FunHotel</title>
+    <link rel="shortcut icon" href="{{ asset('assets/images/Pequeño.ico') }}">
     <link rel="stylesheet" href="{{asset('css/land.css')}}">
     <script src="{{asset('js/land.js')}}"></script>
 </head>
-    <header>
-    <nav>
-        <ul class="nav nav-tabs">
-            <li><a href="/home">Iniciar sesión</a></li>
-            <li><a href="/habitaciones">Habitaciones</a></li>
-            <li><a href="#Promociones">Promociones</a></li>
-            <li><a href="/servicios">Servicios</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-    </header>
+<header>
+  <nav>
+      <ul class="nav nav-tabs">
+        <li>FunHotel</li>
+      </ul>
+    </nav>
+  </header>
     <section id="inicio">
-      <div class="hero">
+      <div class="hero">     
         <h1 class="animate-letters">Bienvenidos a <br>FunHotel</h1>
-        <a href="#reservas" class="btn">Reserva ahora</a>
+        <center><a href="/home" class="btn">Iniciar Sesión</a></center>
       </div>
     </section>
     <div class="titulo">
       <h2 class="">Como surgio <br> Funhotel </h2>
     </div>
-
       <div class="texto">
           <p>Funhotel surge de la necesidad que se presentaba con los estudiantes de Hoteleria Y Turismo, de contar con una herramienta
             eficiente y accesible, ante la falta de recursos <br> que pudieran completar su formación, un grupo de entusiastas estudiantes, decidieron
@@ -38,92 +32,45 @@
             Asi nacio FunHotel, un innovador aplicativo, creado con la misión de optimizar y facilitar <br> el proceso de aprendizaje para 
             los estudiantes de Hoteleria Y Turismo.
           </p>
-        </div>
-      <div class="container">
-         <div class="nuevo">
-          <h2 class="animate-letters">Misión</h2>
-            <p>En FunHotel, nuestra misión es brindar a nuestros clientes una experiencia <br> inigualable de comodidad, lujo y diversión. Nos esforzamos por ser <br> un referente en la industria hotelera, ofreciendo un 
-              servicio <br> excepcional y superando las expectativas de nuestros huéspedes. <br>
-              Nuestro objetivo principal es garantizar que cada momento que nuestros <br> clientes pasen con nosotros sea memorable.
-            </p>
+        </div></div>
+        <div class="container-card">
+          <div class="card">
+            <figure>
+              <center><img src="{{ asset('img/mision.png') }}" class="mision" alt="" /></center>
+            </figure>
+            <div class="contenido-card">
+              <h3>Misión</h3>
+              <p>Nos esforzamos por ser un referente en la industria hotelera, ofreciendo un 
+                      servicio excepcionales y experiencias inigualables.</p>
+            </div>
           </div>
-        <div class="nuevo">
-          <h2 class="animate-letters">Visión</h2>
-            <p>Nos esforzamos por ser un referente en la industria hotelera, destacándonos por nuestra excelencia 
-                en la calidad y la innovación. Buscamos constantemente mejorar nuestras  
-                instalaciones y servicios para ofrecer experiencias únicas y sobresalientes.
-            </p>
+          <div class="card">
+            <figure>
+              <center><img src="{{ asset('img/Vision.png') }}" class="" alt="" /></center>
+            </figure>
+            <div class="contenido-card">
+              <h3>Visión</h3>
+              <p>Trabajamos para ser un referente en la industria hotelera, destacándonos por nuestra excelencia 
+                      en la calidad y la innovación.</p>
+            </div>
           </div>
-        </div><br><br><br><br><br><br>
-        <ul class="cards">
-          <li class="cards__item">
-            <div class="card">
-                <div class="card__image card__image--Andrw"></div>
-                  <div class="card__content">
-                      <div class="card__title">Andres Moreno</div>
-                      <p class="card__text">Desarrollador/Diseñador</p>
-                      <p class="card__text">afmoreno9672@soy.sena.edu.co</p>
-                  </div>
-              </div>
-            </li>
-            <li class="cards__item">
-                <div class="card">
-                    <div class="card__image card__image--Jeidy"></div>
-                    <div class="card__content">
-                        <div class="card__title">Jeidy Borja</div>
-                        <p class="card__text">Desarrollador/Diseñadora</p>
-                        <p class="card__text">jdborja26@soy.sena.edu.co</p>
-                    </div>
-                </div>
-            </li>
-            <li class="cards__item">
-                <div class="card">
-                    <div class="card__image card__image--Mateo"></div>
-                    <div class="card__content">
-                        <div class="card__title">Mateo Ruiz</div>
-                        <p class="card__text">Desarrollador/Diseñador</p>
-                        <p class="card__text">mrivera736@soy.sena.edu.co</p>
-                    </div>
-                </div>
-            </li>
-            <li class="cards__item">
-                <div class="card">
-                    <div class="card__image card__image--Andrw"></div>
-                    <div class="card__content">
-                        <div class="card__title">Briyid Erazo</div>
-                        <p class="card__text">Desarrollador/Diseñadora</p>
-                        <p class="card__text">babolanos207@misena.edu.co </p>
-                    </div>
-                </div>
-            </li>
-            <li class="cards__item">
-                <div class="card">
-                    <div class="card__image card__image--Andrw"></div>
-                    <div class="card__content">
-                        <div class="card__title">Miguel Poveda</div>
-                        <p class="card__text">Desarrollador/Diseñador</p>
-                        <p class="card__text">mapoveda21@misena.edu.co</p>
-                    </div>
-                 </div>
-             </li>
-           </ul><br>
-           <div class="logoland">
-            <img src="{{ asset('img/Hotel.png') }}" class="" alt="" />
-          </div>
-        <section class="contacto">
-          <h2>Contacto</h2>
-           <p>¡Estaremos encantados de ayudarte! <br> Puedes contactarnos a través de los siguientes medios:</p>
-
-        <ul>
-          <li>Teléfono: 314-885-23-54</li>
-          <li>Email: info@funhotel.com</li>
-          <li>Dirección: Calle Principal, Medellín</li>
-        </ul>
-      </section>
-
-
+          <div class="card">
+            <figure>
+              <center><img src="{{ asset('img/Movil3.png') }}" class="" alt="" /></center>
+            </figure>
+            <div class="contenido-card">
+              <h3>Móvil</h3>
+              <p>FunHotel cuenta con un apartado móvil, diseñado para la comodidad y facilidad a la mano
+                de nuestros clientes.
+              </p>
+            </div>
+           </div>
+         </div> 
+      <div class="logoland">
+        <img src="{{ asset('img/Hotel.png') }}" class="animate-letters" alt="" />
+    </div>
     <footer>
-      <p>&copy; 2023 FunHotel. Todos los derechos reservados.</p>
+      <p>&copy; 2023 FunHotel. Elevando el arte de la hospitalidad con innovación y pasión. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>

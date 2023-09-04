@@ -19,16 +19,14 @@
                     <li class="li">L</li>
                 </ul>
             </div>
-
         </div>
     </div>
-    
     <style>
         .ul {
             position: absolute;
-            top: 50%;
+            top: 52%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-1%, -1%);
             margin: 0;
             padding: 0;
             display: flex;

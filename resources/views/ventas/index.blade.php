@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-4">
                 <div class="float-end d-none d-md-block">
-                    <a href="/venta-create" class="btn btn-primary">Registrar</a>
+                    <a href="/venta-create" class="btn btn-primary">Registrar <i class="bi bi-plus-circle"></i></a>
                 </div>
             </div>
         </div>

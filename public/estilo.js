@@ -38,4 +38,15 @@ bullets.forEach((bullet) => {
     bullet.addEventListener("click", moveSlider);
 });
 
+function autoChangeImage() {
+    let activeBullet = document.querySelector(".bullets span.active");
+    let nextBullet = activeBullet.nextElementSibling;
+    if (!nextBullet) {
+        nextBullet = bullets[0];
+    }
+    moveSlider.call(nextBullet);
+}
+
+setInterval(autoChangeImage, 3000); // Cambia de imagen cada 5 segundos (ajusta según tu preferencia)
+
 

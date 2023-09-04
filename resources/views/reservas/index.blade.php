@@ -34,6 +34,8 @@
                             <th>Nro Habitacion</th>
                             <th>Nro. doc cliente</th>
                             <th>Nombre cliente</th>
+                            <th>Habitacion</th>
+                            <th>Cliente</th>
                             <th>Servicio</th>
                             <Th>De:</Th>
                             <Th>Hasta:</Th>

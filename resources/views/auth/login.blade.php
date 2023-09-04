@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - FunHotel</title>
     <link rel="stylesheet" href="{{ asset('estilo.css') }}" />
-
+    <link rel="shortcut icon" href="{{ asset('assets/images/Pequeño.ico') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -25,14 +23,17 @@
             border-radius: 50px;
             box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
             cursor: pointer;
+            border: 3.10px solid #d8d8d8c5;
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-            overflow: hidden; /* Para ocultar el desbordamiento del icono */
+            overflow: hidden;
+            /* Para ocultar el desbordamiento del icono */
         }
 
         .back-button::before {
-            content: '\2190'; /* Código Unicode para la flecha izquierda */
+            content: '\2190';
+            /* Código Unicode para la flecha izquierda */
             display: inline-block;
-            margin-right: 2px; 
+            margin-right: 2px;
             font-size: 27px;
             vertical-align: middle;
         }
@@ -62,6 +63,7 @@
         }
     </script>
 </head>
+
 <body>
     
     <main>
@@ -69,7 +71,7 @@
             alert('{{ session('success') }}');
         @endif
         <div class="box">
-            <button onclick="goBack()" class="back-button"></button> 
+            <button onclick="goBack()" class="back-button"></button>
             <div class="inner-box-ingresar">
                 <div class="forms-wrap">
                     <form action="{{ route('login') }}" autocomplete="off" class="sign-in-form" method="POST">
@@ -84,10 +86,10 @@
                                     autofocus required />
                                 <label>{{ __('Correo Electronico') }}</label>
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <div class="invalid-feedback" style="font-size: 12px;  color: rgb(230, 0, 0); padding-top: 27px;">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             </div>
                             <div class="input-wrap">
                                 <div id="ver" onclick="showHide('password', 'ver');"></div>
@@ -96,10 +98,10 @@
                                     autocomplete="off" required onpaste="return false" />
                                 <label>{{ __('Contraseña') }}</label>
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <div class="invalid-feedback" style="font-size: 12px;  color: rgb(230, 0, 0); padding-top: 31px;">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                             </div>
                             <input type="submit" value="{{ __('Login') }}" class="sign-btn" />
                             <p class="text">
@@ -108,7 +110,8 @@
                             </p>
                         </div>
                     </form>
-            </div> </div>
+                </div>
+            </div>
             <div class="carousel">
                 <div class="images-wrapper">
                     <img src="{{ asset('img/Hotel.png') }}" class="image img-1 show" alt="" />
@@ -123,7 +126,6 @@
                             <h2>{{ __('Reserva con nosotros') }}</h2>
                         </div>
                     </div>
-
                     <div class="bullets">
                         <span class="active" data-value="1"></span>
                         <span data-value="2"></span>

@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-
 <body>
     <div class="modal fade" id="VER{{ $cliente->id }}" tabindex="-1" role="dialog"
         aria-labelledby="VermasLabel{{ $cliente->id }}" aria-hidden="true">
@@ -28,8 +26,8 @@
                     <li class="list-group-item"> Segundo nombre: {{ $cliente->segundoNombre }}</li>
                     <li class="list-group-item"> Apellido: {{ $cliente->primerApellido }}</li>
                     <li class="list-group-item"> Segundo apellido: {{ $cliente->segundoApellido }}</li>
-                    <li class="list-group-item"> Tipo documento: {{ $cliente->tipoDocumento }}</li>
-                    <li class="list-group-item"> Documento: {{ $cliente->documento }}</li>
+                    <li class="list-group-item"> Tipo documento: {{ $cliente->documento }}</li>
+                    <li class="list-group-item"> Documento: {{ $cliente->numeroDocumento }}</li>
                     <li class="list-group-item"> Celular: {{ $cliente->celular }}</li>
                     <li class="list-group-item"> Correo: {{ $cliente->correo }}</li>
                 </ol>
@@ -40,5 +38,4 @@
         </div>
     </div>
 </body>
-
 </html>

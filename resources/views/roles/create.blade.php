@@ -1,7 +1,36 @@
 @extends('layouts.app')
 @section('content')
-    <!-- start page title -->
-    <div class="page-title-box">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function Roles() {
+            Swal.fire({
+                title: 'Confirmación',
+                text: '¿Estás seguro de crear el rol?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Estoy seguro',
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: '#12B901',
+                cancelButtonColor: '#E41919'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('RolForm').submit();
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+      <!-- start page title -->
+      <div class="page-title-box">
         <div class="row align-items-center">
             <div class="col-md-8">
                 <h6 class="page-title">Crear rol</h6>
@@ -9,7 +38,7 @@
         </div>
     </div>
 
-    <form method="POST" action="{{ route('roles.store') }}" class="row g-3">
+    <form id="RolForm" method="POST" action="{{ route('roles.store') }}" class="row g-3">
         @csrf
         <div class="col-md-6">
             <div class="form-group">
@@ -50,12 +79,11 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-md-12">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-            <a class="btn btn-primary" href="{{ route('roles.index') }}">Volver</a>
-        </div>
     </form>
+    <div class="col-md-12">
+        <button type="submit" onclick="Roles()" class="btn btn-primary">Crear</button>
+        <a class="btn btn-primary" href="{{ route('roles.index') }}">Volver</a>
+    </div>
 
     <style>
         .permission-group {
@@ -76,3 +104,6 @@
         }
     </style>
 @endsection
+</body>
+</html>
+  
