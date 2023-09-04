@@ -138,16 +138,15 @@
 
                     if (password.trim() === '') {
                         $('#passwordError').text('La contraseña es requerida');
+                    } else if (!/^\d+$/.test(password)) {
+                        $('#passwordError').text('La contraseña debe contener solo números');
                     } else if (password.length < 8) {
                         $('#passwordError').text('La contraseña debe tener al menos 8 caracteres');
-                    } else if (!/[a-zA-Z]/.test(password)) {
-                        $('#passwordError').text('La contraseña debe contener al menos una letra');
-                    } else if (!/\d/.test(password)) {
-                        $('#passwordError').text('La contraseña debe contener al menos un número');
                     } else {
                         $('#passwordError').text('');
                     }
                 });
+
 
                 $('#confirm-password').on('input', function() {
                     var password = $('#password').val();
@@ -324,15 +323,15 @@
                     <div class="form-group">
                         <strong>Confirmar Contraseña:</strong>
                         <div class="input-group">
-                        <input type="password" id="confirm-password" name="confirm-password"
-                            placeholder="Confirmar Contraseña" class="form-control">
-                        <button type="button" id="toggleConfirmPassword" class="btn btn-outline-secondary">
-                            <i class="fa-regular fa-eye"></i>
-                        </button>
+                            <input type="password" id="confirm-password" name="confirm-password"
+                                placeholder="Confirmar Contraseña" class="form-control">
+                            <button type="button" id="toggleConfirmPassword" class="btn btn-outline-secondary">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+                        <span id="confirmpasswordError" class="text-danger"></span>
                     </div>
-                    <span id="confirmpasswordError" class="text-danger"></span>
                 </div>
-            </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <strong>Rol:</strong>
