@@ -7,43 +7,81 @@
     <title>Document</title>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var requiredFields = document.querySelectorAll('.custom-form-control[required]');
-        
+        var requiredFields = document.querySelectorAll('.custom-form-control[required]');
+
             requiredFields.forEach(function(field) {
                 field.addEventListener('input', function() {
                     validarCampo(this);
                     validarLongitud(this);
+                    validarCorreo(this);
                 });
             });
         });
-        
-        function validarCampo(field) {
+
+            function validarCampo(field) {
+            var errorMessage = field.parentNode.querySelector('.invalid-feedback');
+
             if (!field.value.trim()) {
                 field.classList.add('is-invalid');
+                errorMessage.textContent = 'Este campo es requerido';
+            } else if (field.value.trim() !== field.value) {
+                field.classList.add('is-invalid');
+                errorMessage.textContent = 'El campo no puede contener espacios';
             } else {
                 field.classList.remove('is-invalid');
+                errorMessage.textContent = ''; 
             }
         }
-        
-        function validarLongitud(field) {
-            var value = field.value.replace(/\D/g, ''); // Eliminar caracteres no numéricos
-        
+
+            function validarLongitud(field) {
+            var value = field.value.replace(/\D/g, '');
+
             if (field.id === 'celular') {
-                if (value.length !== 10) {
-                    field.classList.add('is-invalid');
-                } else {
-                    field.classList.remove('is-invalid');
-                }
+                validarLongitudCelular(field, value);
             } else if (field.id === 'documen') {
-                if (value.length < 6) {
-                    field.classList.add('is-invalid');
-                } else {
-                    field.classList.remove('is-invalid');
-                }
+                validarLongitudDocumento(field, value);
             }
         }
-        </script>
-        
+
+        function validarLongitudCelular(field, value) {
+            var errorMessage = field.parentNode.querySelector('.invalid-feedback');
+            if (value.length !== 10) {
+                field.classList.add('is-invalid');
+                errorMessage.textContent = 'El número de celular debe tener 10 dígitos';
+            } else {
+                field.classList.remove('is-invalid');
+                errorMessage.textContent = ''; 
+            }
+        }
+
+        function validarLongitudDocumento(field, value) {
+            var errorMessage = field.parentNode.querySelector('.invalid-feedback');
+            if (value.length < 6) {
+                field.classList.add('is-invalid');
+                errorMessage.textContent = 'El documento debe tener al menos 6 dígitos';
+            } else {
+                field.classList.remove('is-invalid');
+                errorMessage.textContent = '';
+            }
+        }
+
+        function validarCorreo(field) {
+            var errorMessage = field.parentNode.querySelector('.invalid-feedback');
+
+            if (field.type === 'email') {
+                var correo = field.value.trim();
+                var correoRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.(com|co|edu)$/;
+
+                if (!correoRegex.test(correo)) {
+                    field.classList.add('is-invalid');
+                    errorMessage.textContent = 'Correo electrónico inválido';
+                } else {
+                    field.classList.remove('is-invalid');
+                    errorMessage.textContent = ''; 
+            }
+        }
+   };
+</script>
 </head>
 <body>
     <div class="modal fade" id="EDITAR{{ $cliente->id }}" tabindex="-1" role="dialog"
@@ -64,9 +102,10 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="" class="form-label">Nombre</label>
+                                    <label for="" class="form-label">Nombre <span class="required-field" style="color: red; font-size: 16px;">*</span></label>
                                     <input type="text" class="form-control custom-form-control" name="primernombre" id="nombre12"
                                         aria-describedby="helpId" placeholder="" value="{{ $cliente->primerNombre }}" required>
+                                        <small class="invalid-feedback"></small>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -77,9 +116,10 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="" class="form-label">Primer Apellido</label>
+                                    <label for="" class="form-label">Primer Apellido <span class="required-field" style="color: red; font-size: 16px;">*</span></label>
                                     <input type="text" class="form-control custom-form-control" name="primerapellido" id="apellidouno"
                                         aria-describedby="helpId" placeholder="" value="{{ $cliente->primerApellido }}" required>
+                                    <small class="invalid-feedback"></small>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -91,7 +131,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="" class="form-label">Tipo documento</label>
+                                    <label for="" class="form-label">Tipo documento <span class="required-field" style="color: red; font-size: 16px;">*</span></label>
                                     <select class="form-control custom-form-control" name="documento" id="" required>
                                         <option selected value="{{ $cliente->documento }}">
                                             {{ $cliente->documento }}</option>
@@ -105,29 +145,28 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="" class="form-label">Documento</label>
+                                    <label for="" class="form-label">Documento <span class="required-field" style="color: red; font-size: 16px;">*</span></label>
                                     <input type="number" class="form-control custom-form-control" name="numeroDocumento" id="documen"
-                                        aria-describedby="helpId" placeholder="" value="{{ $cliente->numeroDocumento }}" required
-                                        title="Ingrese un documento de identidad válido (6 dígitos).">
-                                        <small id="helpId" class="form-text text-muted">Ingrese un documento de identidad válido (6 dígitos).</small>
+                                        aria-describedby="helpId" placeholder="" value="{{ $cliente->numeroDocumento }}" required>
+                                    <small class="invalid-feedback"></small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="celular" class="form-label">Celular</label>
+                                    <label for="celular" class="form-label">Celular <span class="required-field" style="color: red; font-size: 16px;">*</span></label>
                                     <input type="number" class="form-control custom-form-control" name="celular" id="celular"
-                                        aria-describedby="helpId" placeholder="" value="{{ $cliente->celular }}" required
-                                       title="Ingrese un número de celular válido (10 dígitos).">
-                                    <small id="helpId" class="form-text text-muted">Ingrese un número de celular válido (10 dígitos).</small>
+                                        aria-describedby="helpId" placeholder="" value="{{ $cliente->celular }}" required>
+                                    <small class="invalid-feedback"></small>
                                 </div>
                             </div><br>
                             <div class="col-md-6">
-                                <label for="validationCustomUsername" class="form-label">Correo</label>
+                                <label for="validationCustomUsername" class="form-label">Correo <span class="required-field" style="color: red; font-size: 16px;">*</span></label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                    <input type="email" placeholder="Correo" id="corr" class="form-control"
+                                    <input type="email" placeholder="Correo" id="corr" class="form-control custom-form-control"
                                         id="validationCustomUsername" name="correo" id="corr" aria-describedby="inputGroupPrepend"
                                         value="{{ $cliente->correo }}" required><br>
+                                    <small class="invalid-feedback"></small>
                                 </div>        
                             </div>
                             <div class="col-md-6">
@@ -139,10 +178,9 @@
                                         \App\Models\Cliente::Inactivo) selected @endif>Inactivo</option>
                                 </select>
                             </div>
-                        </div><br>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary" onclick="validarCampo()">Actualizar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                 </form>
             </div>

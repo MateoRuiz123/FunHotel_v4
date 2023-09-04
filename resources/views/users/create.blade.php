@@ -296,7 +296,7 @@
             </form>
             <div class="col-12">
                 <button type="submit" onclick="usuario()" class="btn btn-primary">Crear</button>
-                <a class="btn btn-primary" href="{{ route('users.index') }}">Volver</a>
+                <a class="btn btn-light" href="{{ route('users.index') }}">Volver</a>
             </div>
         </div>
     @endsection

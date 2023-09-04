@@ -34,9 +34,6 @@
             <div class="pull-left">
                 <h2>Editar usuario {{ $user->name }}</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('users.index') }}">Volver</a>
-            </div>
         </div>
     </div>
     @if (count($errors) > 0)
@@ -129,10 +126,11 @@
                             <option value="{{\App\Models\User::Inactivo}}" {{ $user->estado == \App\Models\User::Inactivo ? 'selected' : '' }}>Inactivo</option>
                         </select>
             </div>
-        </form>
-        <div class="col-md-12">
-            <button type="submit" onclick="Usve()" class="btn btn-primary">Actualizar</button>
-        </div>
+          </form><br>
+            <div class="col-md-12">
+                <button type="submit" onclick="Usve()" class="btn btn-primary">Actualizar</button>
+                <a class="btn btn-light" href="{{ route('users.index') }}">Volver</a>
+            </div>
     </div>
 @endsection
 </body>

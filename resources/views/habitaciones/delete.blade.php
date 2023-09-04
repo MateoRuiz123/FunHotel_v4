@@ -4,7 +4,7 @@
     <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Eliminar Habitacion</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Habitación</h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -14,11 +14,11 @@
                 <!--Clave evita error -->
                 @method('Delete')
                 <div class="modal-body">
-                    ¡¿Estas seguro de eliminar la habitación <strong> {{ $habitacion->numeroHabitacion }} ?!</strong>
+                    ¡¿Estás seguro de eliminar la habitación <strong> {{ $habitacion->numeroHabitacion }} ?!</strong>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </form>
         </div>

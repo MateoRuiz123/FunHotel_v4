@@ -6,25 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function Uphabi() {
-            Swal.fire({
-                title: 'Confirmación',
-                text: '¿Estás seguro de editar la habitación?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Estoy seguro',
-                cancelButtonText: 'Cancelar',
-                confirmButtonColor: '#12B901',
-                cancelButtonColor: '#E41919'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById('Updateform').submit();
-                }
+        document.addEventListener('DOMContentLoaded', function () {
+            var requiredFields = document.querySelectorAll('.habitacion[required]');
+    
+            requiredFields.forEach(function(field) {
+                field.addEventListener('input', function() {
+                    validaCategoria(this);
+                    validarLongitud(this);
+                });
             });
+        });
+    
+        function validaCategoria(field) {
+            var errorMessage = field.parentNode.querySelector('.invalid-feedback');
+    
+            if (!field.value.trim()) {
+                field.classList.add('is-invalid');
+                errorMessage.textContent = 'Este campo es requerido';
+            } else {
+                field.classList.remove('is-invalid');
+                errorMessage.textContent = ''; 
+            }
         }
-    </script>
+    
+        function validarLongitud(field) {
+            var value = field.value.replace(/\D/g, '');
+    
+            if (field.id === 'numeroHabitacion') {
+                validarLongitudNumero(field, value); 
+            }
+        }
+    
+        function validarLongitudNumero(field, value) { 
+            var errorMessage = field.parentNode.querySelector('.invalid-feedback');
+            if (value.length < 3) {
+                field.classList.add('is-invalid');
+                errorMessage.textContent = 'El número de habitación debe tener al menos 3 dígitos';
+            } else {
+                field.classList.remove('is-invalid');
+                errorMessage.textContent = '';
+            }
+        }
+    </script>    
 </head>
 <body>
     <div class="modal fade" id="modalUpdate{{ $habitacion->id }}" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -42,13 +66,15 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="numeroHabitacion">Número de Habitación</label>
-                                <input class="form-control" type="text" name="numeroHabitacion" id="numeroHabitacion"
+                                <input class="form-control habitacion" type="number" name="numeroHabitacion" id="numeroHabitacion" required
                                     value="{{ $habitacion->numeroHabitacion }}">
+                                <small class="invalid-feedback"></small>
                             </div>
                             <div class="col-md-6">
                                 <label for="descripcion">Descripción</label>
-                                <input class="form-control" type="text" name="descripcion" id="descripcion"
+                                <input class="form-control habitacion" type="text" name="descripcion" id="descripcion" required
                                     value="{{ $habitacion->descripcion }}">
+                                <small class="invalid-feedback"></small>
                             </div>
                             <div class="col-md-6"><br>
                                 <label for="idCategoria">Categoría</label>
@@ -79,7 +105,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" onclick="Uphabi()" class="btn btn-primary">Actualizar</button>
+                    <button type="submit" form="Updateform" class="btn btn-primary">Actualizar</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
