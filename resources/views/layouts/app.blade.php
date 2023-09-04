@@ -150,10 +150,11 @@
                 <div id="sidebar-menu">
                     <!-- Left Menu Start -->
                     <ul class="metismenu list-unstyled" id="side-menu">
-                        <li class="menu-title">Menú del día</li>
+
 
                         <li>
                             <a href="/home" class="waves-effect">
+                                <i class="fa-solid fa-house"></i>
                                 <span>Inicio</span>
                             </a>
                         </li>
