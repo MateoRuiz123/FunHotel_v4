@@ -84,7 +84,7 @@
             @csrf
             <div class="col-md-8">
               <label for="" class="form-label"> Nombre Método de pago</label>
-              <input type="text" class="form-control" name="nombre" id="nombre1" aria-describedby="helpId" placeholder="Método pago">
+              <input type="text" class="form-control" name="nombre" id="nombre1" aria-describedby="helpId">
               <span id="nombrePError" class="text-danger"></span>
             </div>
             <div>

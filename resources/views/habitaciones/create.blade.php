@@ -88,7 +88,7 @@
                 var categoria = $(this).val();
 
                 if (categoria === '') {
-                    $('#categoriaError').text('Seleccione la categoria de la habitación');
+                    $('#categoriaError').text('Seleccione la categoría de la habitación');
                 } else {
                     $('#categoriaError').text('');
                 }

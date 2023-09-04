@@ -4,7 +4,7 @@
     <div class="page-title-box">
         <div class="row align-items-center">
             <div class="col-md-8">
-                <h6 class="page-title">Datos categorias</h6>
+                <h6 class="page-title">Datos categorías</h6>
             </div>
 
             <div class="col-md-4">
@@ -39,7 +39,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Nombre</th>
-                            <th>Descripcion</th>
+                            <th>Descripción</th>
                             <th>Estado</th>
                             <th>Fecha de creación</th>
                             <th>Acciones</th>
