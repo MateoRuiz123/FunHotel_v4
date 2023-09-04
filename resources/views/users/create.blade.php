@@ -140,7 +140,7 @@
                         $('#passwordError').text('La contraseña es requerida');
                     } else if (!/^\d+$/.test(password)) {
                         $('#passwordError').text('La contraseña debe contener solo números');
-                    } else if (password.length < 8) {
+                    } else if (password.length < 8  ) {
                         $('#passwordError').text('La contraseña debe tener al menos 8 caracteres');
                     } else {
                         $('#passwordError').text('');
