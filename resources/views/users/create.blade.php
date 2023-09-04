@@ -2,11 +2,12 @@
 @section('content')
     <!DOCTYPE html>
     <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Crear nuevo usuario</title>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -19,8 +20,9 @@
                 var password = $('#password').val().trim();
                 var confirm = $('#confirm-password').val().trim();
                 var roles = $('#roles').val();
-        
-            if (nombre === '' ||  apellido === '' ||  birthday === '' || email === '' || password  === '' || confirm === '' || roles === '' ) {
+
+                if (nombre === '' || apellido === '' || birthday === '' || email === '' || password === '' || confirm === '' ||
+                    roles === '') {
                     Swal.fire({
                         title: 'Campos vacíos',
                         text: 'Por favor, completa todos los campos antes de continuar.',
@@ -45,7 +47,7 @@
                 }
             }
         </script>
-    <script>
+        <script>
             $(document).ready(function() {
                 function validarFormulario() {
                     var nombre = $('#name').val().trim();
@@ -190,6 +192,28 @@
                         event.preventDefault();
                     }
                 });
+
+                $('#togglePassword').on('click', function() {
+                    var passwordField = $('#password');
+                    var passwordFieldType = passwordField.attr('type');
+
+                    if (passwordFieldType === 'password') {
+                        passwordField.attr('type', 'text');
+                    } else {
+                        passwordField.attr('type', 'password');
+                    }
+                });
+
+                $('#toggleConfirmPassword').on('click', function() {
+                    var confirmPasswordField = $('#confirm-password');
+                    var confirmPasswordFieldType = confirmPasswordField.attr('type');
+
+                    if (confirmPasswordFieldType === 'password') {
+                        confirmPasswordField.attr('type', 'text');
+                    } else {
+                        confirmPasswordField.attr('type', 'password');
+                    }
+                });
             });
         </script>
     </head>
@@ -200,7 +224,6 @@
                 <div class="pull-left">
                     <h2>Crear nuevo usuario</h2>
                 </div>
-
             </div>
         </div>
         @if (count($errors) > 0)
@@ -287,18 +310,29 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <strong>Contraseña:</strong>
-                        <input type="password" id="password" name="password" placeholder="Contraseña" class="form-control">
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" placeholder="Contraseña"
+                                class="form-control">
+                            <button type="button" id="togglePassword" class="btn btn-outline-secondary">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
                         <span id="passwordError" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <strong>Confirmar Contraseña:</strong>
+                        <div class="input-group">
                         <input type="password" id="confirm-password" name="confirm-password"
                             placeholder="Confirmar Contraseña" class="form-control">
-                        <span id="confirmpasswordError" class="text-danger"></span>
+                        <button type="button" id="toggleConfirmPassword" class="btn btn-outline-secondary">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
                     </div>
+                    <span id="confirmpasswordError" class="text-danger"></span>
                 </div>
+            </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <strong>Rol:</strong>
@@ -312,7 +346,7 @@
                     </div>
                 </div>
                 <div>
-                    <input type="hidden" name="estado" id="estado" value="{{app\models\User::Activo}}">
+                    <input type="hidden" name="estado" id="estado" value="{{ app\models\User::Activo }}">
                 </div>
             </form>
             <div class="col-12">
@@ -320,7 +354,7 @@
                 <a class="btn btn-light" href="{{ route('users.index') }}">Volver</a>
             </div>
         </div>
-    @endsection
-</body>
+    </body>
 
-</html>
+    </html>
+@endsection
