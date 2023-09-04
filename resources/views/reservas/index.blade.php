@@ -34,8 +34,6 @@
                             <th>Nro Habitacion</th>
                             <th>Nro. doc cliente</th>
                             <th>Nombre cliente</th>
-                            <th>Habitacion</th>
-                            <th>Cliente</th>
                             <th>Servicio</th>
                             <Th>De:</Th>
                             <Th>Hasta:</Th>
@@ -55,7 +53,7 @@
                                 <td>{{ $reserva->fecIngreso }}</td>
                                 <td>{{ $reserva->fecSalida }}</td>
                                 <td>{{ $reserva->created_at }}</td>
-                                <td>{{ $reserva->estado_texto }}</td>
+                                <td>{{ $reserva->estado_texto }}</td>        
                                 <td>
                                     @can('reserva-edit')
                                         <button type="button" class="btn btn-warning" data-bs-toggle="modal"

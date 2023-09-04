@@ -54,10 +54,10 @@
                             </label>
                         </td>
                         <td>
-                            <a href="{{ route('ventas.edit', ['venta' => $venta->id]) }}"
+                            {{-- <a href="{{ route('ventas.edit', ['venta' => $venta->id]) }}"
                                 class="btn btn-warning">
                                 <i class="bi bi-pencil-square"></i>
-                            </a>
+                            </a> --}}
 
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#delete{{ $venta->id }}">
