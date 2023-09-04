@@ -43,7 +43,7 @@
                                 <div class="card-body">
                                     <p>Cantidad de usuarios: {{ $group->users()->count() }}</p>
                                     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                        <a href="{{ route('groups.show', $group->id) }}" class="btn btn-primary">Ver</a>
+                                        <a href="{{ route('groups.show', $group->id) }}" class="btn btn-primary">Editar ficha</a>
                                         @can('group-edit')
                                             <button type="button" class="btn btn-success" data-bs-toggle="modal"
                                                 data-bs-target="#modalEdit{{ $group->id }}">

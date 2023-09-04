@@ -83,7 +83,7 @@
 </div>
 
 
-<!-- Modal Delete -->
+{{-- <!-- Modal Delete -->
 <div class="modal fade" id="delete{{ $reserva->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog " role="document">
@@ -108,4 +108,4 @@
             </form>
         </div>
     </div>
-</div>
+</div> --}}
