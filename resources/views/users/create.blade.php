@@ -271,7 +271,7 @@
                         <span id="apellidoseError" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-12 col-sm-12 col-md-6">
                     <div class="form-group">
                         <strong>Fecha de nacimiento:</strong>
                         <input type="date" id="birthday" name="birthday" placeholder="Fecha de nacimiento"
@@ -279,7 +279,7 @@
                         <span id="birthdayError" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group">
                         <strong>Email:</strong>
                         <input type="text" id="email" name="email" placeholder="Email" class="form-control">

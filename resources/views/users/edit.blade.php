@@ -85,14 +85,14 @@
                             class="form-control"value="{{ $user->second_surname }}">
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-12 col-sm-12 col-md-6">
                     <div class="form-group">
                         <strong>Fecha de nacimiento:</strong>
                         <input type="date" name="birthday" placeholder="Fecha de nacimiento" class="form-control"
                             value="{{ $user->birthday }}">
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group">
                         <strong>Email:</strong>
                         <input type="text" name="email" placeholder="Email"
