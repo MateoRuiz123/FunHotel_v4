@@ -29,6 +29,12 @@ class Reserva extends Model
         return $this->belongsTo(Cliente::class, 'idCliente', 'id');
     }
 
+    public function detalles()
+    {
+        return $this->hasMany(DetalleReserva::class, 'idReserva');
+    }
+
+
     const Activo = 1;
     const Inactivo = 0;
 

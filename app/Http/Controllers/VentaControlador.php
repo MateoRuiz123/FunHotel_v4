@@ -26,9 +26,7 @@ class VentaControlador extends Controller
     public function index()
     {
         $ventas = Venta::with('reserva')->get();
-
-        $serviciosElegidos = [];
-        return view('ventas.index', compact('ventas','serviciosElegidos'));
+        return view('ventas.index', compact('ventas'));
     }
 
     /**

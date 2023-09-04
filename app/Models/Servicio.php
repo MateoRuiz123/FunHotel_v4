@@ -45,6 +45,13 @@ class Servicio extends Model
                 return 69; // Valor por defecto si el estado no coincide con ninguno de los valores anteriores
         }
     }
+
+    public function detalles()
+    {
+        return $this->hasMany(DetalleReserva::class, 'idServicio');
+    }
+
+
     public function ventas()
     {
         return $this->belongsToMany(Venta::class, 'ventas_servicios', 'servicio_id', 'venta_id');
