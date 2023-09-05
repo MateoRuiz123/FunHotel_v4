@@ -74,7 +74,7 @@ class CheckinController extends Controller
     public function update(Request $request, $id)
     {
         $checkins = Checkin::find($id);
-        $checkins-> fecIngreso = $request->input('ingreso');
+        // $checkins-> fecIngreso = $request->input('ingreso');
         $checkins->idReserva = $request->input('reserva');
         $checkins->estado = $request->input('estado');
         $checkins->update();

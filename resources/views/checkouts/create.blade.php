@@ -1,5 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function CheckValidacion() {
+            var checkin = $('#checkin').val().trim();
+                var salida = $('#salida').val().trim();
+                var reserva = $('#reserva').val();
+                var cliente = $('#cliente').val().trim();
+                var metpago = $('#metpago').val().trim();
+                var venta = $('#venta').val().trim();
+    
+            if (checkin === '' ||  salida === '' ||  reserva === '' || cliente === '' || metpago  === '' || venta ==='' ) {
+                Swal.fire({
+                    title: 'Campos vacíos',
+                    text: 'Por favor, completa todos los campos antes de continuar.',
+                    icon: 'error',
+                    confirmButtonColor: '#d33'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Confirmación',
+                    text: '¿Estás seguro de crear el checkout?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Estoy seguro',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonColor: '#12B901',
+                    cancelButtonColor: '#E41919'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('CheckOu').submit();
+                    }
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="modal fade" id="create" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="modalCreateLabel" aria-hidden="true">
+
 <!-- Modal -->
 <div class="modal fade" id="create" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalCreateLabel" aria-hidden="true">
+
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,11 +59,15 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="row g-3" action="{{ route('checkouts.store') }}" method="post" enctype="multipart/form-data">
+
+                <form id="CheckOu" class="row g-3" action="{{ route('checkouts.store') }}" method="post"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="col-md-6">
                         <label for="" class="form-label"> Fecha de salida</label>
-                        <input type="date" class="form-control" name="salida" id="" aria-describedby="helpId" placeholder="">
+                        <input type="date" class="form-control" name="salida" id="salida"
+                            aria-describedby="helpId" placeholder="">
+
                     </div>
 
                     <div class="col-md-6">
@@ -80,14 +135,15 @@
                     <div>
                         <input type="hidden" name="estado" id="estado" value="{{ app\models\Checkout::Activo }}">
                     </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Agregar</button>
-                    </div>
                 </form>
             </div>
             <div class="modal-footer">
+                <button type="submit" onclick="CheckValidacion()" class="btn btn-primary">Crear</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
-    </div>
+
+    </div>
 </div>
+</body>
+</html>

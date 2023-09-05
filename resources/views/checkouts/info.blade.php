@@ -10,22 +10,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <form class="row g-3" action="{{ route('checkouts.update', $checkout->id) }}" method="post"
-                        enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
-                        <div class="col-md-6">
-                            <label for="" class="form-label"> Fecha de salida</label>
-                            <input type="datetime-local" class="form-control" name="salida" id=""
-                                aria-describedby="helpId" placeholder="" value="{{ $checkout->fecSalida }}">
-                        </div>
 
-                        <div class="col-md-6">
-                            <label for="" class="form-label">Id Check-in</label>
-                            <input type="number" class="form-control" name="checkin" id=""
-                                aria-describedby="helpId" placeholder="" value="{{ $checkout->idCheckin }}">
-                        </div>
+                <form class="row g-3" action="{{route('checkouts.update',$checkout->id)}}" method="post"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="col-md-6">
+                        <label for="" class="form-label">Id Check-in</label>
+                        <input type="number" class="form-control" name="checkin" id="" aria-describedby="helpId"
+                            placeholder="" value="{{$checkout->idCheckin}}">
+                    </div>
+
 
                         <div class="col-md-6">
                             <label for="" class="form-label">Id Reserva</label>

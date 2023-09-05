@@ -21,7 +21,7 @@
 </script>
 <div class="modal fade" id="edit{{ $checkin->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="modalCreateLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Editar check-in</h5>
@@ -31,40 +31,23 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <form class="row g-3" action="{{ route('checkins.update', $checkin->id) }}" method="post"
-                        enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
-                        <div class="col-md-4">
-                            <label for="" class="form-label"> Fecha de ingreso</label>
-                            <input type="datetime-local" class="form-control" name="ingreso" id=""
-                                aria-describedby="helpId" placeholder="" value="{{ $checkin->fecIngreso }}">
-                        </div>
 
-                        <div class="col-md-4">
-                            <label for="" class="form-label">Id Reserva</label>
-                            {{-- <input type="number" class="form-control" name="reserva" id=""
-                                aria-describedby="helpId" placeholder="" value="{{ $checkin->idReserva }}"> --}}
-                            <select class="form-select" name="idReserva" id="idReserva">
-                                <option value="" selected disabled>Seleccione</option>
-                                @foreach ($reservas as $reserva)
-                                    <option value="{{ $reserva->id }}"
-                                        {{ $checkin->idReserva == $reserva->id ? 'selected' : '' }}>
-                                        {{ $reserva->id }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="">Estado</label>
-                            <select class="form-select" name="estado" id="estado">
-                                <option value="{{ \App\Models\Checkin::Activo }}"
-                                    {{ $checkin->estado == \App\Models\Checkin::Activo ? 'selected' : '' }}>Activo
-                                </option>
-                                <option value="{{ \App\Models\Checkin::Inactivo }}"
-                                    {{ $checkin->estado == \App\Models\Checkin::Inactivo ? 'selected' : '' }}>Inactivo
-                                </option>
-                            </select>
-                        </div>
+                <form id="CheUpform" class="row g-3" action="{{route('checkins.update',$checkin->id)}}" method="post"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Id Reserva</label>
+                        <input type="number" class="form-control" name="reserva" id="" aria-describedby="helpId"
+                            placeholder="" value="{{$checkin->idReserva}}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="">Estado</label>
+                        <select class="form-select" name="estado" id="estado">
+                            <option value="{{\App\Models\Checkin::Activo}}" {{ $checkin->estado == \App\Models\Checkin::Activo ? 'selected' : '' }}>Activo</option>
+                            <option value="{{\App\Models\Checkin::Inactivo}}" {{ $checkin->estado == \App\Models\Checkin::Inactivo ? 'selected' : '' }}>Inactivo</option>
+                        </select>
+                    </div>
                 </div>
                 </form>
             </div><br>

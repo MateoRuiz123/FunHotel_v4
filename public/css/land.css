@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Candal&family=Londrina+Solid&family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Anton&family=Candal&family=Londrina+Solid&family=Monoton&display=swap');
+
 .container {
   display: flex;
 }
@@ -12,8 +16,9 @@
 .titulo {
   position: relative;
   text-align: start;
-  font-size: 2.5em;
-  margin-top: 310px;
+  font-family: 'Aclonica', sans-serif;
+  font-size: 42px;
+  margin-top: 290px;
   margin-left: 209px;
   margin-bottom: 5px;
   color: #ffffff;
@@ -30,14 +35,16 @@
 
 .texto {
   justify-content: 15px;
-  padding: 15px;
+  padding: 52px;
 }
 
 .texto p {
-  font-size: 1.1em;
-  margin-left: 670px;
+  font-size: 129%;
+  margin-left: 680px;
+  text-align:justify;
+  font-family: 'Roboto', sans-serif;
   color: #fff;
-  margin-top: -11.1rem;
+  margin-top: -15.4rem;
 }
 
 .nuevo {
@@ -162,11 +169,12 @@ section {
 .hero {
   color: #fff;
   text-align: center;
-  margin-top: 156px;
+  margin-top: 140px;
 }
 
 .hero h1 {
-  font-size: 88px;
+  font-size: 95px;
+  font-family: 'Aclonica', sans-serif;
   color: #fff;
 }
 .hero h1 h3 {
@@ -201,9 +209,9 @@ img {
 
 .card{
   width: 150%;
-  margin: 8px;
+  margin: 6px;
   border-radius: 15px;
-  margin-top: 52px;
+  margin-top: -1rem;
   overflow: hidden;
   position: relative;
   background: rgb(35, 34, 61);
@@ -228,13 +236,14 @@ img {
   }
 
 .card .contenido-card h3{
+  font-size: 23px;
   margin-bottom: 15px;
   color: #f7efef;  /*Titulo de las cartas*/
   }
 
 .card .contenido-card p{
-  line-height: 1.8;
-  font-size: 14px;
+  line-height: 1.5;
+  font-size: 18.2px;
   margin-bottom: 5px;
 }
 
