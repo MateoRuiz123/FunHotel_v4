@@ -10,41 +10,76 @@
                 </button>
             </div>
             <div class="modal-body">
-
-                <form class="row g-3" action="{{route('checkouts.update',$checkout->id)}}" method="post"
-                    enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-                    <div class="col-md-6">
-                        <label for="" class="form-label">Id Check-in</label>
-                        <input type="number" class="form-control" name="checkin" id="" aria-describedby="helpId"
-                            placeholder="" value="{{$checkout->idCheckin}}">
-                    </div>
+                <div class="row">
+                    <form class="row g-3" action="{{ route('checkouts.update', $checkout->id) }}" method="post"
+                        enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                        <div class="col-md-6">
+                            <label for="" class="form-label">Id Check-in</label>
+                            <select name="checkin" id="checkin" class="form-select">
+                                <option value="" selected disabled>Seleccione un check in</option>
+                                @foreach ($checkins as $checkin)
+                                    @if ($checkin->estado == 1)
+                                        <!-- Verificar si el estado es activo (1) -->
+                                        <option value="{{ $checkin->id }}"
+                                            {{ $checkout->idCheckin == $checkin->id ? 'selected' : '' }}>
+                                            {{ $checkin->id }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
 
 
                         <div class="col-md-6">
                             <label for="" class="form-label">Id Reserva</label>
-                            <input type="number" class="form-control" name="reserva" id=""
-                                aria-describedby="helpId" placeholder="" value="{{ $checkout->idReserva }}">
+                            <select name="reserva" id="reserva" class="form-select">
+                                <option value="" selected disabled>Seleccione una reserva</option>
+                                @foreach ($reservas as $reserva)
+                                    @if ($reserva->estado == 1)
+                                        <!-- Verificar si el estado es activo (1) -->
+                                        <option value="{{ $reserva->id }}"
+                                            {{ $checkout->idReserva == $reserva->id ? 'selected' : '' }}>
+                                            {{ $reserva->id }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="col-md-6">
                             <label for="" class="form-label">Nro. doc</label>
-                            <input type="text" class="form-control" name="cliente" id=""
-                                aria-describedby="helpId" placeholder=""
-                                value="{{ $checkout->cliente->numeroDocumento }}">
+                            <select name="doc" id="doc"class="form-select">
+                                <option value="" selected disabled>Seleccione un cliente</option>
+                                @foreach ($clientes as $cliente)
+                                    <option value="{{ $cliente->id }}"
+                                        {{ $checkout->cliente->numeroDocumento == $cliente->numeroDocumento ? 'selected' : '' }}>
+                                        {{ $cliente->numeroDocumento }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="col-md-6">
                             <label for="" class="form-label">Metodo de pago</label>
-                            <input type="text" class="form-control" name="metpago" id=""
-                                aria-describedby="helpId" placeholder="" value="{{ $checkout->metpago->nombre }}">
+                            <select name="metpago" id="metpago"class="form-select">
+                                <option value="" selected disabled>Seleccione un metodo de pago</option>
+                                @foreach ($metodos as $metpago)
+                                    <option value="{{ $metpago->id }}"
+                                        {{ $checkout->metpago->nombre == $metpago->nombre ? 'selected' : '' }}>
+                                        {{ $metpago->nombre }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="col-md-6">
                             <label for="" class="form-label">Id Venta</label>
-                            <input type="number" class="form-control" name="venta" id=""
-                                aria-describedby="helpId" placeholder="" value="{{ $checkout->idVenta }}">
+                            <select name="venta" id="venta" class="form-select">
+                                <option value="" selected disabled>Seleccione una venta</option>
+                                @foreach ($ventas as $venta)
+                                    <option value="{{ $venta->id }}"
+                                        {{ $checkout->idVenta == $venta->id ? 'selected' : '' }}>
+                                        {{ $venta->id }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-md-4">
                             <label for="">Estado</label>
@@ -68,6 +103,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 

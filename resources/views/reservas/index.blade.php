@@ -35,6 +35,7 @@
                             <th>Nro. doc cliente</th>
                             <th>Nombre cliente</th>
                             <th>Servicio</th>
+                            <th>Precio del servicio</th>
                             <Th>De:</Th>
                             <Th>Hasta:</Th>
                             <th>Creacion de reserva</th>
@@ -50,6 +51,7 @@
                                 <td>{{ $reserva->cliente->numeroDocumento }}</td>
                                 <td>{{ $reserva->cliente->primerNombre }} {{ $reserva->cliente->primerApellido }} </td>
                                 <td>{{ $reserva->servicio->nombre }}</td>
+                                <td>{{ $reserva->servicio->precio }}</td>
                                 <td>{{ $reserva->fecIngreso }}</td>
                                 <td>{{ $reserva->fecSalida }}</td>
                                 <td>{{ $reserva->created_at }}</td>

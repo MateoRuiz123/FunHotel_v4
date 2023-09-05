@@ -32,22 +32,32 @@
             <div class="modal-body">
                 <div class="row">
 
-                <form id="CheUpform" class="row g-3" action="{{route('checkins.update',$checkin->id)}}" method="post"
-                    enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
-                    <div class="col-md-4">
-                        <label for="" class="form-label">Id Reserva</label>
-                        <input type="number" class="form-control" name="reserva" id="" aria-describedby="helpId"
-                            placeholder="" value="{{$checkin->idReserva}}">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="">Estado</label>
-                        <select class="form-select" name="estado" id="estado">
-                            <option value="{{\App\Models\Checkin::Activo}}" {{ $checkin->estado == \App\Models\Checkin::Activo ? 'selected' : '' }}>Activo</option>
-                            <option value="{{\App\Models\Checkin::Inactivo}}" {{ $checkin->estado == \App\Models\Checkin::Inactivo ? 'selected' : '' }}>Inactivo</option>
-                        </select>
-                    </div>
+                    <form id="CheUpform" class="row g-3" action="{{ route('checkins.update', $checkin->id) }}"
+                        method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                        <div class="col-md-6">
+                            <label for="" class="form-label">Id Reserva</label>
+                            <select name="reserva" id="reserva" class="form-select">
+                                <option value="" disabled selected>Seleccione una reserva</option>
+                                @foreach ($reservas as $reserva)
+                                    <option value="{{ $reserva->id }}"
+                                        {{ $checkin->idReserva == $reserva->id ? 'selected' : '' }}>
+                                        {{ $reserva->id }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="">Estado</label>
+                            <select class="form-select" name="estado" id="estado">
+                                <option value="{{ \App\Models\Checkin::Activo }}"
+                                    {{ $checkin->estado == \App\Models\Checkin::Activo ? 'selected' : '' }}>Activo
+                                </option>
+                                <option value="{{ \App\Models\Checkin::Inactivo }}"
+                                    {{ $checkin->estado == \App\Models\Checkin::Inactivo ? 'selected' : '' }}>Inactivo
+                                </option>
+                            </select>
+                        </div>
                 </div>
                 </form>
             </div><br>
@@ -61,8 +71,8 @@
 
 
 <!-- Modal Delete -->
-<div class="modal fade" id="delete{{ $checkin->id }}" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+<div class="modal fade" id="delete{{ $checkin->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="modal-header">

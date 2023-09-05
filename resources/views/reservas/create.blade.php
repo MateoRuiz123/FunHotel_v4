@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,7 @@
             var servicio = $('#servicio').val().trim();
             var cliente = $('#cliente').val().trim();
 
-            if (habitacion === '' ||  servicio === '' ||  cliente === ''  ) {
+            if (habitacion === '' || servicio === '' || cliente === '') {
                 Swal.fire({
                     title: 'Campos vacíos',
                     text: 'Por favor, completa todos los campos antes de continuar.',
@@ -39,7 +40,7 @@
             }
         }
     </script>
-  <script>
+    <script>
         $(document).ready(function() {
             function validarFormulario() {
                 var habitacion = $('#habitacion').val().trim();
@@ -69,13 +70,17 @@
 
             $('#servicio').on('change', function() {
                 var servicio = $(this).val();
+                var precio = $('option:selected', this).data(
+                'precio'); // Obtiene el precio del servicio seleccionado
 
                 if (servicio === '') {
                     $('#servicioError').text('Seleccione el servicio');
                 } else {
                     $('#servicioError').text('');
+                    $('#precioServicio').val(precio); // Almacena el precio del servicio en el campo oculto
                 }
             });
+
 
             $('#cliente').on('change', function() {
                 var cliente = $(this).val();
@@ -98,7 +103,8 @@
 
 <body>
 
-    <div class="modal fade" id="create" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalCreateLabel" aria-hidden="true">
+    <div class="modal fade" id="create" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="modalCreateLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
@@ -108,7 +114,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="ReservaForm" class="row g-3" action="{{ route('reservas.store') }}" method="post" enctype="multipart/form-data">
+                    <form id="ReservaForm" class="row g-3" action="{{ route('reservas.store') }}" method="post"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="col-md-6">
                             <label for="" class="form-label">Nro. Habitacion</label>
@@ -116,9 +123,10 @@
                             <select class="form-select" name="habitacion" id="habitacion" required>
                                 <option value="">Seleccione</option>
                                 @foreach ($habitaciones as $habitacion)
-                                @if($habitacion->estado == 1)
-                                <option value="{{ $habitacion->id }}">{{ $habitacion->numeroHabitacion }}</option>
-                                @endif
+                                    @if ($habitacion->estado == 1)
+                                        <option value="{{ $habitacion->id }}">{{ $habitacion->numeroHabitacion }}
+                                        </option>
+                                    @endif
                                 @endforeach
                             </select>
                             <span id="habitacionError" class="text-danger"></span>
@@ -126,17 +134,19 @@
 
                         <div class="col-md-6">
                             <label for="" class="form-label">Servicio:</label>
-
                             <select class="form-select" name="servicio" id="servicio" required>
                                 <option value="">Seleccione</option>
                                 @foreach ($servicios as $servicio)
-                                @if($servicio->estado == 1)
-                                <option value="{{ $servicio->id }}">{{ $servicio->nombre }}</option>
-                                @endif
+                                    @if ($servicio->estado == 1)
+                                        <option value="{{ $servicio->id }}" data-precio="{{ $servicio->precio }}">
+                                            {{ $servicio->nombre }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                             <span id="servicioError" class="text-danger"></span>
                         </div>
+                        <input type="hidden" id="precioServicio" name="precio_servicio" value="">
+
 
                         <div class="col-md-6">
                             <label for="" class="form-label">Cliente:</label>
@@ -144,24 +154,29 @@
                             <select class="form-select" name="cliente" id="cliente" required>
                                 <option value="">Seleccione</option>
                                 @foreach ($clientes as $cliente)
-                                @if($cliente->estado == 1)
-                                <option value="{{ $cliente->id }}">{{ $cliente->numeroDocumento }}
-                                </option>
-                                @endif
+                                    @if ($cliente->estado == 1)
+                                        <option value="{{ $cliente->id }}">{{ $cliente->numeroDocumento }}
+                                        </option>
+                                    @endif
                                 @endforeach
                             </select>
                             <span id="clienteError" class="text-danger"></span>
                         </div>
                         <div class="col-md-6">
-                            <label for="" class="form-label">De:</label>
-                            <input type="datetime-local" class="form-control" name="entrada" id="entrada" aria-describedby="helpId" placeholder="">
+                            <label for="entrada" class="form-label">De:</label>
+                            <input type="datetime-local" class="form-control" name="entrada" id="entrada"
+                                aria-describedby="helpId" placeholder="">
                         </div>
+
                         <div class="col-md-6">
-                            <label for="" class="form-label">Hasta:</label>
-                            <input type="datetime-local" class="form-control" name="salida" id="salida" aria-describedby="helpId" placeholder="">
+                            <label for="salida" class="form-label">Hasta:</label>
+                            <input type="datetime-local" class="form-control" name="salida" id="salida"
+                                aria-describedby="helpId" placeholder="">
                         </div>
+
                         <div>
-                            <input type="hidden" name="estado" id="estado" value="{{ \App\Models\Reserva::Activo }}">
+                            <input type="hidden" name="estado" id="estado"
+                                value="{{ \App\Models\Reserva::Activo }}">
                         </div>
                         <div>
                             <!-- input hidden donde el valor es un datatime de la fecha y hora actual -->
@@ -182,13 +197,26 @@
 
                         </div>
                 </div>
-             </form>
+                </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button class="btn btn-primary" onclick="reserva()" type="submit" type="submitButton">Crear</button>
+                    <button class="btn btn-primary" onclick="reserva()" type="submit"
+                        type="submitButton">Crear</button>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <script>
+        // Obtener la fecha y hora actual en el formato adecuado para datetime-local
+        const fechaActual = new Date().toISOString().slice(0, 16);
+
+        // Establecer la fecha mínima como la fecha actual
+        document.getElementById("entrada").min = fechaActual;
+        document.getElementById("salida").min = fechaActual;
+    </script>
+
 </body>
+
 </html>

@@ -32,17 +32,6 @@ class ReservaController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $reservas = new Reserva;
@@ -51,47 +40,27 @@ class ReservaController extends Controller
         $reservas->idCliente = $request->input('cliente');
         $reservas->fecIngreso = $request->input('entrada');
         $reservas->fecSalida = $request->input('salida');
-        // $reservas->estado=$request->input('estado');
         $reservas->estado = Reserva::Activo;
-        // create_at
+        // $reservas->precio_servicio = $request->input('precio_servicio'); // Almacena el precio del servicio
         $reservas->created_at = $request->input('created_at');
         $reservas->save();
         return redirect()->back()->with('success', 'Reserva creada exitosamente');
-        //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Reserva $reserva)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
         $reservas = Reserva::find($id);
-        $reservas->idHabitacion = $request->input('habitacion');
-        $reservas->idServicio = $request->input('servicio');
-        $reservas->idCliente = $request->input('cliente');
+        $reservas->idHabitacion = $request->input('idHabitacion');
+        $reservas->idServicio = $request->input('idServicio');
+        $reservas->idCliente = $request->input('numeroDocumento');
         $reservas->fecIngreso = $request->input('entrada');
         $reservas->fecSalida = $request->input('salida');
         $reservas->estado = $request->input('estado');
+        // $reservas->precio_servicio = $request->input('precio_servicio'); // Actualizar el precio del servicio
         $reservas->update();
         return redirect()->back()->with('success', 'Reserva actualizada exitosamente');
-        //
     }
+
 
     /**
      * Remove the specified resource from storage.
