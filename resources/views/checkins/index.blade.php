@@ -4,7 +4,7 @@
     <div class="page-title-box">
         <div class="row align-items-center">
             <div class="col-md-8">
-                <h6 class="page-title">Datos check in</h6>
+                <h6 class="page-title">Datos Check-in</h6>
             </div>
 
             <div class="col-md-4">

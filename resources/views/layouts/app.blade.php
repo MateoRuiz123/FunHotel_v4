@@ -152,7 +152,6 @@
                     <!-- Left Menu Start -->
                     <ul class="metismenu list-unstyled" id="side-menu">
 
-
                         <li>
                             <a href="/home" class="waves-effect">
                                 <i class="fa-solid fa-house"></i>
