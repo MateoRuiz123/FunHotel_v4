@@ -39,7 +39,6 @@
         }
     </script>
 </head>
-
 <body>
     <div class="modal fade" id="create" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="modalCreateLabel" aria-hidden="true">

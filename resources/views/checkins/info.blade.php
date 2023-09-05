@@ -31,7 +31,7 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                <form class="row g-3" action="{{route('checkins.update',$checkin->id)}}" method="post"
+                <form id="CheUpform" class="row g-3" action="{{route('checkins.update',$checkin->id)}}" method="post"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
