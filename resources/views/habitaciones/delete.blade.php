@@ -14,11 +14,11 @@
                 <!--Clave evita error -->
                 @method('Delete')
                 <div class="modal-body">
-                    ¡¿Estas seguro de eliminar la habitación <strong> {{ $habitacion->numeroHabitacion }} ?!</strong>
+                    ¡¿Estás seguro de eliminar la habitación <strong> {{ $habitacion->numeroHabitacion }} ?!</strong>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </form>
         </div>

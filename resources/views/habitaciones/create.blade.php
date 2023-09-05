@@ -61,12 +61,12 @@
 
                 if (numero.trim() === '') {
                     $('#numeroSError').text('El número de la habitación es requerido');
+                }  else if (numero.length < 3) {
+                    $('#numeroSError').text('El número de la habitación debe tener al menos 3 dígitos');
                 } else if (numero.includes(' ')) {
                     $('#numeroSError').text('El número de la habitación no puede contener espacios');
                 } else if (numero.length < 3) {
                     $('#numeroSError').text('El número de la habitación debe tener al menos 3 dígitos');
-                } else if (numero.length >= 20) {
-                    $('#numeroSError').text('El número de la habitación debe tener 20 digitos o menor');
                 } else if (!/^\d+$/.test(numero)) {
                     $('#numeroSError').text('El número de la habitación debe contener solo números');
                 } else {
@@ -88,7 +88,7 @@
                 var categoria = $(this).val();
 
                 if (categoria === '') {
-                    $('#categoriaError').text('Seleccione la categoria de la habitación');
+                    $('#categoriaError').text('Seleccione la categoría de la habitación');
                 } else {
                     $('#categoriaError').text('');
                 }
