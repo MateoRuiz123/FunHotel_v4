@@ -1,66 +1,65 @@
 @extends('layouts.app')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 @section('content')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    function ventas() {
-        Swal.fire({
-            title: 'Confirmación',
-            text: '¿Estás seguro de crear esta venta?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Estoy seguro',
-            cancelButtonText: 'Cancelar',
-            confirmButtonColor: '#12B901',
-            cancelButtonColor: '#E41919'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                document.getElementById('Ventasform').submit();
-            }
-        });
-    }
-</script>
-<div class="row">
-    <div class="col-lg-6">
-        <div class="card-body">
-            <h1 class="card-title fs-5">Crear Venta</h1>
-            <form id="Ventasform" class="row g-7 needs-validation" method="POST" action="{{ route('ventas.store') }}" enctype="multipart/form-data" novalidate>
-                @csrf
-                <div class="form-group">
-                    <label for="idReserva">Reserva:</label>
-                    <select name="idReserva" class="form-control">
-                        <option selected disabled>Seleccione</option>
-                        @foreach ($reservas as $reserva)
-                        <option value="{{ $reserva->id }}">{{ $reserva->id }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="mb-4">
-                    <label for="cliente" class="form-label">Cliente</label>
-                    <input type="text" class="form-control" name="cliente" id="cliente" readonly>
-                </div>
-                <div class="mb-4">
-                    <label for="servicio" class="form-label">Servicio</label>
-                    <input type="text" class="form-control" name="servicio" id="servicio" readonly>
-                </div>
-
-                <div class="mb-4">
-                    <label for="validationCustom01" class="form-label">Fecha de la venta</label>
-                    <input type="date" class="form-control" name="fecha_venta" id="validationCustom01" required>
-                    <div class="valid-feedback">
-                        Correcto!
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function ventas() {
+            Swal.fire({
+                title: 'Confirmación',
+                text: '¿Estás seguro de crear esta venta?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Estoy seguro',
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: '#12B901',
+                cancelButtonColor: '#E41919'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('Ventasform').submit();
+                }
+            });
+        }
+    </script>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title fs-5">Crear Venta</h1>
+                <form id="Ventasform" class="needs-validation" method="POST" action="{{ route('ventas.store') }}"
+                    enctype="multipart/form-data" novalidate>
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="idReserva">Reserva<span class="required-field" style="color: red; font-size: 16px;">*</span></label>
+                            <select name="idReserva" class="form-control">
+                                <option selected disabled>Seleccione</option>
+                                @foreach ($reservas as $reserva)
+                                    <option value="{{ $reserva->id }}">{{ $reserva->id }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cliente" class="form-label">Cliente</label>
+                            <input type="text" class="form-control" name="cliente" id="cliente" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="servicio" class="form-label">Servicio</label>
+                            <input type="text" class="form-control" name="servicio" id="servicio" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- input hidden donde el valor es un datatime de la fecha y hora actual -->
+                            <input type="hidden" name="fecha_venta" id="fecha_venta" value="">
+                        </div>
                     </div>
-                    <div class="invalid-feedback">
-                        Por favor, ingrese la fecha.
-                    </div>
+                </form>
+                <br>
+                <div class="col-md-12" style="text-align: right;"> <!-- Utiliza ml-auto para alinear a la derecha -->
+                    <button type="submit" class="btn btn-primary" onclick="ventas()">Crear <i
+                            class="bi bi-plus-circle"></i></button>
+                    <a class="btn btn-light" href="{{ route('ventas.index') }}">Volver</a>
+                    
                 </div>
-            </form>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" onclick="ventas()">Crear <i class="bi bi-plus-circle"></i></button>
-                <a class="btn btn-light" href="{{ route('ventas.index') }}">Volver</a>
             </div>
-
         </div>
     </div>
     <script>
@@ -87,34 +86,13 @@
                 });
             });
         });
-        $(document).ready(function() {
-            $('#agregarProductos').on('change', function() {
-                var option = $(this).val();
-                if (option === 'si') {
-                    $('#productosNuevos').show();
-                } else {
-                    $('#productosNuevos').hide();
-                }
-            });
-        });
-
-
-        const fechaVentaInput = document.getElementById('validationCustom01');
-
-        // PONER LA FECHA AUTOMATICAMENTE
-        document.addEventListener('DOMContentLoaded', function() {
-            const fechaVentaInput = document.getElementById('validationCustom01');
-            const fechaActual = new Date().toISOString().split('T')[0];
-            fechaVentaInput.value = fechaActual;
-        });
-        fechaVentaInput.addEventListener('input', function() {
-            if (!fechaVentaInput.checkValidity()) {
-                fechaVentaInput.classList.add('is-invalid');
-                fechaVentaInput.classList.remove('is-valid');
-            } else {
-                fechaVentaInput.classList.add('is-valid');
-                fechaVentaInput.classList.remove('is-invalid');
-            }
-        }); 
+        // Obtener el elemento del campo de fecha y hora actual
+        var createdAtField = document.getElementById('fecha_venta');
+        // Obtener la fecha y hora actual
+        var currentDate = new Date();
+        // Formatear la fecha y hora actual en el formato deseado (YYYY-MM-DD HH:MM:SS)
+        var formattedDate = currentDate.toISOString().slice(0, 19).replace('T', ' ');
+        // Asignar el valor de la fecha y hora actual al campo oculto
+        createdAtField.value = formattedDate;
     </script>
-    @endsection   
+@endsection

@@ -32,6 +32,7 @@
                         <th>ID Cliente</th>
                         <th>ID Servicio</th>
                         {{-- <th>Estado</th> --}}
+                        @
                         <th>Estado</th> <!-- Nueva columna -->
                         <th>Acciones</th>
                     </tr>
@@ -41,8 +42,8 @@
                     <tr>
                         <td>{{ $venta->id }}</td>
                         <td>{{ $venta->fecha_venta }}</td>
-                        <td>{{ $venta->reserva->idCliente}}</td>
-                        <td>{{ $venta->reserva->idServicio }}</td>
+                        <td>{{ $venta->reserva->cliente->primerNombre}} {{ $venta->reserva->cliente->primerApellido }}</td>
+                        <td>{{ $venta->reserva->servicio->nombre }}</td>
                         {{-- <td>{{ $venta->estado_texto }}</td> --}}
                         <td>
                             <!-- Estilo personalizado para el botón de switch -->
@@ -95,7 +96,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #ccc;
+        background-color: #ff00008e;
         transition: .4s;
         border-radius: 20px;
     }

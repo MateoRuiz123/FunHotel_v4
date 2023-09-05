@@ -44,7 +44,22 @@
                     </thead>
                     <tbody>
                         @foreach ($habitaciones as $habitacion)
-                            <tr>
+                            @php
+                                $estadoClase = '';
+                                switch ($habitacion->estado_texto) {
+                                    case 'Ocupado':
+                                        $estadoClase = 'table-danger'; // Cambia el color a rojo para estado "ocupado"
+                                        break;
+                                    case 'Mantenimiento':
+                                        $estadoClase = 'table-warning'; // Cambia el color a amarillo para estado "mantenimiento"
+                                        break;
+                                    case 'Disponible':
+                                        $estadoClase = 'table-success'; // Cambia el color a verde para estado "disponible"
+                                        break;
+                                }
+                            @endphp
+
+                            <tr class="{{ $estadoClase }}">
                                 <td>{{ $habitacion->numeroHabitacion }}</td>
                                 <td>{{ $habitacion->descripcion }}</td>
                                 <td>{{ $habitacion->categoria->nombre }}</td>
@@ -67,6 +82,7 @@
                             @include('habitaciones.edit')
                             @include('habitaciones.delete')
                         @endforeach
+
                     </tbody>
 
                 </table>
