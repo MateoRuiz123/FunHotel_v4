@@ -31,6 +31,7 @@
             </div>
             <div class="modal-body">
                 <div class="row">
+
                 <form id="CheUpform" class="row g-3" action="{{route('checkins.update',$checkin->id)}}" method="post"
                     enctype="multipart/form-data">
                     @csrf
@@ -60,8 +61,8 @@
 
 
 <!-- Modal Delete -->
-<div class="modal fade" id="delete{{ $checkin->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true" data-bs-backdrop="static">
+<div class="modal fade" id="delete{{ $checkin->id }}" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="modal-header">

@@ -124,9 +124,11 @@
                         <!-- Select idCategoria -->
                         <label for="">Categoría</label>
                         <select class="form-select" name="idCategoria" id="idCategoria">
-                            <option value="" >Seleccione</option>
+                            <option selected disabled value="" >Seleccione</option>
                             @foreach ($categorias as $categoria)
+                            @if($categoria->estado == 1)
                                 <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                            @endif
                             @endforeach
                         </select>
                         <span id="categoriaError" class="text-danger"></span>

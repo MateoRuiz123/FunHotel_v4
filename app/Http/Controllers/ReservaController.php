@@ -85,7 +85,7 @@ class ReservaController extends Controller
         $reservas->idHabitacion = $request->input('habitacion');
         $reservas->idServicio = $request->input('servicio');
         $reservas->idCliente = $request->input('cliente');
-        $reservas->fecEntrada = $request->input('entrada');
+        $reservas->fecIngreso = $request->input('entrada');
         $reservas->fecSalida = $request->input('salida');
         $reservas->estado = $request->input('estado');
         $reservas->update();

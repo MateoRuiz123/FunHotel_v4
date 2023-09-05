@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             var requiredFields = document.querySelectorAll('.mpago-form-control[required]');
 
-            requiredFields.forEach(function (field) {
-                field.addEventListener('input', function () {
+            requiredFields.forEach(function(field) {
+                field.addEventListener('input', function() {
                     PagosV(this);
                 });
             });
         });
+
         function PagosV(field) {
             var errorMessage = field.parentNode.querySelector('.invalid-feedback');
 
@@ -30,6 +32,7 @@
         };
     </script>
 </head>
+
 <body>
     <div class="modal fade" id="edit{{ $pago->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="modalCreateLabel" aria-hidden="true">
@@ -43,33 +46,37 @@
                 </div><br>
                 <div class="modal-body">
                     <div class="row">
-                    <form id="Updform" class="row g-3" action="{{ route('pagos.update', $pago->id) }}" method="post"
-                        enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
-                        <div class="col-md-6">
-                            <label for="" class="form-label">Nombre Método de pago</label>
-                            <input type="text" class="form-control mpago-form-control" name="nombre" id="nombre2" aria-describedby="helpId" required value="{{ $pago->nombre }}" >
-                            <small class="invalid-feedback"></small>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="" class="form-label"> Estado</label>
-                            <select class="form-select" name="estado" id="estado">
-                                <option value="{{\app\models\pago::Activo}}" @if ($pago->estado == \app\models\pago::Activo) selected @endif>Activo</option>
-                                <option value="{{\app\models\pago::Inactivo}}" @if ($pago->estado == \app\models\pago::Inactivo) selected @endif>Inactivo</option>
-                            </select>
-                        </div>
+                        <form id="Updform" class="row g-3" action="{{ route('pagos.update', $pago->id) }}"
+                            method="post" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <div class="col-md-6">
+                                <label for="" class="form-label">Nombre Método de pago</label>
+                                <input type="text" class="form-control mpago-form-control" name="nombre"
+                                    id="nombre2" aria-describedby="helpId" required value="{{ $pago->nombre }}">
+                                <small class="invalid-feedback"></small>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="form-label"> Estado</label>
+                                <select class="form-select" name="estado" id="estado">
+                                    <option value="{{ \app\models\pago::Activo }}"
+                                        @if ($pago->estado == \app\models\pago::Activo) selected @endif>Activo</option>
+                                    <option value="{{ \app\models\pago::Inactivo }}"
+                                        @if ($pago->estado == \app\models\pago::Inactivo) selected @endif>Inactivo</option>
+                                </select>
+                            </div>
+                    </div>
+                    </form><br>
+                    <div class="modal-footer">
+                        <button type="submit" form="Updform" class="btn btn-primary">Actualizar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
                 </div>
-            </form><br>
-            <div class="modal-footer">
-                <button type="submit" form="Updform" class="btn btn-primary">Actualizar</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
             </div>
         </div>
     </div>
-    </div>
 </body>
+
 </html>
 
 <!-- Modal Delete -->

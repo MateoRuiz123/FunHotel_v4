@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('fecSalida');
+            $table->date('fecSalida');
             // Idcheckin, idMetodoPago, idVenta
             $table->foreignId('idCheckin');
             $table->foreignId('idReserva');

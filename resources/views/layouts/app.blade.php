@@ -1,6 +1,7 @@
 <!--Con bs5 crea toda la estructura con bootstrap, descargando la extensión -->
 <!doctype html>
 <html lang="en">
+
 <head>
     <title>FunHotel</title>
     <!-- Required meta tags -->
@@ -102,15 +103,15 @@
                                     class="mdi mdi-account-circle font-size-17 align-middle me-1"></i>
                                 {{ Auth::user()->name }}</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="#"
+                            {{-- <a class="dropdown-item text-danger" href="#"
                                 onclick="event.preventDefault(); confirmLogout();">
-                                <i class="bx bx-power-off font-size-17 align-middle me-1 text-danger"></i>
-                                {{ __('Logout') }}
-                            </a>
+                                <i class="bi bi-power text-danger me-2"></i> {{ __('Logout') }}
+                            </a> --}}
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
+                            <button class="dropdown-item text-danger" data-bs-toggle="modal"
+                            data-bs-target="#confirmLogoutModal">
+                                <i class="bi bi-power text-danger me-2"></i> {{ __('Logout') }}
+                            </button>
 
                             <script>
                                 function confirmLogout() {
@@ -150,10 +151,10 @@
                 <div id="sidebar-menu">
                     <!-- Left Menu Start -->
                     <ul class="metismenu list-unstyled" id="side-menu">
-                        <li class="menu-title">Menú del día</li>
 
                         <li>
                             <a href="/home" class="waves-effect">
+                                <i class="fa-solid fa-house"></i>
                                 <span>Inicio</span>
                             </a>
                         </li>
@@ -330,6 +331,32 @@
     <!-- App js loader -->
     <script src="{{ asset('js/loader.js') }}"></script>
 
+
+
+
+
+    <div class="modal fade" id="confirmLogoutModal" tabindex="-1" aria-labelledby="confirmLogoutModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmLogoutModalLabel">Confirmar Cierre de
+                        Sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas cerrar sesión?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 

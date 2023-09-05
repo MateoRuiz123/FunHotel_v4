@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             // idHabitacion, idServicio, idCliente
             $table->foreignId('idReserva');
-            $table->dateTime('fecIngreso');
+            $table->date('fecIngreso');
             $table->integer('estado');
             $table->timestamps();
 

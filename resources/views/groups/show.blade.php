@@ -103,7 +103,7 @@
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Agregar al grupo</button>
+                        <button type="submit" class="btn btn-primary">Agregar a la ficha</button>
                     </div>
                 </form>
 
@@ -124,8 +124,7 @@
                     </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-danger" onclick="return confirm('¿Esta seguro?')">Eliminar
-                            del
-                            grupo</button>
+                            de la ficha</button>
                     </div>
                 </form>
             </div>

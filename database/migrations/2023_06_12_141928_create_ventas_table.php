@@ -15,14 +15,13 @@ return new class extends Migration
             $table->id();
             // fecha_venta, idServicio, estado
             $table->date('fecha_venta');
-            $table->unsignedBigInteger('cliente_id');
-            $table->integer('total');
+            $table->unsignedBigInteger('idReserva');
             $table->Integer('estado')->default(1);
             $table->timestamps();
 
-            $table->foreign('cliente_id')
+            $table->foreign('idReserva')
                 ->references('id')
-                ->on('clientes')
+                ->on('reservas')
                 ->onDelete('cascade');
         });
     }
@@ -33,7 +32,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('ventas', function (Blueprint $table) {
-            $table->dropForeign(['cliente_id']);
+            $table->dropForeign(['idReserva']);
         });
 
         Schema::dropIfExists('ventas');

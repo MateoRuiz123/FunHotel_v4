@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +47,10 @@
 <body>
     <div class="modal fade" id="create" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="modalCreateLabel" aria-hidden="true">
+
+<!-- Modal -->
+<div class="modal fade" id="create" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalCreateLabel" aria-hidden="true">
+
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -54,6 +59,7 @@
                 </button>
             </div>
             <div class="modal-body">
+
                 <form id="CheckOu" class="row g-3" action="{{ route('checkouts.store') }}" method="post"
                     enctype="multipart/form-data">
                     @csrf
@@ -61,14 +67,17 @@
                         <label for="" class="form-label"> Fecha de salida</label>
                         <input type="date" class="form-control" name="salida" id="salida"
                             aria-describedby="helpId" placeholder="">
+
                     </div>
 
                     <div class="col-md-6">
                         <label for="" class="form-label">Id Check-in</label>
                         <select name="checkin" id="checkin" class="form-select">
-                            <option value="">Seleccione</option>
+                            <option selected disabled value="">Seleccione</option>
                             @foreach ($checkins as $checkin)
-                                <option value="{{ $checkin->id }}">{{ $checkin->id }}</option>
+                            @if ($checkin->estado == 1) <!-- Verificar si el estado es activo (1) -->
+                            <option value="{{ $checkin->id }}">{{ $checkin->id }}</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>
@@ -76,32 +85,38 @@
                     <div class="col-md-6">
                         <label for="" class="form-label">Id Reserva</label>
                         <select name="reserva" id="reserva" class="form-select">
-                            <option value="">Seleccione</option>
+                            <option selected disabled value="">Seleccione</option>
                             @foreach ($reservas as $reserva)
-                                <option value="{{ $reserva->id }}">{{ $reserva->id }}</option>
+                            @if ($reserva->estado == 1) <!-- Verificar si el estado es activo (1) -->
+                            <option value="{{ $reserva->id }}">{{ $reserva->id }}</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>
 
                     <div class="col-md-6">
-                            <label for="" class="form-label">Cliente:</label>
-                            {{-- <input type="text" class="form-control" name="cliente" id="" aria-describedby="helpId" placeholder=""> --}}
-                            <select class="form-select" name="cliente" id="cliente" required>
-                                <option value="">Seleccione</option>
-                                @foreach ($clientes as $cliente)
-                                <option value="{{ $cliente->id }}">{{ $cliente->numeroDocumento }}
-                                </option>
-                                @endforeach
-                            </select>
-                            <span id="clienteError" class="text-danger"></span>
-                        </div>
+                        <label for="" class="form-label">Cliente:</label>
+                        {{-- <input type="text" class="form-control" name="cliente" id="" aria-describedby="helpId" placeholder=""> --}}
+                        <select class="form-select" name="cliente" id="cliente" required>
+                            <option selected disabled value="">Seleccione</option>
+                            @foreach ($clientes as $cliente)
+                            @if ($cliente->estado == 1) <!-- Verificar si el estado es activo (1) -->
+                            <option value="{{ $cliente->id }}">{{ $cliente->numeroDocumento }}
+                            </option>
+                            @endif
+                            @endforeach
+                        </select>
+                        <span id="clienteError" class="text-danger"></span>
+                    </div>
 
                     <div class="col-md-6">
                         <label for="" class="form-label">Metodo de pago</label>
                         <select name="metpago" id="metpago" class="form-select">
-                            <option value="">Seleccione</option>
+                            <option selected disabled value="">Seleccione</option>
                             @foreach ($metodos as $metodo)
-                                <option value="{{ $metodo->id }}">{{ $metodo->nombre }}</option>
+                            @if ($metodo->estado == 1) <!-- Verificar si el estado es activo (1) -->
+                            <option value="{{ $metodo->id }}">{{ $metodo->nombre }}</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>
@@ -109,9 +124,11 @@
                     <div class="col-md-6">
                         <label for="" class="form-label">Id Venta</label>
                         <select name="venta" id="venta" class="form-select">
-                            <option value="">Seleccione</option>
+                            <option selected disabled value="">Seleccione</option>
                             @foreach ($ventas as $venta)
-                                <option value="{{ $venta->id }}">{{ $venta->id }}</option>
+                            @if ($venta->estado == 1) <!-- Verificar si el estado es activo (1) -->
+                            <option value="{{ $venta->id }}">{{ $venta->id }}</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>
@@ -125,6 +142,7 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
+
     </div>
 </div>
 </body>

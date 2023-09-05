@@ -7,4 +7,9 @@
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item active">Bienvenido a FunHotel</li>
                 </ol>
+
+            </div>
+        </div>
+    </div>
+
 @endsection

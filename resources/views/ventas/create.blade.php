@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +40,7 @@
     }
 }
 </script>
+
     <script>
         $(document).ready(function() {
             // Cuando se seleccione una reserva
@@ -119,4 +121,5 @@
 </script>
 </body>
 </html>
+
 @endsection

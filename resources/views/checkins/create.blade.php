@@ -45,7 +45,7 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Agregar check-in</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Check-in</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
@@ -55,8 +55,8 @@
                         @csrf
                         <div class="col-md-6">
                             <label for="" class="form-label"> Fecha de ingreso</label>
-                            <input type="date" class="form-control" name="ingreso" id="ingreso"
-                                aria-describedby="helpId" placeholder="">
+                            <input type="datetime-local" class="form-control" name="ingreso" id="ingreso"
+                                aria-describedby="helpId" placeholder="" required>
                         </div>
 
                         <div class="col-md-6">
@@ -64,7 +64,9 @@
                             <select class="form-select" name="reserva" id="reserva" required>
                                 <option value="">Seleccione</option>
                                 @foreach ($reservas as $reserva)
+                                @if ($reserva->estado == 1) <!-- Verificar si el estado es activo (1) -->
                                     <option value="{{ $reserva->id }}">{{ $reserva->id }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
