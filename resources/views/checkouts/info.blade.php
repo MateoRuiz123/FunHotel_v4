@@ -35,12 +35,6 @@
                     @csrf
                     @method('PUT')
                     <div class="col-md-6">
-                        <label for="" class="form-label"> Fecha de salida</label>
-                        <input type="date" class="form-control" name="salida" id="" aria-describedby="helpId"
-                            placeholder="" value="{{$checkout->fecSalida}}">
-                    </div>
-
-                    <div class="col-md-6">
                         <label for="" class="form-label">Id Check-in</label>
                         <input type="number" class="form-control" name="checkin" id="" aria-describedby="helpId"
                             placeholder="" value="{{$checkout->idCheckin}}">

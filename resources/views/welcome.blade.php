@@ -18,7 +18,7 @@
     <section id="inicio">
       <div class="hero">     
         <h1 class="animate-letters">Bienvenidos a <br>FunHotel</h1>
-        <center><a href="/home" class="btn">Iniciar sesión</a></center>
+        <a href="/home" class="btn">Iniciar sesión</a>
       </div>
     </section>
     <div class="titulo">
@@ -26,9 +26,9 @@
     </div>
       <div class="texto">
           <p>Funhotel surge de la necesidad que se presentaba con los estudiantes de Hoteleria Y Turismo, de contar con una herramienta
-            eficiente y accesible, ante la falta de recursos <br> que pudieran completar su formación, un grupo de entusiastas estudiantes, decidieron
-            emprender un emocionante proyecto. <br>
-            Asi nacio FunHotel, un innovador aplicativo, creado con la misión de optimizar y facilitar <br> el proceso de aprendizaje para 
+            eficiente y accesible, ante la falta de recursos que pudieran completar su formación, un grupo de entusiastas estudiantes, decidieron
+            emprender un emocionante proyecto.
+            Asi nacio FunHotel, un innovador aplicativo, creado con la misión de optimizar y facilitar el proceso de aprendizaje para 
             los estudiantes de Hoteleria Y Turismo.
           </p>
         </div></div>
