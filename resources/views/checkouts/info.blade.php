@@ -16,7 +16,7 @@
                     @method('PUT')
                     <div class="col-md-6">
                         <label for="" class="form-label"> Fecha de salida</label>
-                        <input type="date" class="form-control" name="salida" id="" aria-describedby="helpId"
+                        <input type="datetime-local" class="form-control" name="salida" id="" aria-describedby="helpId"
                             placeholder="" value="{{$checkout->fecSalida}}">
                     </div>
 
