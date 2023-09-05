@@ -36,8 +36,8 @@
                     <thead>
                         <tr>
                             <th>Numero</th>
-                            <th>Descripcion</th>
-                            <th>Categoria</th>
+                            <th>Descripción</th>
+                            <th>Categoría</th>
                             <th>Estado</th>
                             <th>Acciones</th>
                         </tr>

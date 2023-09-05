@@ -4,7 +4,7 @@
     <div class="page-title-box">
         <div class="row align-items-center">
             <div class="col-md-8">
-                <h6 class="page-title">Datos check out</h6>
+                <h6 class="page-title">Datos check-out</h6>
             </div>
 
             <div class="col-md-4">
@@ -54,7 +54,6 @@
                                 <td>{{ $checkout->estado_texto }}</td>
                                 <td>
                                     @can('checkout-edit')
-                                        @include('checkouts.info')
                                         <button type="button" class="btn btn-warning" data-bs-toggle="modal"
                                             data-bs-target="#edit{{ $checkout->id }}">
                                             <i class="bi bi-pencil-square"></i>
@@ -68,6 +67,7 @@
                                     @endcan
                                 </td>
                             </tr>
+                            @include('checkouts.info')
                         @endforeach
                     </tbody>
                 </table>

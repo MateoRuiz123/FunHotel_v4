@@ -37,33 +37,33 @@
                     <div class="col-md-6">
                         <label for="" class="form-label">Nro. Habitación</label>
                         <input type="text" class="form-control" name="habitacion" id=""
-                            aria-describedby="helpId" placeholder="" value="{{ $reserva->idHabitacion }}">
+                            aria-describedby="helpId" placeholder="" value="{{ $reserva->habitacion->numeroHabitacion }}">
                     </div>
                     <div class="col-md-6">
                         <label for="" class="form-label">Servicio</label>
                         <input type="text" class="form-control" name="servicio" id=""
-                            aria-describedby="helpId" placeholder="" value="{{ $reserva->idServicio }}">
+                            aria-describedby="helpId" placeholder="" value="{{ $reserva->servicio->nombre }}">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6"><br>
                         <label for="" class="form-label">Nro. doc cliente</label>
                         <input type="text" class="form-control" name="cliente" id=""
-                            aria-describedby="helpId" placeholder="" value="{{ $reserva->idCliente }}">
+                            aria-describedby="helpId" placeholder="" value="{{ $reserva->cliente->numeroDocumento }}">
                     </div>
 
                     <div class="col-md-6"><br>
-                        <label for="" class="form-label">Cliente</label>
+                        <label for="" class="form-label">Nombre cliente</label>
                         <input type="text" class="form-control" name="cliente" id=""
-                            aria-describedby="helpId" placeholder="" value="{{ $reserva->idCliente }}">
+                            aria-describedby="helpId" placeholder="" value="{{ $reserva->cliente->primerNombre }} {{ $reserva->cliente->primerApellido }}">
                     </div>
                     <div class="col-md-6"><br>
                         <label for="" class="form-label">De:</label>
                         <input type="date" class="form-control" name="entrada" id="entrada"
-                            aria-describedby="helpId" placeholder="" value="{{ $reserva->FecEntrada }}">
+                            aria-describedby="helpId" placeholder="" value="{{ $reserva->fecIngreso }}">
                     </div>
                     <div class="col-md-6"><br>
                         <label for="" class="form-label">Hasta:</label>
                         <input type="date" class="form-control" name="salida" id="salida"
-                            aria-describedby="helpId" placeholder="" value="{{ $reserva->FecSalida }}">
+                            aria-describedby="helpId" placeholder="" value="{{ $reserva->fecSalida }}">
                     </div>
                     <div class="col-md-6"><br>
                         <label for="" class="form-label">Estado</label>

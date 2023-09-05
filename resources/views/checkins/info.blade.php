@@ -37,7 +37,7 @@
                         @method('PUT')
                         <div class="col-md-4">
                             <label for="" class="form-label"> Fecha de ingreso</label>
-                            <input type="date" class="form-control" name="ingreso" id=""
+                            <input type="datetime-local" class="form-control" name="ingreso" id=""
                                 aria-describedby="helpId" placeholder="" value="{{ $checkin->fecIngreso }}">
                         </div>
 

@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h1>Grupo: {{ $group->name }}</h1>
+                <h1>Ficha: {{ $group->name }}</h1>
                 <!-- Mostrar información del grupo -->
                 <p>Descripción: {{ $group->description ?? 'No hay descripción' }}</p>
                 <!-- Botones de acción -->
