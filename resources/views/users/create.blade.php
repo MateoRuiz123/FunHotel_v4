@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
     <!DOCTYPE html>
     <html lang="en">
@@ -21,8 +22,23 @@
                 var confirm = $('#confirm-password').val().trim();
                 var roles = $('#roles').val();
 
-                if (nombre === '' || apellido === '' || birthday === '' || email === '' || password === '' || confirm === '' ||
-                    roles === '') {
+                // Validación de fecha de nacimiento
+                var birthdayDate = new Date(birthday);
+                var currentDate = new Date();
+                var age = currentDate.getFullYear() - birthdayDate.getFullYear();
+
+                if (age < 12) {
+                    Swal.fire({
+                        title: 'Error de fecha de nacimiento',
+                        text: 'Debes tener al menos 12 años para registrarte.',
+                        icon: 'error',
+                        confirmButtonColor: '#d33'
+                    });
+                    return;
+                }
+
+                // Resto de la validación
+                if (nombre === '' || apellido === '' || email === '' || password === '' || confirm === '' || roles === '') {
                     Swal.fire({
                         title: 'Campos vacíos',
                         text: 'Por favor, completa todos los campos antes de continuar.',
@@ -47,6 +63,7 @@
                 }
             }
         </script>
+
         <script>
             $(document).ready(function() {
                 function validarFormulario() {
@@ -225,7 +242,8 @@
                 </div>
             </div>
         </div>
-        @if (count($errors) > 0)
+
+        @if ($errors->any())
             <div class="alert alert-danger">
                 <strong>¡Ups!</strong> Hubo algunos problemas con tus datos de entrada.
                 <br><br>
@@ -236,7 +254,7 @@
                 </ul>
             </div>
         @endif
-        <br>
+
         <div class="container">
             <form id="usuarioForm" action="{{ route('users.store') }}" method="POST" class="row g-3">
                 @csrf
@@ -353,6 +371,31 @@
                 <a class="btn btn-light" href="{{ route('users.index') }}">Volver</a>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                $('#birthday').on('change', function() {
+                    var birthday = $(this).val();
+
+                    if (birthday === '') {
+                        $('#birthdayError').text('Seleccione una fecha del calendario');
+                        return;
+                    }
+
+                    // Calcular la edad a partir de la fecha de nacimiento
+                    var birthdayDate = new Date(birthday);
+                    var currentDate = new Date();
+                    var age = currentDate.getFullYear() - birthdayDate.getFullYear();
+
+                    // Validar la edad
+                    if (age < 12) {
+                        $('#birthdayError').text('Debes tener al menos 12 años.');
+                    } else {
+                        $('#birthdayError').text('');
+                    }
+                });
+            });
+        </script>
+
     </body>
 
     </html>
