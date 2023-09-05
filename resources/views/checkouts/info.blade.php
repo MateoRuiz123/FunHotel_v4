@@ -35,19 +35,19 @@
                     <div class="col-md-6">
                         <label for="" class="form-label">Nro. doc</label>
                         <input type="text" class="form-control" name="cliente" id="" aria-describedby="helpId"
-                            placeholder="" value="{{$checkout->idCliente}}">
+                            placeholder="" value="{{$checkout->cliente->numeroDocumento}}">
                     </div>
 
                     <div class="col-md-6">
                         <label for="" class="form-label">Nombre cliente</label>
                         <input type="text" class="form-control" name="reserva" id="" aria-describedby="helpId"
-                            placeholder="" value="{{$checkout->idCliente}}">
+                            placeholder="" value="{{$checkout->cliente->primerNombre}}">
                     </div>
 
                     <div class="col-md-6">
                         <label for="" class="form-label">Metodo de pago</label>
-                        <input type="number" class="form-control" name="metpago" id="" aria-describedby="helpId"
-                            placeholder="" value="{{$checkout->idMetodoPago}}">
+                        <input type="text" class="form-control" name="metpago" id="" aria-describedby="helpId"
+                            placeholder="" value="{{$checkout->metpago->nombre}}">
                     </div>
                     
                     <div class="col-md-6">

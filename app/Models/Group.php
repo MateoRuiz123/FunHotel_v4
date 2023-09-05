@@ -13,7 +13,11 @@ class Group extends Model
 {
     use HasFactory, HasRoles;
 
-    protected $fillable = ['name'];
+    protected $table = 'groups';
+    protected $primarykey = 'id';
+    protected $fillable = ['name', 'estado'];
+    protected $guarded = [];
+    public $timestamps = false;
 
     /**
      * The users that belong to the group.
