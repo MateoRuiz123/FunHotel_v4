@@ -43,8 +43,16 @@
 
                         <div class="col-md-4">
                             <label for="" class="form-label">Id Reserva</label>
-                            <input type="number" class="form-control" name="reserva" id=""
-                                aria-describedby="helpId" placeholder="" value="{{ $checkin->idReserva }}">
+                            {{-- <input type="number" class="form-control" name="reserva" id=""
+                                aria-describedby="helpId" placeholder="" value="{{ $checkin->idReserva }}"> --}}
+                            <select class="form-select" name="idReserva" id="idReserva">
+                                <option value="" selected disabled>Seleccione</option>
+                                @foreach ($reservas as $reserva)
+                                    <option value="{{ $reserva->id }}"
+                                        {{ $checkin->idReserva == $reserva->id ? 'selected' : '' }}>
+                                        {{ $reserva->id }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-md-4">
                             <label for="">Estado</label>
@@ -70,8 +78,8 @@
 
 
 <!-- Modal Delete -->
-<div class="modal fade" id="delete{{ $checkin->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true" data-bs-backdrop="static">
+<div class="modal fade" id="delete{{ $checkin->id }}" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog " role="document">
         <div class="modal-content">
             <div class="modal-header">

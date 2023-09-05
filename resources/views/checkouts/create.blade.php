@@ -1,38 +1,4 @@
 <!-- Modal -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    function anCe() {
-        var salida = $('#salida').val().trim();
-        var checkin = $('#checkin').val().trim();
-        var metpago = $('#metpago').val().trim();
-        var venta = $('#venta').val().trim();
-
-        if (salida === '' ||  checkin === '' ||  metpago === '' ||  venta === '') {
-            Swal.fire({
-                title: 'Campos vacíos',
-                text: 'Por favor, completa todos los campos antes de continuar.',
-                icon: 'error',
-                confirmButtonColor: '#d33'
-            });
-        } else {
-            Swal.fire({
-                title: 'Confirmación',
-                text: '¿Estás seguro de crear el checkout?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Estoy seguro',
-                cancelButtonText: 'Cancelar',
-                confirmButtonColor: '#12B901',
-                cancelButtonColor: '#E41919'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById('chform').submit();
-                }
-            });
-        }
-    }
-</script>
 <div class="modal fade" id="create" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="modalCreateLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -43,12 +9,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="chform" class="row g-3" action="{{ route('checkouts.store') }}" method="post"
+                <form class="row g-3" action="{{ route('checkouts.store') }}" method="post"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="col-md-6">
                         <label for="" class="form-label"> Fecha de salida</label>
-                        <input type="date" class="form-control" name="salida" id="salida"
+                        <input type="date" class="form-control" name="salida" id=""
                             aria-describedby="helpId" placeholder="">
                     </div>
 
@@ -107,10 +73,12 @@
                     <div>
                         <input type="hidden" name="estado" id="estado" value="{{ app\models\Checkout::Activo }}">
                     </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Agregar</button>
+                    </div>
                 </form>
-            </div><br>
+            </div>
             <div class="modal-footer">
-                <button type="submit" onclick="anCe()" class="btn btn-primary">Crear</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>

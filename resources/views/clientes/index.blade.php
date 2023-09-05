@@ -32,11 +32,11 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Documento</th>
                             <th>Nombre</th>
                             <th>Segundo Nombre</th>
                             <th>Apellido</th>
                             <th>Segundo Apellido</th>
-                            <th>Documento</th>
                             <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
@@ -45,11 +45,11 @@
                         @foreach ($clientes as $cliente)
                             <tr>
                                 <td>{{ $cliente->id }}</td>
+                                <td>{{ $cliente->numeroDocumento }}</td>
                                 <td>{{ $cliente->primerNombre }}</td>
                                 <td>{{ $cliente->segundoNombre }}</td>
                                 <td>{{ $cliente->primerApellido }}</td>
                                 <td>{{ $cliente->segundoApellido }}</td>
-                                <td>{{ $cliente->numeroDocumento }}</td>
                                 <td>{{ $cliente->estado_texto }}</td>
                                 <td>
                                     <button type="button" class="btn btn-success btn-ver-mas" data-bs-toggle="modal"

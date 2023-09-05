@@ -69,17 +69,7 @@ class GroupController extends Controller
         return view('groups.show', compact('group', 'users', 'roles', 'usersWithoutGroup'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Group $group)
-    {
-        return view('groups.edit', compact('group'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
+    // metodo update para actualizar el name del grupo
     public function update(Request $request, Group $group)
     {
         $request->validate([
@@ -90,7 +80,7 @@ class GroupController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect()->route('groups.index')->with('success', 'Ficha modificada.');
+        return redirect()->route('groups.index')->with('success', 'Ficha actualizada.');
     }
 
     /**
@@ -186,7 +176,7 @@ class GroupController extends Controller
                 $user->assignRole($role);
             });
 
-            return redirect()->back()->with('success', 'Roles asignados a todos los grupos.');
+            return redirect()->back()->with('success', 'Roles asignados a todos los usuarios.');
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Error al asignar rol: ' . $e->getMessage());
         }

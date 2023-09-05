@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('checkouts', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('fecSalida');
+            $table->date('fecSalida');
             // Idcheckin, idMetodoPago, idVenta
             $table->foreignId('idCheckin');
+            $table->foreignId('idReserva');
+            $table->foreignId('idCliente');
             $table->foreignId('idMetodoPago');
             $table->foreignId('idVenta');
             $table->integer('estado');
@@ -29,6 +31,16 @@ return new class extends Migration
             $table->foreign('idMetodoPago')
                 ->references('id')
                 ->on('pagos')
+                ->onDelete('cascade');
+
+            $table->foreign('idReserva')
+                ->references('id')
+                ->on('reservas')
+                ->onDelete('cascade');
+
+            $table->foreign('idCliente')
+                ->references('id')
+                ->on('clientes')
                 ->onDelete('cascade');
 
             $table->foreign('idVenta')
@@ -45,6 +57,8 @@ return new class extends Migration
     {
         Schema::table('checkouts', function (Blueprint $table) {
             $table->dropForeign(['idCheckin']);
+            $table->dropForeign(['idReserva']);
+            $table->dropForeign(['idCliente']);
             $table->dropForeign(['idMetodoPago']);
             $table->dropForeign(['idVenta']);
         });

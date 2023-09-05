@@ -58,7 +58,7 @@
             </form>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary" onclick="ventas()">Crear <i class="bi bi-plus-circle"></i></button>
-                <a class="btn btn-light" href="{{ route('roles.index') }}">Volver</a>
+                <a class="btn btn-light" href="{{ route('ventas.index') }}">Volver</a>
             </div>
 
         </div>

@@ -35,7 +35,7 @@
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
-                            <th>Numero</th>
+                            <th>Número</th>
                             <th>Descripción</th>
                             <th>Categoría</th>
                             <th>Estado</th>

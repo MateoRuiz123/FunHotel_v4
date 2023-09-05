@@ -82,7 +82,7 @@
     </form>
     <div class="col-md-12">
         <button type="submit" onclick="Roles()" class="btn btn-primary">Crear</button>
-        <a class="btn btn-primary" href="{{ route('roles.index') }}">Volver</a>
+        <a class="btn btn-light" href="{{ route('roles.index') }}">Volver</a>
     </div>
 
     <style>

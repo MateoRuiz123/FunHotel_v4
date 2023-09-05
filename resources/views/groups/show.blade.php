@@ -11,47 +11,10 @@
                 <p>Descripción: {{ $group->description ?? 'No hay descripción' }}</p>
                 <!-- Botones de acción -->
                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                    @can('group-edit')
-                        <a type="button" href="{{ route('groups.edit', $group->id) }}" class="btn btn-primary">Editar</a>
-                    @endcan
-                    @can('group-delete')
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDelete">
-                            Eliminar
-                        </button>
 
-                        <!-- Modal -->
-                        <!-- Ventana modal de confirmación -->
-                        <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog"
-                            aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar
-                                            Eliminación</h5>
-                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>¿Estás seguro de que deseas eliminar este registro?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <!-- Botón de cancelar -->
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Cancelar</button>
-                                        <!-- Formulario de eliminación -->
-                                        <form method="POST" action="{{ route('groups.destroy', $group->id) }}"
-                                            style="display:inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endcan
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal">
+                        <a href="/groups" style="text-decoration: none; color:white">Atras</a>
+                    </button>
                 </div>
             </div>
             <div class="col">
@@ -76,8 +39,8 @@
                 <p>Usuarios:</p>
                 @foreach ($group->users as $user)
                     <ul class="list-group list-group-horizontal">
-                        <li class="list-group-item list-group-item-dark">{{$user->name}} {{$user->surname}}</li>
-                        <li class="list-group-item list-group-item-info">{{$user->email}}</li>
+                        <li class="list-group-item list-group-item-dark">{{ $user->name }} {{ $user->surname }}</li>
+                        <li class="list-group-item list-group-item-info">{{ $user->email }}</li>
                     </ul>
                 @endforeach
             </div>
@@ -140,10 +103,10 @@
                         </select>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Agregar al grupo</button>
+                        <button type="submit" class="btn btn-primary">Agregar a la ficha</button>
                     </div>
                 </form>
-                
+
                 <br>
                 <form class="row g-3"
                     action="{{ route('groups.users.remove', ['group' => $group->id, 'user' => 'USER_ID']) }}"
@@ -161,8 +124,7 @@
                     </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-danger" onclick="return confirm('¿Esta seguro?')">Eliminar
-                            del
-                            grupo</button>
+                            de la ficha</button>
                     </div>
                 </form>
             </div>

@@ -3,15 +3,17 @@
 }
 
 .logoland {
+  position: relative;
   margin-top: 80px;
   width: 229px;
-  margin-left: 35em;/* Esto alineará el contenido a la derecha */
+  margin-left: 41em;/* Esto alineará el contenido a la derecha */
 }
 
 .titulo {
+  position: relative;
   text-align: start;
   font-size: 2.5em;
-  margin-top: 295px;
+  margin-top: 310px;
   margin-left: 209px;
   margin-bottom: 5px;
   color: #ffffff;
@@ -32,7 +34,7 @@
 }
 
 .texto p {
-  font-size: 1em;
+  font-size: 1.1em;
   margin-left: 670px;
   color: #fff;
   margin-top: -11.1rem;
@@ -91,7 +93,7 @@ header {
 }
 
 .animate-letters {
-  animation: moveLetters 2s infinite;
+  animation: moveLetters 1.8s infinite;
 
 }
 .nav.nav-tabs{
@@ -104,13 +106,13 @@ header {
 .btn {
   margin-top: -500px;
   display: inline-block;
-  font-size: 18.7px;
+  font-size: 25px;
   font-weight: bold;
-  background: #446bb8b9;
+  background: #446bb8c0;
   color: #fff;
-  padding: 14px 23px;
+  padding: 17px 26px;
   text-decoration: none;
-  border-radius: 9px;
+  border-radius: 13px;
   position: relative;
   overflow: hidden;
 }
@@ -122,7 +124,7 @@ header {
   left: -55%;
   width: 210%;
   height: 210%;
-  background: linear-gradient(20deg, #f95697c9 0%, rgba(205, 205, 205, 0) 80%);
+  background: linear-gradient(30deg, #f95697b7 0%, rgba(205, 205, 205, 0) 80%);
   transform: rotate(45deg);
   transition: transform 0.5s ease;
   pointer-events: none;
@@ -160,15 +162,15 @@ section {
 .hero {
   color: #fff;
   text-align: center;
-  margin-top: 155px;
+  margin-top: 156px;
 }
 
 .hero h1 {
-  font-size: 75px;
+  font-size: 88px;
   color: #fff;
 }
 .hero h1 h3 {
-  font-size: 75px;
+  font-size: 80px;
   color: #fff;
 }
 
@@ -203,6 +205,7 @@ img {
   border-radius: 15px;
   margin-top: 52px;
   overflow: hidden;
+  position: relative;
   background: rgb(35, 34, 61);
   box-shadow: 0px 3px 40px rgba(0,0,0,0.2);
   transition: all 400ms ease-out;
@@ -233,14 +236,14 @@ img {
   line-height: 1.8;
   font-size: 14px;
   margin-bottom: 5px;
-  }
+}
 
   footer {
     color: #fff;
     padding: 1px;
     text-align: center;
     margin-top: 5px;
-  
+    position: relative;
 }
   
 

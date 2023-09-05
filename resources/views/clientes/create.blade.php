@@ -81,7 +81,6 @@
                     }
                 });
 
-      
             $('#segundonombre').on('input', function() {
                     var segundonombre = $(this).val();
 
@@ -117,7 +116,6 @@
                         $('#apellidoSError').text('');
                     }
                 });
-
 
             $('#tipodocumento').on('change', function() {
                 var tipodoc = $(this).val();
@@ -200,27 +198,32 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-6">
-                         <label for="" class="form-label">Nombre</label>
-                        <input type="text" placeholder="Nombre" class="form-control" id="primernombre" name="primernombre" required>
+                         <label for="" class="form-label">Nombre <span class="required-field" style="color: red; font-size: 16px;">*</span></label>
+                        <input type="text" placeholder="" class="form-control" id="primernombre" name="primernombre" required>
                             <span id="nombreError" class="text-danger"></span>
                      </div>
                     <div class="col-md-6">
                         <label for="" class="form-label">Segundo Nombre</label>
-                        <input type="text" placeholder="Segundo Nombre" class="form-control" id="segundonombre" name="segundonombre">
+                        <input type="text" placeholder="" class="form-control" id="segundonombre" name="segundonombre">
                         <span id="nombreSError" class="text-danger"></span>
                      </div>
                     <div class="col-md-6">
-                        <label for="" class="form-label">Primer Apellido</label>
-                        <input type="text" placeholder="Primer Apellido" class="form-control" id="primerapellido" name="primerapellido" required>
+                        <label for="" class="form-label">Primer Apellido <span class="required-field" style="color: red; font-size: 16px;">*</span></label>
+                        <input type="text" placeholder="" class="form-control" id="primerapellido" name="primerapellido" required>
                         <span id="apellidoError" class="text-danger"></span>
                      </div>
                     <div class="col-md-6">
                         <label for="" class="form-label">Segundo Apellido</label>
-                        <input type="text" placeholder="Segundo Apellido" class="form-control" id="segundoapellido" name="segundoapellido">
+                        <input type="text" placeholder="" class="form-control" id="segundoapellido" name="segundoapellido">
                         <span id="apellidoSError" class="text-danger"></span>
                      </div>
-                    <div class="col-md-6">
-                        <label for="tipodocumento" class="form-label">Tipo documento</label>
+                     <div class="col-md-6">
+                        <label for="" class="form-label">Documento <span class="required-field" style="color: red; font-size: 16px;">*</span></label>
+                        <input type="number" placeholder="" class="form-control" id="documento" name="documento" required>
+                         <span id="documentoError" class="text-danger"></span>
+                     </div>
+                     <div class="col-md-6">
+                        <label for="tipodocumento" class="form-label">Tipo documento <span class="required-field" style="color: red; font-size: 16px;">*</span></label>
                         <select name="tipodocumento" id="tipodocumento" class="form-control">
                              <option value="">Seleccione el tipo documento</option>
                              <option value="CC">Cédula ciudadana</option>
@@ -232,20 +235,15 @@
                         <span id="tipodocError" class="text-danger"></span>
                       </div>
                     <div class="col-md-6">
-                        <label for="" class="form-label">Documento</label>
-                        <input type="number" placeholder="Documento" class="form-control" id="documento" name="documento" required>
-                         <span id="documentoError" class="text-danger"></span>
-                     </div>
-                    <div class="col-md-6">
-                        <label for="" class="form-label">Celular</label>
-                        <input type="number" placeholder="Celular" class="form-control" id="celular" name="celular" required>
+                        <label for="" class="form-label">Celular <span class="required-field" style="color: red; font-size: 16px;">*</span></label>
+                        <input type="number" placeholder="" class="form-control" id="celular" name="celular" required>
                         <span id="celularError" class="text-danger"></span>
                      </div>
                     <div class="col-md-6">
-                        <label for="" class="form-label">Correo</label>
+                        <label for="" class="form-label">Correo <span class="required-field" style="color: red; font-size: 16px;">*</span></label>
                     <div class="input-group has-validation">
                          <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            <input type="email" placeholder="Correo" class="form-control" id="correo" name="correo" aria-describedby="inputGroupPrepend" required>
+                            <input type="email" placeholder="" class="form-control" id="correo" name="correo" aria-describedby="inputGroupPrepend" required>
                      </div>
                         <span id="correoError" class="text-danger"></span>
                      </div>
