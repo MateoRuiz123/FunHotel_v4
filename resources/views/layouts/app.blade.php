@@ -1,7 +1,6 @@
 <!--Con bs5 crea toda la estructura con bootstrap, descargando la extensión -->
 <!doctype html>
 <html lang="en">
-
 <head>
     <title>FunHotel</title>
     <!-- Required meta tags -->
@@ -68,16 +67,12 @@
                     </button>
                 @endauth
             </div>
-
             <div class="d-flex">
-
                 <div class="dropdown d-none d-lg-inline-block">
                     <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
                         <i class="mdi mdi-fullscreen"></i>
                     </button>
                 </div>
-
-
                 @guest
                     @if (Route::has('login'))
                         <div class="dropdown d-none d-md-block ms-2">
@@ -155,10 +150,11 @@
                 <div id="sidebar-menu">
                     <!-- Left Menu Start -->
                     <ul class="metismenu list-unstyled" id="side-menu">
-                        <li class="menu-title">Menú del día</li>
+
 
                         <li>
                             <a href="/home" class="waves-effect">
+                                <i class="fa-solid fa-house"></i>
                                 <span>Inicio</span>
                             </a>
                         </li>
@@ -185,7 +181,7 @@
                                 @can('pago-list')
                                     <li>
                                         <a href="/pagos" class=" waves-effect">
-                                            <span>Metodo de pago</span>
+                                            <span>Método de pago</span>
                                         </a>
                                     </li>
                                 @endcan
@@ -210,7 +206,7 @@
                                 @can('categoria-list')
                                     <li>
                                         <a href="/categorias" class=" waves-effect">
-                                            <span>Categorias</span>
+                                            <span>Categorías</span>
                                         </a>
                                     </li>
                                 @endcan

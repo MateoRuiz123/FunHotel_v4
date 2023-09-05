@@ -1,5 +1,39 @@
 @extends('layouts.app')
 @section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function Usve() {
+            Swal.fire({
+                title: 'Confirmación',
+                text: '¿Estás seguro de editar el usuario?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Estoy seguro',
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: '#12B901',
+                cancelButtonColor: '#E41919'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('usuarioForm').submit();
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-left">
+                <h2>Editar usuario {{ $user->name }}</h2>
+=======
     <!DOCTYPE html>
     <html lang="en">
 
@@ -161,8 +195,17 @@
             <div class="col-md-12">
                 <button type="submit" onclick="Usve()" class="btn btn-primary">Actualizar</button>
             </div>
+
+          </form><br>
+            <div class="col-md-12">
+                <button type="submit" onclick="Usve()" class="btn btn-primary">Actualizar</button>
+                <a class="btn btn-light" href="{{ route('users.index') }}">Volver</a>
+            </div>
+    </div>
+@endsection
         </div>
     @endsection
+
 </body>
 
 </html>

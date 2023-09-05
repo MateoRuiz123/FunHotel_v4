@@ -108,7 +108,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-3" action="{{ route('reservas.store') }}" method="post" enctype="multipart/form-data">
+                    <form id="ReservaForm" class="row g-3" action="{{ route('reservas.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="col-md-6">
                             <label for="" class="form-label">Nro. Habitacion</label>

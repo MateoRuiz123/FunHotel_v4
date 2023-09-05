@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FunHotel</title>
     <link rel="shortcut icon" href="{{ asset('assets/images/Pequeño.ico') }}">
     <link rel="stylesheet" href="{{asset('css/land.css')}}">
@@ -19,11 +18,11 @@
     <section id="inicio">
       <div class="hero">     
         <h1 class="animate-letters">Bienvenidos a <br>FunHotel</h1>
-        <center><a href="/home" class="btn">Iniciar Sesión</a></center>
+        <center><a href="/home" class="btn">Iniciar sesión</a></center>
       </div>
     </section>
     <div class="titulo">
-      <h2 class="">Como surgio <br> Funhotel </h2>
+      <h2 class="">Como surgió <br> Funhotel </h2>
     </div>
       <div class="texto">
           <p>Funhotel surge de la necesidad que se presentaba con los estudiantes de Hoteleria Y Turismo, de contar con una herramienta

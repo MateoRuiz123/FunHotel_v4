@@ -35,9 +35,9 @@
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
-                            <th>Numero</th>
-                            <th>Descripcion</th>
-                            <th>Categoria</th>
+                            <th>Número</th>
+                            <th>Descripción</th>
+                            <th>Categoría</th>
                             <th>Estado</th>
                             <th>Acciones</th>
                         </tr>

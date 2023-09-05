@@ -5,28 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function Ctventana() {
-            Swal.fire({
-                title: 'Confirmación',
-                text: '¿Estás seguro de editar esta categoría?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Estoy seguro',
-                cancelButtonText: 'Cancelar',
-                confirmButtonColor: '#12B901',
-                cancelButtonColor: '#E41919'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById('CategoriaUpForm').submit();
-                }
+        document.addEventListener('DOMContentLoaded', function () {
+        var requiredFields = document.querySelectorAll('.categoria[required]');
+
+            requiredFields.forEach(function(field) {
+                field.addEventListener('input', function() {
+                     validaCategoria(this);
+                    });
+                });
             });
-        }
-    </script>
-</head>
+
+            function validaCategoria(field) {
+            var errorMessage = field.parentNode.querySelector('.invalid-feedback');
+
+            if (!field.value.trim()) {
+                field.classList.add('is-invalid');
+                errorMessage.textContent = 'Este campo es requerido';
+            } else {
+                field.classList.remove('is-invalid');
+                errorMessage.textContent = ''; 
+            }
+        };
+</script>
 <body>
     <div class="modal fade" id="modalUpdate{{ $categoria->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="modalCreateLabel" aria-hidden="true">
@@ -44,12 +45,14 @@
                         @method('PUT')
                         <div class="col-md-6">
                             <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" name="nombre" id="nombre"
-                                value="{{ $categoria->nombre }}">
+                            <input type="text" class="form-control categoria" name="nombre" id="nombre"
+                                value="{{ $categoria->nombre }}" required>
+                            <small class="invalid-feedback"></small>
                         </div>
                         <div class="col-md-6">
                             <label for="descripcion" class="form-label">Descripción</label>
-                            <textarea type="text" class="form-control" name="descripcion" id="descripcion">{{ $categoria->descripcion }}</textarea>
+                            <textarea type="text" class="form-control categoria" name="descripcion" id="descripcion" required>{{ $categoria->descripcion }}</textarea>
+                            <small class="invalid-feedback"></small>
                         </div>
                         <div class="col-md-5">
                             <label for="estado" class="form-label">Estado</label>
@@ -61,11 +64,12 @@
                     </form>
                 </div><br>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" onclick="Ctventana()">Actualizar</button>
+                    <button type="submit" class="btn btn-primary" form="CategoriaUpForm">Actualizar</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
+ </div>
 </body>
 </html>

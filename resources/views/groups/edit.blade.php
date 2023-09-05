@@ -8,22 +8,26 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        function fiCVen() {
-            Swal.fire({
-                title: 'Confirmación',
-                text: '¿Estás seguro de editar la ficha?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Estoy seguro',
-                cancelButtonText: 'Cancelar',
-                confirmButtonColor: '#12B901',
-                cancelButtonColor: '#E41919'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById('FichaForm').submit();
-                }
+        document.addEventListener('DOMContentLoaded', function () {
+            var requiredFields = document.querySelectorAll('.ficha-form[required]');
+
+            requiredFields.forEach(function (field) {
+                field.addEventListener('input', function () {
+                    Fichavalidaciones(this);
+                });
             });
-        }
+        });
+        function Fichavalidaciones(field) {
+            var errorMessage = field.parentNode.querySelector('.invalid-feedback');
+
+            if (!field.value.trim()) {
+                field.classList.add('is-invalid');
+                errorMessage.textContent = 'Este campo es requerido';
+            } else {
+                field.classList.remove('is-invalid');
+                errorMessage.textContent = '';
+            }
+        };
     </script>
 </head>
 <body>
@@ -36,18 +40,18 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div><br>
                 <div class="modal-body">
-                    <form action="{{ route('groups.update', $group) }}" method="POST" class="row g-3">
+                    <form id="FichaForm" action="{{ route('groups.update', $group) }}" method="POST" class="row g-3">
                         @csrf
                         @method('PUT')
-    
+
                         <div class="col-md-6">
-                            <label for="name">Nombre</label>
-                            <input type="text" name="name" id="name" class="form-control"
-                                value="{{ $group->name }}" required>
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" class="form-control ficha-form" name="name" id="name" aria-describedby="helpId" value="{{ $group->name }}" required>
+                            <small class="invalid-feedback"></small>
                         </div>
                     </form><br>
                     <div class="modal-footer">
-                        <button type="submit" onclick="fiCVen()" class="btn btn-primary">Actualizar</button>
+                        <button type="submit" form="FichaForm" class="btn btn-primary">Actualizar</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
