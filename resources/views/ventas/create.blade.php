@@ -3,6 +3,7 @@
 @section('content')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
         function ventas() {
             Swal.fire({
@@ -34,7 +35,9 @@
                             <select name="idReserva" class="form-control">
                                 <option selected disabled>Seleccione</option>
                                 @foreach ($reservas as $reserva)
+                                @if ($reserva->estado == 1) <!-- Verificar si el estado es activo (1) -->
                                     <option value="{{ $reserva->id }}">{{ $reserva->id }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>

@@ -65,7 +65,9 @@
                             <select class="form-select" name="reserva" id="reserva" required>
                                 <option value="">Seleccione</option>
                                 @foreach ($reservas as $reserva)
+                                @if ($reserva->estado == 1) <!-- Verificar si el estado es activo (1) -->
                                     <option value="{{ $reserva->id }}">{{ $reserva->id }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>

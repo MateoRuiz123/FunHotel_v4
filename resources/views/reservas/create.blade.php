@@ -116,7 +116,9 @@
                             <select class="form-select" name="habitacion" id="habitacion" required>
                                 <option value="">Seleccione</option>
                                 @foreach ($habitaciones as $habitacion)
+                                @if($habitacion->estado == 1)
                                 <option value="{{ $habitacion->id }}">{{ $habitacion->numeroHabitacion }}</option>
+                                @endif
                                 @endforeach
                             </select>
                             <span id="habitacionError" class="text-danger"></span>
@@ -124,11 +126,13 @@
 
                         <div class="col-md-6">
                             <label for="" class="form-label">Servicio:</label>
-                            {{-- <input type="text" class="form-control" name="servicio" id="" aria-describedby="helpId" placeholder=""> --}}
+
                             <select class="form-select" name="servicio" id="servicio" required>
                                 <option value="">Seleccione</option>
                                 @foreach ($servicios as $servicio)
+                                @if($servicio->estado == 1)
                                 <option value="{{ $servicio->id }}">{{ $servicio->nombre }}</option>
+                                @endif
                                 @endforeach
                             </select>
                             <span id="servicioError" class="text-danger"></span>
@@ -140,8 +144,10 @@
                             <select class="form-select" name="cliente" id="cliente" required>
                                 <option value="">Seleccione</option>
                                 @foreach ($clientes as $cliente)
+                                @if($cliente->estado == 1)
                                 <option value="{{ $cliente->id }}">{{ $cliente->numeroDocumento }}
                                 </option>
+                                @endif
                                 @endforeach
                             </select>
                             <span id="clienteError" class="text-danger"></span>
