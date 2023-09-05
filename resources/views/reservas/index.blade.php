@@ -31,8 +31,9 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Habitacion</th>
-                            <th>Cliente</th>
+                            <th>Nro Habitacion</th>
+                            <th>Nro. doc cliente</th>
+                            <th>Nombre cliente</th>
                             <th>Servicio</th>
                             <Th>De:</Th>
                             <Th>Hasta:</Th>
@@ -46,6 +47,7 @@
                             <tr>
                                 <td>{{ $reserva->id }}</td>
                                 <td>{{ $reserva->habitacion->numeroHabitacion }}</td>
+                                <td>{{ $reserva->cliente->numeroDocumento }}</td>
                                 <td>{{ $reserva->cliente->primerNombre }} {{ $reserva->cliente->primerApellido }} </td>
                                 <td>{{ $reserva->servicio->nombre }}</td>
                                 <td>{{ $reserva->fecIngreso }}</td>
@@ -71,6 +73,32 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Delete -->
+    <div class="modal fade" id="delete{{ $reserva->id }}" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar reserva</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('reservas.destroy', $reserva->id) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <!--Clave evita error -->
+                    @method('Delete')
+                    <div class="modal-body">
+                        ¡¿Estas seguro de eliminar a <strong> {{ $reserva->nombre }} ?!</strong>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

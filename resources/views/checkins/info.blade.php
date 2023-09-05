@@ -19,7 +19,7 @@
         });
     }
 </script>
-<div class="modal fade" id="edit{{$checkin->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div class="modal fade" id="edit{{ $checkin->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="modalCreateLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -60,7 +60,7 @@
 
 
 <!-- Modal Delete -->
-<div class="modal fade" id="delete{{$checkin->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="delete{{ $checkin->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog " role="document">
         <div class="modal-content">
@@ -70,7 +70,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{route('checkins.destroy',$checkin->id)}}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('checkins.destroy', $checkin->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <!--Clave evita error -->
                 @method('Delete')

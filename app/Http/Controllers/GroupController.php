@@ -186,7 +186,7 @@ class GroupController extends Controller
                 $user->assignRole($role);
             });
 
-            return redirect()->back()->with('success', 'Roles asignados a todos los grupos.');
+            return redirect()->back()->with('success', 'Roles asignados a todos los usuarios.');
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Error al asignar rol: ' . $e->getMessage());
         }

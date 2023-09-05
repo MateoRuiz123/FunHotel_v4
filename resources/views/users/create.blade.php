@@ -2,11 +2,12 @@
 @section('content')
     <!DOCTYPE html>
     <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Crear nuevo usuario</title>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -19,8 +20,9 @@
                 var password = $('#password').val().trim();
                 var confirm = $('#confirm-password').val().trim();
                 var roles = $('#roles').val();
-        
-            if (nombre === '' ||  apellido === '' ||  birthday === '' || email === '' || password  === '' || confirm === '' || roles === '' ) {
+
+                if (nombre === '' || apellido === '' || birthday === '' || email === '' || password === '' || confirm === '' ||
+                    roles === '') {
                     Swal.fire({
                         title: 'Campos vacíos',
                         text: 'Por favor, completa todos los campos antes de continuar.',
@@ -45,7 +47,7 @@
                 }
             }
         </script>
-    <script>
+        <script>
             $(document).ready(function() {
                 function validarFormulario() {
                     var nombre = $('#name').val().trim();
@@ -136,16 +138,15 @@
 
                     if (password.trim() === '') {
                         $('#passwordError').text('La contraseña es requerida');
+                    } else if (!/^\d+$/.test(password)) {
+                        $('#passwordError').text('La contraseña debe contener solo números');
                     } else if (password.length < 8) {
                         $('#passwordError').text('La contraseña debe tener al menos 8 caracteres');
-                    } else if (!/[a-zA-Z]/.test(password)) {
-                        $('#passwordError').text('La contraseña debe contener al menos una letra');
-                    } else if (!/\d/.test(password)) {
-                        $('#passwordError').text('La contraseña debe contener al menos un número');
                     } else {
                         $('#passwordError').text('');
                     }
                 });
+
 
                 $('#confirm-password').on('input', function() {
                     var password = $('#password').val();
@@ -190,6 +191,28 @@
                         event.preventDefault();
                     }
                 });
+
+                $('#togglePassword').on('click', function() {
+                    var passwordField = $('#password');
+                    var passwordFieldType = passwordField.attr('type');
+
+                    if (passwordFieldType === 'password') {
+                        passwordField.attr('type', 'text');
+                    } else {
+                        passwordField.attr('type', 'password');
+                    }
+                });
+
+                $('#toggleConfirmPassword').on('click', function() {
+                    var confirmPasswordField = $('#confirm-password');
+                    var confirmPasswordFieldType = confirmPasswordField.attr('type');
+
+                    if (confirmPasswordFieldType === 'password') {
+                        confirmPasswordField.attr('type', 'text');
+                    } else {
+                        confirmPasswordField.attr('type', 'password');
+                    }
+                });
             });
         </script>
     </head>
@@ -200,7 +223,6 @@
                 <div class="pull-left">
                     <h2>Crear nuevo usuario</h2>
                 </div>
-
             </div>
         </div>
         @if (count($errors) > 0)
@@ -248,7 +270,7 @@
                         <span id="apellidoseError" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-12 col-sm-12 col-md-6">
                     <div class="form-group">
                         <strong>Fecha de nacimiento:</strong>
                         <input type="date" id="birthday" name="birthday" placeholder="Fecha de nacimiento"
@@ -256,7 +278,7 @@
                         <span id="birthdayError" class="text-danger"></span>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group">
                         <strong>Email:</strong>
                         <input type="text" id="email" name="email" placeholder="Email" class="form-control">
@@ -265,16 +287,48 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
+                        <strong>Tipo de documento:</strong>
+                        <select id="tipoDocumento" name="tipoDocumento" class="form-control" required>
+                            <option value="">Seleccione un tipo de documento</option>
+                            <option value="Cedula">Cedula</option>
+                            <option value="Pasaporte">Pasaporte</option>
+                            <option value="Cedula de extranjeria">Cedula de extranjeria</option>
+                            <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+                            <option value="Registro civil">Registro civil</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <strong>Número de documento:</strong>
+                        <input type="text" id="numeroDocumento" name="numeroDocumento" placeholder="Número de documento"
+                            class="form-control" required>
+                        <span id="numeroDocumentoError" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <strong>Contraseña:</strong>
-                        <input type="password" id="password" name="password" placeholder="Contraseña" class="form-control">
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" placeholder="Contraseña"
+                                class="form-control">
+                            <button type="button" id="togglePassword" class="btn btn-outline-secondary">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
                         <span id="passwordError" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <strong>Confirmar Contraseña:</strong>
-                        <input type="password" id="confirm-password" name="confirm-password"
-                            placeholder="Confirmar Contraseña" class="form-control">
+                        <div class="input-group">
+                            <input type="password" id="confirm-password" name="confirm-password"
+                                placeholder="Confirmar Contraseña" class="form-control">
+                            <button type="button" id="toggleConfirmPassword" class="btn btn-outline-secondary">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
                         <span id="confirmpasswordError" class="text-danger"></span>
                     </div>
                 </div>
@@ -291,7 +345,7 @@
                     </div>
                 </div>
                 <div>
-                    <input type="hidden" name="estado" id="estado" value="{{app\models\User::Activo}}">
+                    <input type="hidden" name="estado" id="estado" value="{{ app\models\User::Activo }}">
                 </div>
             </form>
             <div class="col-12">
@@ -299,7 +353,7 @@
                 <a class="btn btn-light" href="{{ route('users.index') }}">Volver</a>
             </div>
         </div>
-    @endsection
-</body>
+    </body>
 
-</html>
+    </html>
+@endsection

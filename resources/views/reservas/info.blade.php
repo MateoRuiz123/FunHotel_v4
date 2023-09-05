@@ -44,6 +44,12 @@
                         <input type="text" class="form-control" name="servicio" id=""
                             aria-describedby="helpId" placeholder="" value="{{ $reserva->idServicio }}">
                     </div>
+                    <div class="col-md-6">
+                        <label for="" class="form-label">Nro. doc cliente</label>
+                        <input type="text" class="form-control" name="cliente" id=""
+                            aria-describedby="helpId" placeholder="" value="{{ $reserva->idCliente }}">
+                    </div>
+
                     <div class="col-md-6"><br>
                         <label for="" class="form-label">Cliente</label>
                         <input type="text" class="form-control" name="cliente" id=""
@@ -77,7 +83,7 @@
 </div>
 
 
-<!-- Modal Delete -->
+{{-- <!-- Modal Delete -->
 <div class="modal fade" id="delete{{ $reserva->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog " role="document">
@@ -102,4 +108,4 @@
             </form>
         </div>
     </div>
-</div>
+</div> --}}

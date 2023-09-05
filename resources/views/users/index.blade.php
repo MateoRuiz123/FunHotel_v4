@@ -35,6 +35,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Número de documento</th>
                             <th>Nombre</th>
                             <th>Segundo nombre</th>
                             <th>Apellido</th>
@@ -50,6 +51,7 @@
                         @foreach ($users as $user)
                             <tr>
                                 <td>{{ $user->id }}</td>
+                                <td>{{$user->tipoDocumento}} - {{$user->numeroDocumento}}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->second_name }}</td>
                                 <td>{{ $user->surname }}</td>
