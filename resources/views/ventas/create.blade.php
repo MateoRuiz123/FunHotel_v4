@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +10,35 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function Ventaconfir() {
+    var idReserva = $('#idReserva').val();
+
+    if (!idReserva) {
+        Swal.fire({
+            title: 'Campos vacíos',
+            text: 'Por favor, selecciona una reserva antes de continuar.',
+            icon: 'error',
+            confirmButtonColor: '#d33'
+        });
+    } else {
+        Swal.fire({
+            title: 'Confirmación',
+            text: '¿Estás seguro de crear la venta?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Estoy seguro',
+            cancelButtonText: 'Cancelar',
+            confirmButtonColor: '#12B901',
+            cancelButtonColor: '#E41919'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('Ventaform').submit();
+            }
+        });
+    }
+}
+</script>
     <script>
         $(document).ready(function() {
             // Cuando se seleccione una reserva
@@ -42,7 +70,7 @@
     <div class="card">
         <div class="card-body">
             <h1 class="card-title fs-5">Crear Venta</h1>
-            <form class="needs-validation" method="POST" action="{{ route('ventas.store') }}"
+            <form id="Ventaform" class="needs-validation" method="POST" action="{{ route('ventas.store') }}"
                 enctype="multipart/form-data" novalidate>
                 @csrf
                 <div class="row">
@@ -69,13 +97,13 @@
                         <input type="hidden" name="fecha_venta" id="fecha_venta" value="">
                     </div>
                 </div>
-                <div class="col-md-12" style="text-align: right;">
-                    <button type="submit" class="btn btn-primary" id="submitButton">Crear <i
-                            class="bi bi-plus-circle"></i></button>
-                    <a class="btn btn-light" href="{{ route('ventas.index') }}">Volver</a>
-                </div>
             </form>
             <br>
+            <div class="col-md-12" style="text-align: right;">
+                <button type="submit" class="btn btn-primary" onclick="Ventaconfir()">Crear <i
+                        class="bi bi-plus-circle"></i></button>
+                <a class="btn btn-light" href="{{ route('ventas.index') }}">Volver</a>
+            </div>
         </div>
     </div>
 </div>
