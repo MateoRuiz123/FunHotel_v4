@@ -54,7 +54,7 @@
                                 <td>{{ $servicio->id }}</td>
                                 <td>{{ $servicio->nombre }}</td>
                                 <td>{{ $servicio->descripcion }}</td>
-                                <td>{{ $servicio->precio }}</td>
+                                <td>$ {{ $servicio->precio }}</td>
                                 <td>{{ $servicio->created_at }}</td>
                                 <td>{{ $servicio->estado_texto }}</td>
                                 <td>

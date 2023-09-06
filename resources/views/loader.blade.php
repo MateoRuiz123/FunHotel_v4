@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <title>Document</title>
 </head>
+
 <body>
     <div id="loader" class="loader">
-        Cargando <i class="fas fa-spinner"></i>
+        <i class="fas fa-spinner"></i>
     </div>
     <style>
         .loader {
@@ -25,30 +27,36 @@
             align-items: center;
             color: #ffffff;
             font-size: 32px;
-            opacity: 3; 
+            opacity: 3;
             transition: opacity 0.5s ease;
         }
 
         .loader i {
-             /* Espacio entre el texto y el icono */
+            /* Espacio entre el texto y el icono */
             margin-left: 20px;
-            animation: spin 2s linear infinite; 
+            animation: spin 2s linear infinite;
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
     <script>
         // Script para ocultar el loader con transición al finalizar la carga
-        window.addEventListener('load', function () {
+        window.addEventListener('load', function() {
             var loader = document.getElementById('loader');
             loader.style.opacity = '5'; // Cambia la opacidad gradualmente a 0
-            setTimeout(function () {
+            setTimeout(function() {
                 loader.style.display = 'none';
             }, 600); // Espera 0.5 segundos (corresponde a la duración de la transición)
         });
     </script>
 </body>
+
 </html>

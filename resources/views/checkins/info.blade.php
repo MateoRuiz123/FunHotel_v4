@@ -59,12 +59,15 @@
                             </select>
                         </div>
                 </div>
+                <div class="modal-footer">
+                    <input type="submit" value="Editar" onclick="Check()" class="btn btn-primary">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
                 </form>
             </div><br>
-            <div class="modal-footer">
+            {{-- <div class="modal-footer">
                 <button type="submit" onclick="Check()" class="btn btn-primary">Editar</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

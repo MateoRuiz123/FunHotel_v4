@@ -9,7 +9,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('categorias.destroy', $categoria->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('categorias.destroy', $categoria->id) }}" method="post"
+                enctype="multipart/form-data">
                 @csrf
                 <!--Clave evita error -->
                 @method('Delete')
@@ -22,5 +23,5 @@
                 </div>
             </form>
         </div>
-    </div>    
+    </div>
 </div>

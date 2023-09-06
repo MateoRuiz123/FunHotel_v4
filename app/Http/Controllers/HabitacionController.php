@@ -91,7 +91,7 @@ class HabitacionController extends Controller
      */
     public function destroy(string $id)
     {
-        $habitacion =habitacion::find($id);
+        $habitacion = habitacion::find($id);
         $habitacion->delete();
         return redirect()->route('habitaciones.index')->with('success', 'Habitacion eliminada exitosamente');
     }

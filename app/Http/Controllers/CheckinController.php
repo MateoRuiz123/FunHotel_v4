@@ -31,14 +31,6 @@ class CheckinController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
@@ -52,25 +44,6 @@ class CheckinController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Checkin $checkin)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
         $checkins = Checkin::find($id);
@@ -88,7 +61,7 @@ class CheckinController extends Controller
     public function destroy($id)
     {
         $checkins = Checkin::find($id);
-        $checkins->update();
+        $checkins->delete();
         return redirect()->back();
         //
     }

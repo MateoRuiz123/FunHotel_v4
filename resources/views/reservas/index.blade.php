@@ -51,7 +51,7 @@
                                 <td>{{ $reserva->cliente->numeroDocumento }}</td>
                                 <td>{{ $reserva->cliente->primerNombre }} {{ $reserva->cliente->primerApellido }} </td>
                                 <td>{{ $reserva->servicio->nombre }}</td>
-                                <td>{{ $reserva->servicio->precio }}</td>
+                                <td>$ {{ $reserva->servicio->precio }}</td>
                                 <td>{{ $reserva->fecIngreso }}</td>
                                 <td>{{ $reserva->fecSalida }}</td>
                                 <td>{{ $reserva->created_at }}</td>

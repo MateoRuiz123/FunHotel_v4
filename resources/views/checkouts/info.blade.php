@@ -16,6 +16,10 @@
                         @csrf
                         @method('PUT')
                         <div class="col-md-6">
+                            <label for="" class="form-label">Fecha de salida</label>
+                            <input type="date" value="{{$checkout->fecSalida}}" class="form-control" name="salida" id="salida">
+                        </div>
+                        <div class="col-md-6">
                             <label for="" class="form-label">Id Check-in</label>
                             <select name="checkin" id="checkin" class="form-select">
                                 <option value="" selected disabled>Seleccione un check in</option>
@@ -36,19 +40,16 @@
                             <select name="reserva" id="reserva" class="form-select">
                                 <option value="" selected disabled>Seleccione una reserva</option>
                                 @foreach ($reservas as $reserva)
-                                    @if ($reserva->estado == 1)
-                                        <!-- Verificar si el estado es activo (1) -->
-                                        <option value="{{ $reserva->id }}"
-                                            {{ $checkout->idReserva == $reserva->id ? 'selected' : '' }}>
-                                            {{ $reserva->id }}</option>
-                                    @endif
+                                    <option value="{{ $reserva->id }}"
+                                        {{ $checkout->idReserva == $reserva->id ? 'selected' : '' }}>
+                                        {{ $reserva->id }}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="col-md-6">
                             <label for="" class="form-label">Nro. doc</label>
-                            <select name="doc" id="doc"class="form-select">
+                            <select name="cliente" id="cliente"class="form-select">
                                 <option value="" selected disabled>Seleccione un cliente</option>
                                 @foreach ($clientes as $cliente)
                                     <option value="{{ $cliente->id }}"
