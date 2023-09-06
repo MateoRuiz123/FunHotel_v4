@@ -9,7 +9,7 @@
                 <h1>Ficha: {{ $group->name }}</h1>
                 <!-- Mostrar información del grupo -->
                 <p>Descripción: {{ $group->description ?? 'No hay descripción' }}</p>
-                <!-- Botones de acción -->
+                <!--  de acción -->
                 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
 
                     <button type="button" class="btn btn-success" data-bs-toggle="modal">

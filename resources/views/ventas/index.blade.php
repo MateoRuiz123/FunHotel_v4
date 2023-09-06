@@ -22,7 +22,7 @@
 <div class="col-12">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Botones</h4>
+            <h4 class="card-title"></h4>
             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                 <thead>
@@ -32,7 +32,6 @@
                         <th>ID Cliente</th>
                         <th>ID Servicio</th>
                         {{-- <th>Estado</th> --}}
-                        @
                         <th>Estado</th> <!-- Nueva columna -->
                         <th>Acciones</th>
                     </tr>
